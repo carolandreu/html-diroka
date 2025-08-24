@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Diroka Tattoo Studio | More than tattoos — it’s identity
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   :root {
+  --primary-color: #d4af37;     /* Dorado */
+  --secondary-color: #c0c0c0;   /* Gris claro */
+  --text-color: #ffffff;        /* Blanco */
+  --background-color: #000000;  /* Negro */
+}
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+a {
+  color: var(--primary-color);
+}
+  </style>
+ </head>
+ <body class="bg-gray-900 text-gray-200 font-sans antialiased">
+  <!-- Header y Navegación -->
+  <header class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-md shadow-lg">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+     <img alt="Diroka Tattoo Studio Logo" class="h-12 w-auto" src="diroka_logo_web.jpeg"/>
+    </div>
+    <nav class="hidden md:flex space-x-8">
+     <a class="nav-link text-gray-300 hover:text-white" href="#inicio">
+      Inicio
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#nosotros">
+      Nosotros
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#portfolio">
+      Portafolio
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#reservas">
+      Reservas
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#faq">
+      FAQ
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#contacto">
+      Contacto
+     </a>
+    </nav>
+    <div class="md:hidden">
+     <button class="text-gray-300 hover:text-white focus:outline-none" id="menu-toggle">
+      <i class="fas fa-bars text-2xl">
+      </i>
+     </button>
+    </div>
+   </div>
+   <!-- Menú móvil -->
+   <div class="hidden md:hidden bg-gray-800 py-2 px-4" id="mobile-menu">
+    <div class="flex flex-col space-y-3">
+     <a class="nav-link text-gray-300 hover:text-white" href="#inicio">
+      Inicio
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#nosotros">
+      Nosotros
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#portfolio">
+      Portafolio
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#reservas">
+      Reservas
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#faq">
+      FAQ
+     </a>
+     <a class="nav-link text-gray-300 hover:text-white" href="#contacto">
+      Contacto
+     </a>
+    </div>
+   </div>
+  </header>
+  <!-- Sección Hero / Inicio -->
+  <section class="pt-24 relative" id="inicio">
+   <div class="hero-image relative h-screen max-h-[800px] flex items-center justify-center overflow-hidden">
+    <img alt="Interior artístico de estudio de tatuajes, paredes negras con cuadros de arte, artista trabajando en un tatuaje con rostro concentrado" class="absolute w-full h-full object-cover" src="https://placehold.co/1920x1080"/>
+    <div class="relative z-10 text-center px-4 container mx-auto">
+     <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white">
+      TU HISTORIA, NUESTRO ARTE
+     </h2>
+     <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-gray-300">
+      Transformamos ideas en obras maestras permanentes con los mejores artistas del país.
+     </p>
+     <div class="space-x-4">
+      <a class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider" href="#reservas">
+       Agendar turno
+      </a>
+      <a class="inline-block bg-transparent border-2 border-pink-600 hover:bg-pink-600/20 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider" href="#portfolio">
+       Ver trabajos
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="section-divider w-full -mt-20">
+   </div>
+   <div class="container mx-auto px-4 py-16 bg-gray-900">
+    <div class="flex flex-col md:flex-row items-center">
+     <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+      <h3 class="text-4xl font-bold mb-4 text-white">
+       DIROKA TATTOO STUDIO
+      </h3>
+      <p class="text-lg text-gray-400 mb-6">
+       Más que un estudio, una experiencia artística donde cada pieza cuenta una historia única. Desde 2010 creando arte que trasciende.
+      </p>
+      <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-pink-600">
+       <div class="flex items-start">
+        <div class="text-pink-500 text-xl mr-4">
+         <i class="fas fa-map-marker-alt">
+         </i>
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold text-white mb-1">
+          Visítanos
+         </h4>
+         <p class="text-gray-400">
+          14505 E Alameda Ave, Aurora, CO
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="md:w-1/2">
+      <img alt="Exterior del estudio Diroka de noche con letrero de neón, diseño industrial moderno con toques de estilo steampunk" class="w-full h-auto rounded-lg shadow-2xl" src="https://placehold.co/800x600"/>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Sección Sobre Nosotros -->
+  <section class="py-20 bg-gray-800" id="nosotros">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4 text-white">
+      NUESTRO EQUIPO
+     </h2>
+     <div class="w-24 h-1 bg-pink-600 mx-auto">
+     </div>
+     <p class="max-w-2xl mx-auto mt-4 text-gray-400">
+      Artistas apasionados que combinan técnica, creatividad y experiencia para crear obras únicas en tu piel.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <!-- Artista 1 -->
+     <div class="artist-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 group">
+      <div class="relative overflow-hidden h-80">
+       <img alt="Artista de tatuajes profesional con el brazo lleno de tatuajes, sonriendo mientras trabaja en un diseño" class="artist-image w-full h-full object-cover transition duration-500" src="IMG_1079.JPG"/>
+      </div>
+      <div class="p-6">
+       <h3 class="text-2xl font-bold text-white mb-1">
+        DIEGO JUAREZ
+       </h3>
+       <p class="text-pink-500 mb-4">
+        Geometric, dotwork and black &amp; grey
+       </p>
+       <p class="text-gray-400">
+        His work stands out for its precision, deep symbolism, and seamless flow on the body.
+       </p>
+       <div class="flex space-x-3 mt-4">
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fas fa-portrait">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Artista 2 -->
+     <div class="artist-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 group">
+      <div class="relative overflow-hidden h-80">
+       <img alt="Mujer tatuadora con estilo punk, cabello teñido de varios colores, haciendo un tatuaje fino de líneas" class="artist-image w-full h-full object-cover transition duration-500" src="f86822c7-5966-4de9-a095-143635e90e4c.JPG"/>
+      </div>
+      <div class="p-6">
+       <h3 class="text-2xl font-bold text-white mb-1">
+        CAROLINA ANDREU
+       </h3>
+       <p class="text-pink-500 mb-4">
+        Piercings
+       </p>
+       <p class="text-gray-400">
+        Elegant body art, safely and professionally done.
+       </p>
+       <div class="flex space-x-3 mt-4">
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fas fa-portrait">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Artista 3 -->
+     <div class="artist-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 group">
+      <div class="relative overflow-hidden h-80">
+       <img alt="Tatuador especializado en piercings con estilo dark, usando guantes negros ajustando un piercing de ceja" class="artist-image w-full h-full object-cover transition duration-500" src="https://placehold.co/600x800"/>
+      </div>
+      <div class="p-6">
+       <h3 class="text-2xl font-bold text-white mb-1">
+        CARLOS MÉNDEZ
+       </h3>
+       <p class="text-pink-500 mb-4">
+        Piercing y modificaciones corporales
+       </p>
+       <p class="text-gray-400">
+        Certificado internacionalmente. Seguridad y precisión en cada procedimiento.
+       </p>
+       <div class="flex space-x-3 mt-4">
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fas fa-portrait">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+     <!-- Artista 4 -->
+     <div class="artist-card bg-gray-900 rounded-lg overflow-hidden shadow-lg transition duration-300 group">
+      <div class="relative overflow-hidden h-80">
+       <img alt="Artista con estilo japonés tradicional mostrando un diseño de manga de tatuaje de carpa koi" class="artist-image w-full h-full object-cover transition duration-500" src="https://placehold.co/600x800"/>
+      </div>
+      <div class="p-6">
+       <h3 class="text-2xl font-bold text-white mb-1">
+        LUCÍA CHAN
+       </h3>
+       <p class="text-pink-500 mb-4">
+        Tatuajes japoneses y geométricos
+       </p>
+       <p class="text-gray-400">
+        Fusiona técnicas tradicionales con diseños contemporáneos impecables.
+       </p>
+       <div class="flex space-x-3 mt-4">
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         <i class="fas fa-portrait">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="mt-16 bg-gray-900 rounded-lg p-8">
+     <h3 class="text-3xl font-bold text-white mb-6">
+      NUESTRA HISTORIA
+     </h3>
+     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div>
+       <p class="text-gray-400 mb-4">
+        Diroka nació en 2010 de la pasión de un grupo de artistas por crear un espacio donde el tatuaje fuera visto como el arte que es. Queríamos romper con los estereotipos y mostrar el potencial creativo de esta forma de expresión.
+       </p>
+       <p class="text-gray-400 mb-4">
+        Empezamos como un pequeño local en el centro de la ciudad, y hoy somos uno de los estudios más reconocidos, con un equipo de artistas especializados que dominan diversas técnicas y estilos.
+       </p>
+       <p class="text-gray-400">
+        Más que un estudio, somos una comunidad de artistas y amantes del arte corporal que creemos en el potencial transformador de un tatuaje bien hecho.
+       </p>
+      </div>
+      <div>
+       <img alt="Evolución del estudio Diroka a través de fotos antiguas mostrando el crecimiento desde un pequeño local hasta el espacio moderno actual" class="w-full h-auto rounded-lg" src="https://placehold.co/800x600"/>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Sección Portfolio -->
+  <section class="py-20 bg-gray-900" id="portfolio">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4 text-white">
+      NUESTRO TRABAJO
+     </h2>
+     <div class="w-24 h-1 bg-pink-600 mx-auto">
+     </div>
+     <p class="max-w-2xl mx-auto mt-4 text-gray-400">
+      Explora nuestra galería y descubre la calidad y variedad de nuestros trabajos.
+     </p>
+    </div>
+    <div class="mb-8 flex justify-center">
+     <div class="inline-flex rounded-md shadow-sm" role="group">
+      <button class="tab-active px-6 py-2 text-sm font-medium rounded-l-lg bg-gray-800 text-white" id="tattoo-tab">
+       Tatuajes
+      </button>
+      <button class="px-6 py-2 text-sm font-medium rounded-r-lg bg-gray-800 text-gray-400 hover:text-white" id="piercing-tab">
+       Piercings
+      </button>
+     </div>
+    </div>
+    <!-- Galería de Tatuajes -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="tattoo-gallery">
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Tatuaje realista de un lobo aullando con luna llena de fondo en blanco y negro" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Lobo aullando
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Realismo en blanco y negro
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Manga completa estilo japonés tradicional con dragones y flores de cerezo" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Manga Japonesa
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Estilo tradicional japonés
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Tatuaje minimalista de constelaciones conectadas con líneas finas en el antebrazo" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Constelaciones
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Líneas finas minimalistas
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Tatuaje colorido de estilo new school con personaje de dibujos animados con colores vibrantes" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        New School
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Estilo colorido y vibrante
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Tatuaje geométrico detallado con patrones simétricos y sombras precisas" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Geometría Sagrada
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Diseño geométrico preciso
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Retrato hiperrealista de un familiar difunto en el brazo con detalles fotográficos" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Retrato
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Hiperrealismo en blanco y negro
+       </p>
+      </div>
+     </div>
+    </div>
+    <!-- Galería de Piercings (oculta inicialmente) -->
+    <div class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="piercing-gallery">
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Piercing de ceja con joyería de titanio negro en un primer plano bien iluminado" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Ceja
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Titanio negro
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Conjunto de piercings en el ombligo y belly button con joyería dorada fina" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Ombligo
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Joyería dorada
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Tragus y helix en la oreja con aros y barras pequeñas de plata" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Tragus + Helix
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Plata esterlina
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Piercing de nariz estilo septum con anillo dorado decorado en close-up profesional" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Septum
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Joyería decorada
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Piercing de lengua mostrado en estudio con barra corta y acabado de bola colorida" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Lengua
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Barra corta
+       </p>
+      </div>
+     </div>
+     <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
+      <img alt="Conjunto de piercings de oreja en estilo industrial con barras conectadas y diseño audaz" class="w-full h-96 object-cover" src="https://placehold.co/800x1000"/>
+      <div class="p-4">
+       <h3 class="text-lg font-semibold text-white">
+        Industrial
+       </h3>
+       <p class="text-gray-400 text-sm">
+        Diseño audaz
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="text-center mt-12">
+     <a class="inline-block text-pink-500 hover:text-pink-400 font-semibold" href="#">
+      Ver más trabajos en Instagram
+      <i class="fas fa-arrow-right ml-2">
+      </i>
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Sección Reservas -->
+  <section class="py-20 bg-gray-800" id="reservas">
+   <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+     <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4 text-white">
+       RESERVA TU TURNO
+      </h2>
+      <div class="w-24 h-1 bg-pink-600 mx-auto">
+      </div>
+      <p class="max-w-2xl mx-auto mt-4 text-gray-400">
+       Completa el formulario y nos pondremos en contacto contigo para confirmar tu cita.
+      </p>
+     </div>
+     <form class="grid grid-cols-1 md:grid-cols-2 gap-6" id="booking-form">
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="name">
+        Nombre completo
+       </label>
+       <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="name" name="name" placeholder="Tu nombre" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="email">
+        Email
+       </label>
+       <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="email" name="email" placeholder="tu@email.com" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="phone">
+        Teléfono
+       </label>
+       <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="phone" name="phone" placeholder="+549 11 1234-5678" required="" type="tel"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="artist">
+        Artista preferido
+       </label>
+       <select class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="artist" name="artist">
+        <option value="">
+         Cualquier artista
+        </option>
+        <option value="martin">
+         Martín Gómez
+        </option>
+        <option value="sofia">
+         Sofía Rivera
+        </option>
+        <option value="carlos">
+         Carlos Méndez
+        </option>
+        <option value="lucia">
+         Lucía Chan
+        </option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="service">
+        Servicio
+       </label>
+       <select class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="service" name="service">
+        <option value="tattoo">
+         Tatuaje
+        </option>
+        <option value="piercing">
+         Piercing
+        </option>
+        <option value="cover">
+         Cover-up
+        </option>
+        <option value="touchup">
+         Retoque
+        </option>
+        <option value="consult">
+         Consulta
+        </option>
+       </select>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="date">
+        Fecha preferida
+       </label>
+       <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="date" min="" name="date" type="date"/>
+      </div>
+      <div class="md:col-span-2">
+       <label class="block text-sm font-medium text-gray-300 mb-1" for="description">
+        Descripción de lo que deseas
+       </label>
+       <textarea class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="description" name="description" placeholder="Describe tu idea, incluye tamaño, ubicación en el cuerpo, estilo, referencias..." rows="4"></textarea>
+      </div>
+      <div class="md:col-span-2">
+       <div class="flex items-start">
+        <div class="flex items-center h-5">
+         <input class="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-600 rounded bg-gray-700" id="terms" name="terms" required="" type="checkbox"/>
+        </div>
+        <div class="ml-3 text-sm">
+         <label class="font-medium text-gray-300" for="terms">
+          Acepto los
+          <a class="text-pink-500 hover:text-pink-400" href="#">
+           términos y condiciones
+          </a>
+         </label>
+         <p class="text-gray-500">
+          Debes ser mayor de 18 años para reservar una cita.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="md:col-span-2 text-center">
+       <button class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-12 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider" type="submit">
+        Enviar solicitud
+       </button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </section>
+  <!-- Sección Preguntas Frecuentes -->
+  <section class="py-20 bg-gray-900" id="faq">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4 text-white">
+      PREGUNTAS FRECUENTES
+     </h2>
+     <div class="w-24 h-1 bg-pink-600 mx-auto">
+     </div>
+     <p class="max-w-2xl mx-auto mt-4 text-gray-400">
+      Resolvemos tus dudas sobre tatuajes y piercings.
+     </p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+     <div class="space-y-4">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Duele hacerse un tatuaje?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         El dolor es subjetivo y varía según la persona, la zona del cuerpo y el tipo de tatuaje. En general, las zonas con más hueso o terminaciones nerviosas pueden ser más sensibles. Sin embargo, la mayoría de nuestros clientes coinciden en que el dolor es soportable y que la experiencia vale la pena. Nuestros artistas trabajan cuidadosamente para hacer el proceso lo más cómodo posible.
+        </p>
+       </div>
+      </div>
+      <!-- FAQ Item 2 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Cuánto cuesta un tatuaje?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         El precio depende de varios factores: tamaño, complejidad, estilo y ubicación en el cuerpo. Los tatuajes pequeños pueden partir desde $2000, mientras que piezas más grandes y complejas pueden tener un precio por sesión o por proyecto. Te recomendamos agendar una consulta gratuita donde podremos darte una cotización más precisa según tu diseño.
+        </p>
+       </div>
+      </div>
+      <!-- FAQ Item 3 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Cómo debo cuidar mi nuevo tatuaje?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         El cuidado adecuado es esencial para una buena cicatrización. Lavar suavemente con agua tibia y jabón neutro 2-3 veces al día, secar con toques (no arrastrando), aplicar una fina capa de crema recomendada por tu artista. Evitar sol, piscinas, mar y ejercicio intenso las primeras 2 semanas. No rascar ni arrancar costras. Daremos instrucciones detalladas después de tu sesión.
+        </p>
+       </div>
+      </div>
+      <!-- FAQ Item 4 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Los piercings son seguros?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         Sí, cuando se realizan en un estudio profesional con las medidas de higiene adecuadas. En Diroka usamos solo materiales de grado médico (titanio quirúrgico, oro de 14-18k, acero quirúrgico) y técnicas estériles. Cada piercing incluye instrucciones de cuidado personalizado y seguimiento. No realizamos piercings en menores sin consentimiento de los padres.
+        </p>
+       </div>
+      </div>
+      <!-- FAQ Item 5 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Puedo hacerme un tatuaje si tengo piel sensible?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         En la mayoría de los casos sí, pero recomendamos una consulta previa con tu artista. Podemos hacer una prueba en una zona pequeña si es necesario. Usamos tintas de alta calidad hipoalergénicas. Si tienes condiciones de la piel como psoriasis o eczema, consulta primero con tu dermatólogo. Informa a tu artista sobre cualquier alergia o condición médica antes de la sesión.
+        </p>
+       </div>
+      </div>
+      <!-- FAQ Item 6 -->
+      <div class="faq-item bg-gray-800 rounded-lg overflow-hidden shadow-md">
+       <button class="faq-question w-full flex justify-between items-center p-6 text-left focus:outline-none">
+        <h3 class="text-lg font-medium text-white">
+         ¿Puedo traer mi propio diseño?
+        </h3>
+        <i class="fas fa-chevron-down text-pink-500 transition-transform duration-300">
+        </i>
+       </button>
+       <div class="faq-answer px-6 pb-6 hidden">
+        <p class="text-gray-400">
+         ¡Absolutamente! Muchos de nuestros clientes traen ideas o referencias que luego nuestros artistas adaptan y mejoran considerando técnicas y estilos para que funcione mejor como tatuaje. Puedes traer dibujos, fotos, ideas descriptivas o simplemente venir a charlar con nuestros artistas para desarrollar juntos el diseño perfecto.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Sección Contacto -->
+  <section class="py-20 bg-gray-800" id="contacto">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+     <div>
+      <h2 class="text-4xl font-bold mb-6 text-white">
+       CONTÁCTANOS
+      </h2>
+      <p class="text-gray-400 mb-8">
+       Nuestro equipo está listo para responder tus preguntas y ayudarte en lo que necesites para tu próxima pieza de arte corporal.
+      </p>
+      <div class="space-y-6">
+       <div class="flex items-start">
+        <div class="text-pink-500 text-xl mr-4 mt-1">
+         <i class="fas fa-map-marker-alt">
+         </i>
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold text-white mb-1">
+          Dirección
+         </h4>
+         <p class="text-gray-400">
+          14505 E Alameda Ave, Aurora, CO
+         </p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="text-pink-500 text-xl mr-4 mt-1">
+         <i class="fas fa-clock">
+         </i>
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold text-white mb-1">
+          Horario
+         </h4>
+         <p class="text-gray-400 mb-1">
+          Lunes a Viernes: 10:00 - 20:00
+         </p>
+         <p class="text-gray-400">
+          Sábados: 11:00 - 19:00
+         </p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="text-pink-500 text-xl mr-4 mt-1">
+         <i class="fas fa-phone-alt">
+         </i>
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold text-white mb-1">
+          Teléfono
+         </h4>
+         <p class="text-gray-400">
+          +1 (720) 555-0192
+         </p>
+        </div>
+       </div>
+       <div class="flex items-start">
+        <div class="text-pink-500 text-xl mr-4 mt-1">
+         <i class="fas fa-envelope">
+         </i>
+        </div>
+        <div>
+         <h4 class="text-xl font-semibold text-white mb-1">
+          Email
+         </h4>
+         <p class="text-gray-400">
+          info@dirokatattoo.com
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="mt-8">
+       <h4 class="text-xl font-semibold text-white mb-4">
+        Síguenos
+       </h4>
+       <div class="flex space-x-4">
+        <a class="text-gray-400 hover:text-pink-500 text-2xl" href="#">
+         <i class="fab fa-instagram">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500 text-2xl" href="#">
+         <i class="fab fa-facebook">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500 text-2xl" href="#">
+         <i class="fab fa-twitter">
+         </i>
+        </a>
+        <a class="text-gray-400 hover:text-pink-500 text-2xl" href="#">
+         <i class="fab fa-tiktok">
+         </i>
+        </a>
+       </div>
+      </div>
+     </div>
+     <div>
+      <div class="bg-gray-900 p-8 rounded-lg shadow-lg h-full">
+       <h3 class="text-2xl font-bold mb-6 text-white">
+        Envíanos un mensaje
+       </h3>
+       <form id="contact-form">
+        <div class="space-y-4">
+         <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1" for="contact-name">
+           Nombre
+          </label>
+          <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="contact-name" name="contact-name" placeholder="Tu nombre" type="text"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1" for="contact-email">
+           Email
+          </label>
+          <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="contact-email" name="contact-email" placeholder="tu@email.com" type="email"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1" for="contact-subject">
+           Asunto
+          </label>
+          <input class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="contact-subject" name="contact-subject" placeholder="¿En qué podemos ayudarte?" type="text"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1" for="contact-message">
+           Mensaje
+          </label>
+          <textarea class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" id="contact-message" name="contact-message" placeholder="Escribe tu mensaje aquí..." rows="4"></textarea>
+         </div>
+         <div>
+          <button class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-md transition duration-300 transform hover:scale-105" type="submit">
+           Enviar mensaje
+          </button>
+         </div>
+        </div>
+       </form>
+      </div>
+     </div>
+    </div>
+    <div class="mt-12 bg-gray-900 rounded-lg overflow-hidden">
+     <div class="h-96 w-full" id="map">
+      <img alt="Mapa de ubicación del estudio Diroka Tattoo en 14505 E Alameda Ave, Aurora, CO con marcador rosa" class="w-full h-full object-cover" src="https://placehold.co/1600x600"/>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-12">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+     <div class="md:col-span-2">
+      <div class="flex items-center space-x-2 mb-4">
+       <img alt="Logo Diroka" class="h-10 w-auto" src="diroka_logo_web.jpeg">
+       </img>
+      </div>
+      <p class="text-gray-400 mb-4">
+       Transformando ideas en arte permanente desde 2010. Creadores de experiencias únicas en tatuajes y piercings de alta calidad.
+      </p>
+      <div class="flex space-x-4">
+       <a class="text-gray-400 hover:text-pink-500" href="#">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a class="text-gray-400 hover:text-pink-500" href="#">
+        <i class="fab fa-facebook">
+        </i>
+       </a>
+       <a class="text-gray-400 hover:text-pink-500" href="#">
+        <i class="fab fa-twitter">
+        </i>
+       </a>
+       <a class="text-gray-400 hover:text-pink-500" href="#">
+        <i class="fab fa-tiktok">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div>
+      <h3 class="text-lg font-semibold text-white mb-4">
+       Enlaces rápidos
+      </h3>
+      <ul class="space-y-2">
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#inicio">
+         Inicio
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#nosotros">
+         Sobre nosotros
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#portfolio">
+         Portafolio
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#reservas">
+         Reservas
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#faq">
+         FAQ
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#contacto">
+         Contacto
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h3 class="text-lg font-semibold text-white mb-4">
+       Legal
+      </h3>
+      <ul class="space-y-2">
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         Términos y condiciones
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         Política de privacidad
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         Política de cookies
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-pink-500" href="#">
+         Aviso legal
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+     <p class="text-gray-500">
+      © 2023 Diroka Tattoo Studio. Todos los derechos reservados.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <!-- JavaScript -->
+  <script>
+   // Menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Pestañas de galería
+        document.getElementById('tattoo-tab').addEventListener('click', function() {
+            this.classList.add('tab-active');
+            this.classList.remove('text-gray-400');
+            this.classList.add('text-white');
+            
+            document.getElementById('piercing-tab').classList.remove('tab-active');
+            document.getElementById('piercing-tab').classList.add('text-gray-400');
+            document.getElementById('piercing-tab').classList.remove('text-white');
+            
+            document.getElementById('tattoo-gallery').classList.remove('hidden');
+            document.getElementById('piercing-gallery').classList.add('hidden');
+        });
+        
+        document.getElementById('piercing-tab').addEventListener('click', function() {
+            this.classList.add('tab-active');
+            this.classList.remove('text-gray-400');
+            this.classList.add('text-white');
+            
+            document.getElementById('tattoo-tab').classList.remove('tab-active');
+            document.getElementById('tattoo-tab').classList.add('text-gray-400');
+            document.getElementById('tattoo-tab').classList.remove('text-white');
+            
+            document.getElementById('piercing-gallery').classList.remove('hidden');
+            document.getElementById('tattoo-gallery').classList.add('hidden');
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                const answer = item.querySelector('.faq-answer');
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Formulario de reserva - establecer fecha mínima como hoy
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+        
+        // Envío de formularios (simulado)
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu reserva! Nos pondremos en contacto contigo para confirmar los detalles.');
+            this.reset();
+        });
+        
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Mensaje enviado con éxito! Te responderemos lo antes posible.');
+            this.reset();
+        });
+        
+        // Scroll suave para enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil si está abierto
+                if(!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Animación de elementos al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.gallery-item, .artist-card, .faq-item').forEach(el => {
+            observer.observe(el);
+        });
+  </script>
+ </body>
+</html>
