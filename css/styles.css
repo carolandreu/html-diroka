@@ -1,0 +1,135 @@
+ /* Definición de la paleta de colores de la marca */
+        :root {
+            --brand-black: #000000;
+            --brand-gray: #c0c0c0;
+            --brand-gold: #d4af37;
+            --brand-white: #ffffff;
+        }
+
+        /* Efectos y animaciones personalizadas */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Degradado oscuro para la imagen hero utilizando los tonos de la marca */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.95) 100%);
+            z-index: 1;
+        }
+        
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(212,175,55,0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--brand-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(135deg, var(--brand-black) 0%, var(--brand-gold) 50%, var(--brand-black) 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        }
+        
+        .artist-card:hover .artist-image {
+            transform: scale(1.05);
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid var(--brand-gold) !important;
+            color: var(--brand-gold) !important;
+        }
+
+        /* -- Overrides de clases de Tailwind para aplicar la paleta de la marca -- */
+        /* Fondos oscuros se sustituyen por negro de marca */
+        .bg-gray-900,
+        .bg-gray-800,
+        .bg-gray-700 {
+            background-color: var(--brand-black) !important;
+        }
+        /* Versión con opacidad del fondo */
+        .bg-gray-900\/90 {
+            background-color: rgba(0, 0, 0, 0.90) !important;
+        }
+        /* Colores de texto en distintos tonos de gris se unifican a gris de la marca */
+        .text-gray-200,
+        .text-gray-300,
+        .text-gray-400,
+        .text-gray-500,
+        .text-gray-600,
+        .text-gray-700 {
+            color: var(--brand-gray) !important;
+        }
+        /* Texto blanco usa el blanco de la marca */
+        .text-white {
+            color: var(--brand-white) !important;
+        }
+        /* Bordes grises se ajustan al gris de la marca */
+        .border-gray-600,
+        .border-gray-700,
+        .border-gray-800 {
+            border-color: var(--brand-gray) !important;
+        }
+        /* Bordes y fondos rosados se convierten en dorado de la marca */
+        .bg-pink-600,
+        .bg-pink-700 {
+            background-color: var(--brand-gold) !important;
+        }
+        .border-pink-600 {
+            border-color: var(--brand-gold) !important;
+        }
+        .text-pink-500 {
+            color: var(--brand-gold) !important;
+        }
+        /* Estados hover y focus para los colores rosados */
+        .text-pink-500:hover,
+        .hover\:text-pink-500:hover {
+            color: var(--brand-gold) !important;
+        }
+        .hover\:bg-pink-600:hover,
+        .hover\:bg-pink-700:hover {
+            background-color: var(--brand-gold) !important;
+        }
+        /* Clase de opacidad 20% en hover para botones */
+        .hover\:bg-pink-600\/20:hover {
+            background-color: rgba(212, 175, 55, 0.2) !important;
+        }
+        /* Color de anillo en focus para elementos rosados */
+        .focus\:ring-pink-500:focus {
+            --tw-ring-color: var(--brand-gold) !important;
+        }
+
+        /* Asegura que las pestañas activas resalten en dorado aunque tengan clase text-white */
+        .tab-active.text-white {
+            color: var(--brand-gold) !important;
+        }
+        .tab-active.border-pink-600 {
+            border-color: var(--brand-gold) !important;
+        }
+
+        /* Ajuste del color de texto al pasar el cursor para enlaces con hover:text-pink-400 */
+        .hover\:text-pink-400:hover {
+            color: var(--brand-gold) !important;
+        }
