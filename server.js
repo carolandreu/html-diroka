@@ -9,18 +9,18 @@ app.use(express.json());
 app.post('/api/reserva', async (req, res) => {
   const { name, email, phone, artist, service, date, description } = req.body;
 
-  // Configura tu transporte SMTP (puedes usar Gmail, Outlook, etc.)
+  // Configura tu transporte SMTP
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'gonnandreu89@gmail.com', // tu correo
-      pass: 'mesn ggki gmpw qqax' // Usa una contraseña de aplicación si usas Gmail
+      user: 'Dirokatattoostudio.usa@gmail.com', // tu correo
+      pass: 'utnm unnn zpyq xmpl' // Usa una contraseña de aplicación si usas Gmail
     }
   });
 
   let mailOptions = {
     from: email,
-    to: 'gonnandreu89@gmail.com',
+    to: 'Dirokatattoostudio.usa@gmail.com',
     subject: 'Nueva reserva Diroka',
     text: `
       Nombre: ${name}
