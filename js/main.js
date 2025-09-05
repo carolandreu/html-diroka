@@ -30,6 +30,76 @@
             document.getElementById('piercing-gallery').classList.remove('hidden');
             document.getElementById('tattoo-gallery').classList.add('hidden');
         });
+        // Pestañas de galería
+document.getElementById('tattoo-tab').addEventListener('click', function() {
+    this.classList.add('tab-active');
+    this.classList.remove('text-gray-400');
+    this.classList.add('text-white');
+    
+    document.getElementById('piercing-tab').classList.remove('tab-active');
+    document.getElementById('piercing-tab').classList.add('text-gray-400');
+    document.getElementById('piercing-tab').classList.remove('text-white');
+    
+    document.getElementById('tattoo-gallery').classList.remove('hidden');
+    document.getElementById('piercing-gallery').classList.add('hidden');
+});
+
+document.getElementById('piercing-tab').addEventListener('click', function() {
+    this.classList.add('tab-active');
+    this.classList.remove('text-gray-400');
+    this.classList.add('text-white');
+    
+    document.getElementById('tattoo-tab').classList.remove('tab-active');
+    document.getElementById('tattoo-tab').classList.add('text-gray-400');
+    document.getElementById('tattoo-tab').classList.remove('text-white');
+    
+    document.getElementById('piercing-gallery').classList.remove('hidden');
+    document.getElementById('tattoo-gallery').classList.add('hidden');
+});
+
+// ----- Navbar -> activar pestaña correcta en Portfolio (sin pelearse con el scroll suave) -----
+['nav-piercing','mnav-piercing'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('click', (e) => {
+    e.preventDefault();                                     // no usamos el handler global de anclas
+    document.getElementById('piercing-tab')?.click();       // activa la pestaña
+    document.getElementById('Portfolio')?.scrollIntoView({  // luego scroll
+      behavior: 'smooth'
+    });
+  });
+});
+
+['nav-tattoo','mnav-tattoo'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('tattoo-tab')?.click();
+    document.getElementById('Portfolio')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// ----- Forzar estado inicial por si quedó alterado -----
+(function enforceInitialGalleryState() {
+  const tTab = document.getElementById('tattoo-tab');
+  const pTab = document.getElementById('piercing-tab');
+  const tGal = document.getElementById('tattoo-gallery');
+  const pGal = document.getElementById('piercing-gallery');
+  if (!tTab || !pTab || !tGal || !pGal) return;
+
+  tTab.classList.add('tab-active','text-white');
+  tTab.classList.remove('text-gray-400');
+
+  pTab.classList.remove('tab-active','text-white');
+  pTab.classList.add('text-gray-400');
+
+  tGal.classList.remove('hidden');
+  pGal.classList.add('hidden');
+})();
+
         
         // FAQ accordion
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -122,3 +192,4 @@
         document.querySelectorAll('.gallery-item, .artist-card, .faq-item').forEach(el => {
             observer.observe(el);
         });
+        

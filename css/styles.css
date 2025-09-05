@@ -133,3 +133,76 @@
         .hover\:text-pink-400:hover {
             color: var(--brand-gold) !important;
         }
+
+        /* ===== PREMIUM LOOK (solo CSS, sin tocar HTML) ===== */
+
+/* 1) Tipografías premium (sin tocar <head>): títulos serif + texto sans */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;700&display=swap');
+h1, h2, h3, h4 { font-family: "Playfair Display", serif; }
+body { font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+
+/* 2) Tarjetas premium (para las cards de Contact, Team, etc.) */
+.card-premium{
+  background: rgba(17,24,39,.7);               /* gris carbón translúcido */
+  border: 1px solid var(--brand-gray);         /* borde fino gris marca */
+  border-radius: 1rem;                          /* esquinas suaves */
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);      /* sombra sutil */
+  backdrop-filter: saturate(120%) blur(2px);    /* leve glassmorphism */
+}
+
+/* 3) Cinta dorada superior en tarjetas */
+.top-gold{ position: relative; }
+.top-gold::before{
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--brand-gold);
+}
+
+/* 4) Divider dorado entre secciones (usado en el footer y disponible si lo querés reutilizar) */
+.gold-divider{
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+}
+
+/* 5) Íconos dentro de tarjetas de Contact: círculo más “premium” sin tocar HTML */
+.card-premium .rounded-full.bg-gray-800{
+  box-shadow: inset 0 0 0 2px rgba(212,175,55,.35), 0 4px 16px rgba(0,0,0,.35);
+}
+
+/* 6) Botones outline (como “VIEW WORK”): borde y texto dorado en hover sin cambiar HTML */
+a.border-2{
+  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 0 0 0 rgba(212,175,55,0);
+}
+a.border-2:hover{
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(212,175,55,.25);
+}
+
+/* 7) Galería: hover sutil coherente con la marca (por si alguna imagen no toma el efecto base) */
+.gallery-item img{
+  transition: transform .5s ease, filter .5s ease;
+}
+.gallery-item:hover img{
+  transform: scale(1.03);
+  filter: brightness(1.08);
+}
+
+/* 8) Encabezados centrados: pequeño refinamiento del espaciado vertical */
+#Contact .text-center p{ line-height: 1.7; }
+
+/* 9) Hero overlay un poco más legible (apoyándose en tu .hero-image::before) */
+.hero-image::before{
+  /* dejamos tu gradiente y lo oscurecemos un 5% para legibilidad */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.96) 100%) !important;
+}
+
+/* 10) Micro-animación en enlaces de redes del Contact (solo si están visibles) */
+#Contact .fab{
+  transition: transform .2s ease;
+}
+#Contact a:hover .fab{
+  transform: translateY(-2px);
+}
