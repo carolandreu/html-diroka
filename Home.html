@@ -8,24 +8,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    
-</head>
+    </head>
+
+<script>
+  (function () {
+    var el = document.getElementById('date');
+    if (!el) return;
+    var d = new Date();
+    el.min = d.toISOString().split('T')[0];
+  })();
+</script>
+
 <body class="bg-gray-900 text-gray-200 font-sans antialiased">
     
-  <!-- Header and Navigation -->
+    <!-- Header and Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-md shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="img/DirokaLogo.png" alt="Diroka Tattoo & Piercing Studio Logo - Denver, Colorado" class="h-12 w-auto" />
-            </div>
-  <nav class="hidden md:flex space-x-8">
-    <a href="#Home" class="nav-link text-gray-300 hover:text-white">Home</a>
+        </div>
+<nav class="hidden md:flex space-x-8" aria-label="Primary">
+  <a href="#Home" aria-current="page" class="nav-link text-gray-300 hover:text-white">Home</a>
     <a href="#AboutStudio" class="nav-link text-gray-300 hover:text-white">About Us</a>
     <a href="#Portfolio" id="nav-tattoo" class="nav-link text-gray-300 hover:text-white">Tattoo Gallery</a>
     <a href="#Portfolio" id="nav-piercing" class="nav-link text-gray-300 hover:text-white">Piercing Gallery</a>
     <a href="#Booking" class="nav-link text-gray-300 hover:text-white">Book Now</a>
     <a href="#Contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
-  </nav>
+</nav>
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-gray-300 hover:text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
@@ -51,7 +60,7 @@
             <!-- Background video for the hero section. The video plays automatically, loops, and is muted to keep the experience smooth. The playsinline attribute enables playback on mobile devices. -->
             <video src="video/todiroka.mp4" class="absolute w-full h-full object-cover" autoplay loop muted playsinline aria-label="Artistic interior of tattoo studio, black walls with framed artwork, artist focused while working on a tattoo"></video>
             <div class="relative z-10 text-center px-4 container mx-auto">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white">DIROKA TATTOO STUDIO</h2>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">DIROKA TATTOO STUDIO</h1>
                 <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-gray-300">A tattoo and piercing studio where art meets identity, offering custom designs in a modern, elegant space.</p>
                 <div class="space-x-4">
                     <a href="#Booking" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider">BOOK NOW</a>
@@ -108,8 +117,7 @@
                     Passionate artists who combine technique, creativity, and experience to create unique works of art on your skin.
                 </p>
             </div>
-            </section>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
   <!-- Diego (SEO-optimized) -->
   <article class="bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
     <div class="flex items-center justify-center bg-black h-96">
@@ -119,7 +127,7 @@
     </div>
     <div class="p-6">
       <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
-        DIEGO — Tattoo Artist
+        DIEGO — TATTOO ARTIST
       </h3>
       <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
       <p class="font-medium" style="color:#D4AF37">Geometric, dotwork & black and grey tattoos</p>
@@ -151,7 +159,7 @@
     </div>
     <div class="p-6">
       <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
-        CAROL — Piercer
+        CAROL — PIERCER
       </h3>
       <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
       <p class="font-medium" style="color:#D4AF37">Piercings & Microdermals</p>
@@ -174,7 +182,8 @@
     </div>
   </article>
 </div>
-</section>
+    </section>
+    </section> <!-- Cierra About -->
 
 <!-- Portfolio Section -->
     <section id="Portfolio" class="py-20 bg-gray-900">
@@ -229,7 +238,7 @@
                 </div>
                 
                 <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/calavera-mex.png" alt="Black & Grey realism depicting a skeletal bride and groom in a timeless kiss" class="w-full h-96 object-cover">
+                    <img src="img/calavera mex.png" alt="Black & Grey realism depicting a skeletal bride and groom in a timeless kiss" class="w-full h-96 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">Black and grey</h3>
                         <p class="text-gray-400 text-sm">Black & Grey realism depicting a skeletal bride and groom in a timeless kiss</p>
@@ -237,7 +246,7 @@
                 </div>
                 
                 <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/cesar.png" alt="Black & Grey realism featuring a Roman bust and the Colosseum, symbolizing the grandeur of ancient Rome." class="w-full h-96 object-cover">
+                    <img src="img/Diseño sin título (9).png" alt="Black & Grey realism featuring a Roman bust and the Colosseum, symbolizing the grandeur of ancient Rome." class="w-full h-96 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">Black and grey</h3>
                         <p class="text-gray-400 text-sm">Black & Grey realism featuring a Roman bust and the Colosseum, symbolizing the grandeur of ancient Rome.</p>
@@ -295,7 +304,8 @@
                     </div>
                 </div>
             </div>
-            </section>
+            </section> <!-- Cierra Portfolio -->
+
     <!-- Booking Section -->
     <section id="Booking" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
@@ -326,9 +336,9 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                     <div>
                         <label for="artist" class="block text-sm font-medium text-gray-300 mb-1">Preferred Artist</label>
                         <select id="artist" name="artist" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
-                            <option value="">Any artist</option>
-                            <option value="diego">Diego - Tattoo artist</option>
-                            <option value="carolina">Carol - Piercer</option>
+                            <option value="">No preference</option>
+                            <option value="diego">Diego – Tattoo artist</option>
+                            <option value="carol">Carol – Piercer</option>
                         </select>
                     </div>
                     
@@ -357,7 +367,8 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                     </button>
                     </div>
                     </form>
-                    </section>
+                    </section> <!-- Cierra Booking -->
+
 <!-- Contact (diseño premium, con subrayado dorado debajo del título) -->
 <section id="Contact" class="pt-12 pb-20 bg-gray-800">
   <div class="container mx-auto px-4 max-w-5xl">
@@ -384,7 +395,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
             <div>
               <h4 class="text-xl font-semibold text-white mb-1">Address</h4>
               <p class="text-gray-300">
-                <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?g_st=com.google.maps.preview.copy" target="_blank" class="hover:text-pink-500 underline">
+              <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?..." target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 underline">. 
                   14505 E Alameda Ave, Aurora, CO
                 </a>
               </p>
@@ -444,9 +455,9 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
     <div class="text-center mt-12">
       <h4 class="text-xl font-semibold text-white mb-4">Follow Us</h4>
       <div class="flex justify-center space-x-6">
-        <a href="https://www.instagram.com/dirokatattoo.us/" class="text-gray-400 hover:text-pink-500 text-2xl"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=61577384348802" class="text-gray-400 hover:text-pink-500 text-2xl"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.tiktok.com/@dirokatattoo.us" class="text-gray-400 hover:text-pink-500 text-2xl"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/dirokatattoo.us/" class="text-gray-400 hover:text-pink-500 text-2xl" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61577384348802" class="text-gray-400 hover:text-pink-500 text-2xl" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@dirokatattoo.us" class="text-gray-400 hover:text-pink-500 text-2xl" target="_blank"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
   </div>
@@ -460,7 +471,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
   <div class="container mx-auto px-4 text-center">
     <!-- Logo -->
     <div class="flex justify-center mb-4">
-      <img src="img/Diroka_Tatto_Studio_FINAL.svg" alt="Diroka Logo" class="h-12 w-auto" />
+      <img src="img/DirokaLogo.png" alt="Diroka Logo" class="h-12 w-auto" />
     </div>
     <!-- Slogan -->
     <p class="text-gray-400 mb-6">
