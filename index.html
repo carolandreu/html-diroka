@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Award-winning tattoo and piercing studio serving Denver and Aurora, Colorado. Custom tattoos, fine line, realism, black & grey, geometric tattoos, and implant-grade titanium piercings."> 
-    <title>Tattoo & Piercing Studio in Denver & Aurora, Colorado | Diroka Tattoo Studio</title>
+    <title>Denver & Aurora Tattoo and Piercing Studio | Diroka</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -51,7 +51,7 @@
             <!-- Background video for the hero section. The video plays automatically, loops, and is muted to keep the experience smooth. The playsinline attribute enables playback on mobile devices. -->
             <video src="video/todiroka.mp4" class="absolute w-full h-full object-cover" autoplay loop muted playsinline aria-label="Artistic interior of tattoo studio, black walls with framed artwork, artist focused while working on a tattoo"></video>
             <div class="relative z-10 text-center px-4 container mx-auto">
-                <h2 class="text-4xl md:text-6xl font-bold mb-6 text-white">DIROKA TATTOO STUDIO</h2>
+               <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">DIROKA TATTOO STUDIO</h1>
                 <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-gray-300">A tattoo and piercing studio where art meets identity, offering custom designs in a modern, elegant space.</p>
                 <div class="space-x-4">
                     <a href="#Booking" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider">BOOK NOW</a>
@@ -544,14 +544,14 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        form.reset();
-       alert('Thank you! Your request was sent successfully. Our team will contact you soon.');
-      } else {
-        alert('Network error. Please check your connection and try again.');
-      }
-    } catch (err) {
-      alert('Error de red. Intenta nuevamente.');
-    }
+  form.reset();
+  alert('Thank you! Your request was sent successfully. Our team will contact you soon.');
+} else {
+  alert('There was a problem sending your request. Please try again.');
+}
+} catch (err) {
+  alert('Network error. Please check your connection and try again.');
+}
   });
 })();
 </script>
