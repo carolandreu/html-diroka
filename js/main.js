@@ -115,26 +115,16 @@ document.getElementById('piercing-tab').addEventListener('click', function() {
         });
         
         // Formulario de reserva - establecer fecha mínima como hoy
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+      const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('¡Mensaje enviado con éxito! Te responderemos lo antes posible.');
+        this.reset();
+    });
+}
         
-        // Envío real de formulario de reservas
-        document.getElementById('booking-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-        
-            // Obtén los valores del formulario
-            const name = this.name.value.trim();
-            const email = this.email.value.trim();
-            const phone = this.phone.value.trim();
-            const artist = this.artist.value;
-            const service = this.service.value;
-            const date = this.date.value;
-            const description = this.description.value;
-        
-            // Validación básica (puedes mejorarla)
-            if (!name || !email || !phone) {
-                alert('Por favor completa todos los campos obligatorios.');
-                return;
-            }
         
             const data = { name, email, phone, artist, service, date, description };
         
