@@ -1622,36 +1622,26 @@ if (loadMoreButton) {
 mixedTattooCards = createBalancedMix(tattooCards);
 
 updatePortfolioGallery();
+/*
+  RESERVAR CON EL ARTISTA O PIERCING
+*/
 
-  /*
-    RESERVAR CON EL ARTISTA
-  */
-
- document.addEventListener('click', function (event) {
- const bookingButton = event.target.closest(
-  '.portfolio-book-btn, .artist-book-btn'
-);
+document.addEventListener('click', function (event) {
+  const bookingButton = event.target.closest(
+    '.portfolio-book-btn, .artist-book-btn'
+  );
 
   if (!bookingButton) {
     return;
   }
-     event.preventDefault();
 
-  const artistKey = bookingButton.dataset.artist;
+  event.preventDefault();
+
+  const artistKey = bookingButton.dataset.artist
+    ? bookingButton.dataset.artist.toLowerCase()
+    : '';
+
   const service = bookingButton.dataset.service;
-
-  if (artistKey) {
-    const artistValue = artistSelectValues[artistKey];
-
-    if (artistSelect && artistValue) {
-      artistSelect.value = artistValue;
-      artistSelect.dispatchEvent(new Event('change'));
-    }
-
-    if (serviceSelect) {
-      serviceSelect.value = 'tattoo';
-    }
-  }
 
   if (service === 'piercing') {
     if (serviceSelect) {
@@ -1661,6 +1651,19 @@ updatePortfolioGallery();
 
     if (artistSelect) {
       artistSelect.value = '';
+      artistSelect.dispatchEvent(new Event('change'));
+    }
+  } else if (artistKey) {
+    const artistValue = artistSelectValues[artistKey];
+
+    if (artistSelect && artistValue) {
+      artistSelect.value = artistValue;
+      artistSelect.dispatchEvent(new Event('change'));
+    }
+
+    if (serviceSelect) {
+      serviceSelect.value = 'tattoo';
+      serviceSelect.dispatchEvent(new Event('change'));
     }
   }
 
