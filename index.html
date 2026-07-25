@@ -1513,8 +1513,10 @@ piercingCards.forEach(function (card) {
 
     const image = currentCard.querySelector('img');
     const title = currentCard.querySelector('h3');
-    const artist = currentCard.querySelector('p[style*="D4AF37"]');
-
+    const artist =
+  currentCard.querySelector('p[style*="D4AF37"]') ||
+  currentCard.querySelector('.text-gray-400');
+      
     lightboxImage.src = image.src;
     lightboxImage.alt = image.alt;
 
@@ -1531,19 +1533,7 @@ piercingCards.forEach(function (card) {
   visibleCards = cards.filter(function (portfolioCard) {
     return !portfolioCard.classList.contains('portfolio-hidden');
   });
-
-  currentImageIndex = visibleCards.indexOf(card);
-
-  if (currentImageIndex < 0) {
-    currentImageIndex = 0;
-  }
-
-  updateLightbox();
-
-  lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
+     
     currentImageIndex = visibleCards.indexOf(card);
 
     if (currentImageIndex < 0) {
