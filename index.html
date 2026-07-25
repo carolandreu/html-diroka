@@ -1455,9 +1455,16 @@ piercingCards.forEach(function (card) {
   */
 
  function updatePortfolioGallery() {
+     let cardsToDisplay = tattooCards;
+
+if (currentFilter === 'all') {
+  cardsToDisplay = shuffleCards(tattooCards);
+}
   const artistPhotoCounts = {};
 
-  tattooCards.forEach(function (card) {
+    cardsToDisplay.forEach(function (card) {
+  gallery.appendChild(card);
+});
     const artist = card.dataset.artist;
 
     if (!artistPhotoCounts[artist]) {
@@ -1526,6 +1533,19 @@ if (loadMoreButton) {
 }
 
 updatePortfolioGallery();
+
+    function shuffleCards(cards) {
+  const shuffledCards = [...cards];
+
+  for (let i = shuffledCards.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [shuffledCards[i], shuffledCards[randomIndex]] =
+      [shuffledCards[randomIndex], shuffledCards[i]];
+  }
+
+  return shuffledCards;
+}
 
   /*
     RESERVAR CON EL ARTISTA
