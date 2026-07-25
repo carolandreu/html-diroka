@@ -1450,91 +1450,18 @@ piercingCards.forEach(function (card) {
   }
 });
 
-  /*
-    FILTROS
-  */
 
- function updatePortfolioGallery() {
-     let cardsToDisplay = tattooCards;
+ /*
+  FILTROS, MEZCLA INTELIGENTE Y VIEW MORE
+*/
 
-if (currentFilter === 'all') {
-  cardsToDisplay = shuffleCards(tattooCards);
-}
-  const artistPhotoCounts = {};
+const photosPerLoad = 12;
 
-    cardsToDisplay.forEach(function (card) {
-  gallery.appendChild(card);
-});
-    const artist = card.dataset.artist;
+let currentFilter = 'all';
+let visiblePhotoLimit = photosPerLoad;
+let mixedTattooCards = [];
 
-    if (!artistPhotoCounts[artist]) {
-      artistPhotoCounts[artist] = 0;
-    }
-
-    let shouldShow = false;
-
-    if (currentFilter === 'all') {
-      shouldShow =
-        showAllPhotos ||
-        artistPhotoCounts[artist] < initialPhotosPerArtist;
-
-      artistPhotoCounts[artist]++;
-    } else {
-      shouldShow = artist === currentFilter;
-    }
-
-    card.classList.toggle('portfolio-hidden', !shouldShow);
-  });
-
-  visibleCards = tattooCards.filter(function (card) {
-    return !card.classList.contains('portfolio-hidden');
-  });
-
-  if (loadMoreWrapper) {
-    loadMoreWrapper.style.display =
-      currentFilter === 'all' ? 'block' : 'none';
-  }
-
-  if (loadMoreButton) {
-    loadMoreButton.textContent = showAllPhotos
-      ? 'View Less'
-      : 'View More';
-  }
-}
-
-filterButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    currentFilter = button.dataset.filter;
-    showAllPhotos = false;
-
-    filterButtons.forEach(function (filterButton) {
-      filterButton.classList.remove('active');
-    });
-
-    button.classList.add('active');
-
-    updatePortfolioGallery();
-  });
-});
-
-if (loadMoreButton) {
-  loadMoreButton.addEventListener('click', function () {
-    showAllPhotos = !showAllPhotos;
-
-    updatePortfolioGallery();
-
-    if (!showAllPhotos) {
-      document.getElementById('Portfolio').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-}
-
-updatePortfolioGallery();
-
-    function shuffleCards(cards) {
+function shuffleCards(cards) {
   const shuffledCards = [...cards];
 
   for (let i = shuffledCards.length - 1; i > 0; i--) {
@@ -1546,6 +1473,155 @@ updatePortfolioGallery();
 
   return shuffledCards;
 }
+
+function createBalancedMix(cards) {
+  const cardsByArtist = {};
+
+  cards.forEach(function (card) {
+    const artist = card.dataset.artist;
+
+    if (!cardsByArtist[artist]) {
+      cardsByArtist[artist] = [];
+    }
+
+    cardsByArtist[artist].push(card);
+  });
+
+  Object.keys(cardsByArtist).forEach(function (artist) {
+    cardsByArtist[artist] = shuffleCards(cardsByArtist[artist]);
+  });
+
+  const mixedCards = [];
+  let previousArtist = '';
+  let consecutiveArtistCount = 0;
+
+  while (
+    Object.values(cardsByArtist).some(function (artistCards) {
+      return artistCards.length > 0;
+    })
+  ) {
+    let availableArtists = Object.keys(cardsByArtist).filter(
+      function (artist) {
+        return cardsByArtist[artist].length > 0;
+      }
+    );
+
+    availableArtists = shuffleCards(availableArtists);
+
+    let selectedArtist = availableArtists.find(function (artist) {
+      return !(
+        artist === previousArtist &&
+        consecutiveArtistCount >= 2
+      );
+    });
+
+    if (!selectedArtist) {
+      selectedArtist = availableArtists[0];
+    }
+
+    const selectedCard = cardsByArtist[selectedArtist].shift();
+
+    mixedCards.push(selectedCard);
+
+    if (selectedArtist === previousArtist) {
+      consecutiveArtistCount++;
+    } else {
+      previousArtist = selectedArtist;
+      consecutiveArtistCount = 1;
+    }
+  }
+
+  return mixedCards;
+}
+
+function updateLoadMoreButton(totalCards) {
+  if (!loadMoreWrapper || !loadMoreButton) {
+    return;
+  }
+
+  const shouldShowButton =
+    currentFilter === 'all' &&
+    visiblePhotoLimit < totalCards;
+
+  loadMoreWrapper.style.display = shouldShowButton
+    ? 'block'
+    : 'none';
+
+  loadMoreButton.textContent = 'View More';
+}
+
+function updatePortfolioGallery() {
+  let cardsToDisplay = [];
+
+  if (currentFilter === 'all') {
+    cardsToDisplay = mixedTattooCards;
+  } else {
+    cardsToDisplay = tattooCards.filter(function (card) {
+      return card.dataset.artist === currentFilter;
+    });
+  }
+
+  cardsToDisplay.forEach(function (card) {
+    gallery.appendChild(card);
+  });
+
+  tattooCards.forEach(function (card) {
+    card.classList.add('portfolio-hidden');
+  });
+
+  if (currentFilter === 'all') {
+    cardsToDisplay
+      .slice(0, visiblePhotoLimit)
+      .forEach(function (card) {
+        card.classList.remove('portfolio-hidden');
+      });
+  } else {
+    cardsToDisplay.forEach(function (card) {
+      card.classList.remove('portfolio-hidden');
+    });
+  }
+
+  visibleCards = cardsToDisplay.filter(function (card) {
+    return !card.classList.contains('portfolio-hidden');
+  });
+
+  updateLoadMoreButton(cardsToDisplay.length);
+}
+
+function activateFilterButton(activeButton) {
+  filterButtons.forEach(function (button) {
+    button.classList.remove('active');
+  });
+
+  activeButton.classList.add('active');
+}
+
+filterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    currentFilter = button.dataset.filter;
+    visiblePhotoLimit = photosPerLoad;
+
+    activateFilterButton(button);
+
+    if (currentFilter === 'all') {
+      mixedTattooCards = createBalancedMix(tattooCards);
+    }
+
+    updatePortfolioGallery();
+  });
+});
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener('click', function () {
+    visiblePhotoLimit += photosPerLoad;
+
+    updatePortfolioGallery();
+  });
+}
+
+mixedTattooCards = createBalancedMix(tattooCards);
+
+updatePortfolioGallery();
 
   /*
     RESERVAR CON EL ARTISTA
