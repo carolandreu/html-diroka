@@ -464,9 +464,10 @@
 
           <div class="artist-actions flex items-center gap-4">
             <a href="#Booking"
-               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
-              Book with Diego
-            </a>
+   class="artist-book-btn inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition"
+   data-artist="Diego">
+  Book with Diego
+</a>
             <a href="https://www.instagram.com/diego.dirokatattoo/" target="_blank"
                class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Diego Juarez Instagram">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
@@ -504,9 +505,10 @@
 
           <div class="artist-actions flex items-center gap-4">
             <a href="#Booking"
-               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
-              Book with Arnold
-            </a>
+   class="artist-book-btn inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition"
+   data-artist="Arnold">
+  Book with Arnold
+</a>
             <a href="https://www.instagram.com/tatuajesarnold/" target="_blank"
                class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Arnold Camargo Instagram">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
@@ -544,9 +546,10 @@
 
           <div class="artist-actions flex items-center gap-4">
             <a href="#Booking"
-               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
-              Book with Eliana
-            </a>
+   class="artist-book-btn inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition"
+   data-artist="Eliana">
+  Book with Eliana
+</a>
             <a href="https://www.instagram.com/elianadevill" target="_blank"
                class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Eliana Instagram">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
@@ -583,9 +586,10 @@
 
          <div class="artist-actions flex items-center gap-4">
             <a href="#Booking"
-               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
-              Book with Julian
-            </a>
+   class="artist-book-btn inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition"
+   data-artist="julian">
+  Book with Julian
+</a>
             <a href="https://www.instagram.com/juliancarvajaltattooartist/" target="_blank"
                class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Julian Instagram">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
@@ -622,9 +626,10 @@
 
           <div class="artist-actions flex items-center gap-4">
            <a href="#Booking"
-               class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
-              Book with Addison
-            </a>
+   class="artist-book-btn inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition"
+   data-artist="addison">
+  Book with Addison
+</a>
             <a href="https://www.instagram.com/dont_cry_ink/" target="_blank"
                class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Addison Powell Instagram">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
@@ -883,6 +888,15 @@
         </div>
     </div>
 
+</div>
+<div id="portfolio-load-more-wrapper" class="text-center mt-10">
+  <button
+    type="button"
+    id="portfolio-load-more"
+    class="border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-gray-900 font-bold py-3 px-8 rounded-full transition duration-300"
+  >
+    View More
+  </button>
 </div>
             
             <!-- Piercing Gallery (initially hidden) -->
@@ -1305,6 +1319,18 @@ const bookingSection = document.getElementById('Booking');
 
   let visibleCards = [...tattooCards];
   let currentImageIndex = 0;
+  let currentFilter = 'all';
+let showAllPhotos = false;
+
+const initialPhotosPerArtist = 2;
+
+const loadMoreWrapper = document.getElementById(
+  'portfolio-load-more-wrapper'
+);
+
+const loadMoreButton = document.getElementById(
+  'portfolio-load-more'
+);
 
   const artistSelectValues = {
     diego: 'Diego',
@@ -1428,42 +1454,92 @@ piercingCards.forEach(function (card) {
     FILTROS
   */
 
-  filterButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      const selectedArtist = button.dataset.filter;
+ function updatePortfolioGallery() {
+  const artistPhotoCounts = {};
 
-      filterButtons.forEach(function (filterButton) {
-        filterButton.classList.remove('active');
-      });
+  tattooCards.forEach(function (card) {
+    const artist = card.dataset.artist;
 
-      button.classList.add('active');
+    if (!artistPhotoCounts[artist]) {
+      artistPhotoCounts[artist] = 0;
+    }
 
-      tattooCards.forEach(function (card) {
-        const cardArtist = card.dataset.artist;
+    let shouldShow = false;
 
-        const shouldShow =
-          selectedArtist === 'all' ||
-          cardArtist === selectedArtist;
+    if (currentFilter === 'all') {
+      shouldShow =
+        showAllPhotos ||
+        artistPhotoCounts[artist] < initialPhotosPerArtist;
 
-        card.classList.toggle('portfolio-hidden', !shouldShow);
-      });
+      artistPhotoCounts[artist]++;
+    } else {
+      shouldShow = artist === currentFilter;
+    }
 
-      visibleCards = tattooCards.filter(function (card) {
-        return !card.classList.contains('portfolio-hidden');
-      });
-    });
+    card.classList.toggle('portfolio-hidden', !shouldShow);
   });
+
+  visibleCards = tattooCards.filter(function (card) {
+    return !card.classList.contains('portfolio-hidden');
+  });
+
+  if (loadMoreWrapper) {
+    loadMoreWrapper.style.display =
+      currentFilter === 'all' ? 'block' : 'none';
+  }
+
+  if (loadMoreButton) {
+    loadMoreButton.textContent = showAllPhotos
+      ? 'View Less'
+      : 'View More';
+  }
+}
+
+filterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    currentFilter = button.dataset.filter;
+    showAllPhotos = false;
+
+    filterButtons.forEach(function (filterButton) {
+      filterButton.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    updatePortfolioGallery();
+  });
+});
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener('click', function () {
+    showAllPhotos = !showAllPhotos;
+
+    updatePortfolioGallery();
+
+    if (!showAllPhotos) {
+      document.getElementById('Portfolio').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+}
+
+updatePortfolioGallery();
 
   /*
     RESERVAR CON EL ARTISTA
   */
 
  document.addEventListener('click', function (event) {
-  const bookingButton = event.target.closest('.portfolio-book-btn');
+ const bookingButton = event.target.closest(
+  '.portfolio-book-btn, .artist-book-btn'
+);
 
   if (!bookingButton) {
     return;
   }
+     event.preventDefault();
 
   const artistKey = bookingButton.dataset.artist;
   const service = bookingButton.dataset.service;
