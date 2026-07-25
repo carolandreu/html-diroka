@@ -39,9 +39,256 @@
     margin-top: auto;
     padding-top: 1.5rem;
   }
+    /* =========================
+   PORTFOLIO PREMIUM
+========================= */
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-filter-btn {
+  border: 1px solid #4b5563;
+  color: #d1d5db;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.portfolio-filter-btn:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  transform: translateY(-2px);
+}
+
+.portfolio-filter-btn.active {
+  background: #D4AF37;
+  border-color: #D4AF37;
+  color: #111827;
+}
+
+/* Portfolio estilo Pinterest */
+
+#tattoo-gallery {
+  display: block;
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  #tattoo-gallery {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  #tattoo-gallery {
+    column-count: 3;
+  }
+}
+
+.tattoo-work {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tattoo-work.portfolio-hidden {
+  display: none;
+}
+
+.tattoo-work img {
+  width: 100%;
+  height: auto !important;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-image-wrapper:hover img {
+  transform: scale(1.04);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.1) 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.portfolio-image-wrapper:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay-title {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.portfolio-overlay-artist {
+  color: #D4AF37;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.portfolio-overlay-view {
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 0.65rem;
+}
+
+.portfolio-book-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #D4AF37;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.portfolio-book-btn:hover {
+  color: white;
+}
+
+/* Lightbox */
+
+.portfolio-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.94);
+}
+
+.portfolio-lightbox.open {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.lightbox-caption {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.lightbox-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.lightbox-artist {
+  color: #D4AF37;
+  margin-top: 0.25rem;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  z-index: 10001;
+  transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: #D4AF37;
+}
+
+.lightbox-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background: rgba(17, 24, 39, 0.8);
+  color: white;
+  font-size: 1.4rem;
+  transition: background 0.3s ease;
+}
+
+.lightbox-arrow:hover {
+  background: #D4AF37;
+  color: #111827;
+}
+
+.lightbox-prev {
+  left: 1rem;
+}
+
+.lightbox-next {
+  right: 1rem;
+}
+
+@media (max-width: 640px) {
+  .portfolio-overlay {
+    opacity: 1;
+    padding: 1rem;
+  }
+
+  .lightbox-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .lightbox-prev {
+    left: 0.25rem;
+  }
+
+  .lightbox-next {
+    right: 0.25rem;
+  }
+}
 </style>
+    </head>
     
-</head>
 <body class="bg-gray-900 text-gray-200 font-sans antialiased">
     
   <!-- Header and Navigation -->
@@ -348,10 +595,34 @@
                 <button type="button" id="piercing-tab" class="px-6 py-2 text-sm font-medium rounded-r-lg bg-gray-800 text-gray-400 hover:text-white">Piercings</button>                
                 </div>
             </div>
+            <div id="portfolio-filters" class="portfolio-filters">
+  <button type="button" class="portfolio-filter-btn active" data-filter="all">
+    All
+  </button>
+
+  <button type="button" class="portfolio-filter-btn" data-filter="diego">
+    Diego
+  </button>
+
+  <button type="button" class="portfolio-filter-btn" data-filter="arnold">
+    Arnold
+  </button>
+
+  <button type="button" class="portfolio-filter-btn" data-filter="eliana">
+    Eliana
+  </button>
+
+  <button type="button" class="portfolio-filter-btn" data-filter="julian">
+    Julian
+  </button>
+
+  <button type="button" class="portfolio-filter-btn" data-filter="addison">
+    Addison
+  </button>
+</div>
             
             <!-- Tattoo Gallery -->
-            <!-- Tattoo Gallery -->
-<div id="tattoo-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div id="tattoo-gallery">
 
     <!-- Diego 1 -->
     <div class="gallery-item tattoo-work overflow-hidden rounded-lg shadow-lg bg-gray-800"
@@ -606,6 +877,46 @@
                 </div>
             </div>
             </section>
+    <!-- Portfolio Lightbox -->
+<div id="portfolio-lightbox"
+     class="portfolio-lightbox"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Tattoo portfolio image viewer">
+
+  <button type="button"
+          id="lightbox-close"
+          class="lightbox-close"
+          aria-label="Close image">
+    &times;
+  </button>
+
+  <button type="button"
+          id="lightbox-prev"
+          class="lightbox-arrow lightbox-prev"
+          aria-label="Previous image">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <div class="lightbox-content">
+    <img id="lightbox-image"
+         class="lightbox-image"
+         src=""
+         alt="">
+
+    <div class="lightbox-caption">
+      <h3 id="lightbox-title" class="lightbox-title"></h3>
+      <p id="lightbox-artist" class="lightbox-artist"></p>
+    </div>
+  </div>
+
+  <button type="button"
+          id="lightbox-next"
+          class="lightbox-arrow lightbox-next"
+          aria-label="Next image">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
     <!-- Booking Section -->
     <section id="Booking" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
@@ -864,6 +1175,299 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   });
+
+});
+</script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const gallery = document.getElementById('tattoo-gallery');
+  const tattooCards = Array.from(
+    document.querySelectorAll('.tattoo-work')
+  );
+
+  const filterContainer = document.getElementById('portfolio-filters');
+  const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+
+  const tattooTab = document.getElementById('tattoo-tab');
+  const piercingTab = document.getElementById('piercing-tab');
+
+  const artistSelect = document.getElementById('artist');
+  const bookingSection = document.getElementById('Booking');
+
+  const lightbox = document.getElementById('portfolio-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxArtist = document.getElementById('lightbox-artist');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrevious = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+
+  let visibleCards = [...tattooCards];
+  let currentImageIndex = 0;
+
+  const artistSelectValues = {
+    diego: 'Diego',
+    arnold: 'Arnold',
+    eliana: 'Eliana',
+    julian: 'Julian',
+    addison: 'Addison'
+  };
+
+  /*
+    Agrega automáticamente:
+    - contenedor para la imagen
+    - efecto hover
+    - botón para reservar con el artista
+  */
+
+  tattooCards.forEach(function (card) {
+    const image = card.querySelector('img');
+    const cardContent = card.querySelector('.p-4');
+    const titleElement = card.querySelector('h3');
+    const artistElement = card.querySelector('p[style*="D4AF37"]');
+
+    if (!image || !cardContent || !titleElement || !artistElement) {
+      return;
+    }
+
+    const title = titleElement.textContent.trim();
+    const artistText = artistElement.textContent.trim();
+    const artistKey = card.dataset.artist;
+
+    if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
+      const imageWrapper = document.createElement('div');
+      imageWrapper.className = 'portfolio-image-wrapper';
+
+      image.parentNode.insertBefore(imageWrapper, image);
+      imageWrapper.appendChild(image);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'portfolio-overlay';
+
+      overlay.innerHTML = `
+        <div>
+          <div class="portfolio-overlay-title">${title}</div>
+          <div class="portfolio-overlay-artist">${artistText}</div>
+          <div class="portfolio-overlay-view">View Full Size →</div>
+        </div>
+      `;
+
+      imageWrapper.appendChild(overlay);
+    }
+
+    if (!card.querySelector('.portfolio-book-btn')) {
+      const bookingButton = document.createElement('button');
+
+      bookingButton.type = 'button';
+      bookingButton.className = 'portfolio-book-btn';
+      bookingButton.dataset.artist = artistKey;
+
+      const artistName = artistSelectValues[artistKey] || artistKey;
+
+      bookingButton.textContent = `Book ${artistName} →`;
+
+      cardContent.appendChild(bookingButton);
+    }
+  });
+
+  /*
+    FILTROS
+  */
+
+  filterButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const selectedArtist = button.dataset.filter;
+
+      filterButtons.forEach(function (filterButton) {
+        filterButton.classList.remove('active');
+      });
+
+      button.classList.add('active');
+
+      tattooCards.forEach(function (card) {
+        const cardArtist = card.dataset.artist;
+
+        const shouldShow =
+          selectedArtist === 'all' ||
+          cardArtist === selectedArtist;
+
+        card.classList.toggle('portfolio-hidden', !shouldShow);
+      });
+
+      visibleCards = tattooCards.filter(function (card) {
+        return !card.classList.contains('portfolio-hidden');
+      });
+    });
+  });
+
+  /*
+    RESERVAR CON EL ARTISTA
+  */
+
+  document.addEventListener('click', function (event) {
+    const bookingButton = event.target.closest('.portfolio-book-btn');
+
+    if (!bookingButton) {
+      return;
+    }
+
+    const artistKey = bookingButton.dataset.artist;
+    const artistValue = artistSelectValues[artistKey];
+
+    if (artistSelect && artistValue) {
+      artistSelect.value = artistValue;
+      artistSelect.dispatchEvent(new Event('change'));
+    }
+
+    if (bookingSection) {
+      bookingSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+
+  /*
+    LIGHTBOX
+  */
+
+  function updateLightbox() {
+    const currentCard = visibleCards[currentImageIndex];
+
+    if (!currentCard) {
+      return;
+    }
+
+    const image = currentCard.querySelector('img');
+    const title = currentCard.querySelector('h3');
+    const artist = currentCard.querySelector('p[style*="D4AF37"]');
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxTitle.textContent = title
+      ? title.textContent.trim()
+      : '';
+
+    lightboxArtist.textContent = artist
+      ? artist.textContent.trim()
+      : '';
+  }
+
+  function openLightbox(card) {
+    visibleCards = tattooCards.filter(function (tattooCard) {
+      return !tattooCard.classList.contains('portfolio-hidden');
+    });
+
+    currentImageIndex = visibleCards.indexOf(card);
+
+    if (currentImageIndex < 0) {
+      currentImageIndex = 0;
+    }
+
+    updateLightbox();
+
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showNextImage() {
+    currentImageIndex =
+      (currentImageIndex + 1) % visibleCards.length;
+
+    updateLightbox();
+  }
+
+  function showPreviousImage() {
+    currentImageIndex =
+      (currentImageIndex - 1 + visibleCards.length) %
+      visibleCards.length;
+
+    updateLightbox();
+  }
+
+  if (gallery) {
+    gallery.addEventListener('click', function (event) {
+      const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+
+      if (!imageWrapper) {
+        return;
+      }
+
+      const card = imageWrapper.closest('.tattoo-work');
+
+      if (card) {
+        openLightbox(card);
+      }
+    });
+  }
+
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', function (event) {
+      event.stopPropagation();
+      showNextImage();
+    });
+  }
+
+  if (lightboxPrevious) {
+    lightboxPrevious.addEventListener('click', function (event) {
+      event.stopPropagation();
+      showPreviousImage();
+    });
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox.classList.contains('open')) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+
+    if (event.key === 'ArrowRight') {
+      showNextImage();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      showPreviousImage();
+    }
+  });
+
+  /*
+    MOSTRAR U OCULTAR LOS FILTROS
+    SEGÚN TATTOOS O PIERCINGS
+  */
+
+  if (tattooTab) {
+    tattooTab.addEventListener('click', function () {
+      filterContainer.style.display = 'flex';
+    });
+  }
+
+  if (piercingTab) {
+    piercingTab.addEventListener('click', function () {
+      filterContainer.style.display = 'none';
+    });
+  }
 
 });
 </script>
