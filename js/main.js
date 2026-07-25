@@ -1,185 +1,215 @@
-// Menú móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // Pestañas de galería
-        document.getElementById('tattoo-tab').addEventListener('click', function() {
-            this.classList.add('tab-active');
-            this.classList.remove('text-gray-400');
-            this.classList.add('text-white');
-            
-            document.getElementById('piercing-tab').classList.remove('tab-active');
-            document.getElementById('piercing-tab').classList.add('text-gray-400');
-            document.getElementById('piercing-tab').classList.remove('text-white');
-            
-            document.getElementById('tattoo-gallery').classList.remove('hidden');
-            document.getElementById('piercing-gallery').classList.add('hidden');
-        });
-        
-        document.getElementById('piercing-tab').addEventListener('click', function() {
-            this.classList.add('tab-active');
-            this.classList.remove('text-gray-400');
-            this.classList.add('text-white');
-            
-            document.getElementById('tattoo-tab').classList.remove('tab-active');
-            document.getElementById('tattoo-tab').classList.add('text-gray-400');
-            document.getElementById('tattoo-tab').classList.remove('text-white');
-            
-            document.getElementById('piercing-gallery').classList.remove('hidden');
-            document.getElementById('tattoo-gallery').classList.add('hidden');
-        });
-        // Pestañas de galería
-document.getElementById('tattoo-tab').addEventListener('click', function() {
-    this.classList.add('tab-active');
-    this.classList.remove('text-gray-400');
-    this.classList.add('text-white');
-    
-    document.getElementById('piercing-tab').classList.remove('tab-active');
-    document.getElementById('piercing-tab').classList.add('text-gray-400');
-    document.getElementById('piercing-tab').classList.remove('text-white');
-    
-    document.getElementById('tattoo-gallery').classList.remove('hidden');
-    document.getElementById('piercing-gallery').classList.add('hidden');
-});
+document.addEventListener('DOMContentLoaded', function () {
 
-document.getElementById('piercing-tab').addEventListener('click', function() {
-    this.classList.add('tab-active');
-    this.classList.remove('text-gray-400');
-    this.classList.add('text-white');
-    
-    document.getElementById('tattoo-tab').classList.remove('tab-active');
-    document.getElementById('tattoo-tab').classList.add('text-gray-400');
-    document.getElementById('tattoo-tab').classList.remove('text-white');
-    
-    document.getElementById('piercing-gallery').classList.remove('hidden');
-    document.getElementById('tattoo-gallery').classList.add('hidden');
-});
+  // =========================
+  // MENÚ MÓVIL
+  // =========================
 
-// ----- Navbar -> activar pestaña correcta en Portfolio (sin pelearse con el scroll suave) -----
-['nav-piercing','mnav-piercing'].forEach(id => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.addEventListener('click', (e) => {
-    e.preventDefault();                                     // no usamos el handler global de anclas
-    document.getElementById('piercing-tab')?.click();       // activa la pestaña
-    document.getElementById('Portfolio')?.scrollIntoView({  // luego scroll
-      behavior: 'smooth'
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+
+  // =========================
+  // GALERÍA: TATTOOS / PIERCINGS
+  // =========================
+
+  const tattooTab = document.getElementById('tattoo-tab');
+  const piercingTab = document.getElementById('piercing-tab');
+  const tattooGallery = document.getElementById('tattoo-gallery');
+  const piercingGallery = document.getElementById('piercing-gallery');
+  const portfolioFilters = document.getElementById('portfolio-filters');
+
+  function showTattooGallery() {
+    if (!tattooTab || !piercingTab || !tattooGallery || !piercingGallery) {
+      return;
+    }
+
+    tattooTab.classList.add('tab-active', 'text-white');
+    tattooTab.classList.remove('text-gray-400');
+
+    piercingTab.classList.remove('tab-active', 'text-white');
+    piercingTab.classList.add('text-gray-400');
+
+    tattooGallery.classList.remove('hidden');
+    piercingGallery.classList.add('hidden');
+
+    if (portfolioFilters) {
+      portfolioFilters.style.display = 'flex';
+    }
+  }
+
+  function showPiercingGallery() {
+    if (!tattooTab || !piercingTab || !tattooGallery || !piercingGallery) {
+      return;
+    }
+
+    piercingTab.classList.add('tab-active', 'text-white');
+    piercingTab.classList.remove('text-gray-400');
+
+    tattooTab.classList.remove('tab-active', 'text-white');
+    tattooTab.classList.add('text-gray-400');
+
+    piercingGallery.classList.remove('hidden');
+    tattooGallery.classList.add('hidden');
+
+    if (portfolioFilters) {
+      portfolioFilters.style.display = 'none';
+    }
+  }
+
+  if (tattooTab) {
+    tattooTab.addEventListener('click', showTattooGallery);
+  }
+
+  if (piercingTab) {
+    piercingTab.addEventListener('click', showPiercingGallery);
+  }
+
+  // Estado inicial
+  showTattooGallery();
+
+
+  // =========================
+  // NAVEGACIÓN HACIA PORTFOLIO
+  // =========================
+
+  ['nav-piercing', 'mnav-piercing'].forEach(function (id) {
+    const link = document.getElementById(id);
+
+    if (!link) return;
+
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      showPiercingGallery();
+
+      document.getElementById('Portfolio')?.scrollIntoView({
+        behavior: 'smooth'
+      });
+
+      mobileMenu?.classList.add('hidden');
     });
   });
-});
 
-['nav-tattoo','mnav-tattoo'].forEach(id => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('tattoo-tab')?.click();
-    document.getElementById('Portfolio')?.scrollIntoView({
-      behavior: 'smooth'
+  ['nav-tattoo', 'mnav-tattoo'].forEach(function (id) {
+    const link = document.getElementById(id);
+
+    if (!link) return;
+
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      showTattooGallery();
+
+      document.getElementById('Portfolio')?.scrollIntoView({
+        behavior: 'smooth'
+      });
+
+      mobileMenu?.classList.add('hidden');
     });
   });
-});
 
-// ----- Forzar estado inicial por si quedó alterado -----
-(function enforceInitialGalleryState() {
-  const tTab = document.getElementById('tattoo-tab');
-  const pTab = document.getElementById('piercing-tab');
-  const tGal = document.getElementById('tattoo-gallery');
-  const pGal = document.getElementById('piercing-gallery');
-  if (!tTab || !pTab || !tGal || !pGal) return;
 
-  tTab.classList.add('tab-active','text-white');
-  tTab.classList.remove('text-gray-400');
+  // =========================
+  // FAQ
+  // =========================
 
-  pTab.classList.remove('tab-active','text-white');
-  pTab.classList.add('text-gray-400');
+  document.querySelectorAll('.faq-question').forEach(function (question) {
+    question.addEventListener('click', function () {
+      const item = question.parentNode;
+      const answer = item?.querySelector('.faq-answer');
+      const icon = question.querySelector('i');
 
-  tGal.classList.remove('hidden');
-  pGal.classList.add('hidden');
-})();
-
-        
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentNode;
-                const answer = item.querySelector('.faq-answer');
-                const icon = question.querySelector('i');
-                
-                answer.classList.toggle('hidden');
-                icon.classList.toggle('transform');
-                icon.classList.toggle('rotate-180');
-            });
-        });
-        
-        // Formulario de reserva - establecer fecha mínima como hoy
-      const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('¡Mensaje enviado con éxito! Te responderemos lo antes posible.');
-        this.reset();
+      answer?.classList.toggle('hidden');
+      icon?.classList.toggle('transform');
+      icon?.classList.toggle('rotate-180');
     });
-}
-        
-        
-            const data = { name, email, phone, artist, service, date, description };
-        
-            try {
-                const response = await fetch('http://localhost:3000/api/reserva', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                if (response.ok) {
-                    this.reset();
-                    alert('¡Tu solicitud fue enviada correctamente!');
-                } else {
-                    alert('Hubo un error al enviar la solicitud.');
-                }
-            } catch (err) {
-                alert('No se pudo conectar con el servidor.');
-            }
+  });
+
+
+  // =========================
+  // FECHA MÍNIMA DEL FORMULARIO
+  // =========================
+
+  const dateInput = document.getElementById('date');
+
+  if (dateInput) {
+    const today = new Date();
+    const localDate = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    )
+      .toISOString()
+      .split('T')[0];
+
+    dateInput.min = localDate;
+  }
+
+
+  // =========================
+  // SCROLL SUAVE
+  // =========================
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (event) {
+      const targetId = anchor.getAttribute('href');
+
+      if (
+        !targetId ||
+        targetId === '#' ||
+        anchor.id === 'nav-piercing' ||
+        anchor.id === 'mnav-piercing' ||
+        anchor.id === 'nav-tattoo' ||
+        anchor.id === 'mnav-tattoo'
+      ) {
+        return;
+      }
+
+      const target = document.querySelector(targetId);
+
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+
+  // =========================
+  // ANIMACIÓN AL HACER SCROLL
+  // =========================
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+            observer.unobserve(entry.target);
+          }
         });
-        
-        // Envío simulado para el formulario de contacto (puedes hacer algo similar si tienes endpoint)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Mensaje enviado con éxito! Te responderemos lo antes posible.');
-            this.reset();
-        });
-        
-        // Scroll suave para enlaces
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Cerrar menú móvil si está abierto
-                if(!document.getElementById('mobile-menu').classList.contains('hidden')) {
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                }
-            });
-        });
-        
-        // Animación de elementos al hacer scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeIn');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.gallery-item, .artist-card, .faq-item').forEach(el => {
-            observer.observe(el);
-        });
-        
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    document
+      .querySelectorAll('.gallery-item, .artist-card, .faq-item')
+      .forEach(function (element) {
+        observer.observe(element);
+      });
+  }
+
+});
