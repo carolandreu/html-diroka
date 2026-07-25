@@ -8,6 +8,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+<style>
+  .artist-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .artist-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .artist-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .artist-description.expanded {
+    display: block;
+    overflow: visible;
+  }
+
+  .artist-actions {
+    margin-top: auto;
+    padding-top: 1.5rem;
+  }
+</style>
     
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans antialiased">
@@ -113,23 +142,28 @@
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
 
       <!-- Diego -->
-      <article class="sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
-        <div class="flex items-center justify-center bg-black h-96">
+      <article class="artist-card sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
+       <div class="artist-actions flex flex-wrap items-center gap-4">
           <img src="img/DiegoJuarez.jpg"
                alt="Diego Juarez, tattoo artist in Denver/Aurora, Colorado specializing in geometric, dotwork, and black & grey tattoos"
                class="max-h-96 w-auto object-contain">
         </div>
-        <div class="p-6">
+        <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
            DIEGO JUAREZ
           </h3>
           <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
           <p class="font-medium" style="color:#D4AF37">Geometric • Dotwork • Black & Grey</p>
-          <p class="text-gray-400 mt-3 max-w-prose">
+          <p class="artist-description text-gray-400 mt-3 max-w-prose">
             As the founder of Diroka Tattoo Studio and with over 15 years of experience, Diego Juarez has built a reputation for creating large-scale custom tattoos that flow naturally with the body. 
             Internationally recognized for his award-winning geometric work, he combines precision, creativity, and artistic vision to transform every idea into a timeless piece of art. 
             From intricate geometric compositions to black & grey realism and dotwork, every tattoo is designed exclusively for the client and executed with uncompromising attention to detail.
           </p>
+            <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
 
           <div class="flex items-center gap-4 mt-6">
             <a href="#Booking"
@@ -145,23 +179,28 @@
       </article>
 
      <!-- Arnold -->
-     <article class="sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
-        <div class="flex items-center justify-center bg-black h-96">
+    <article class="artist-card sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
+        <div class="artist-actions flex flex-wrap items-center gap-4">
           <img src="img/arnold1.jpg"
                alt="Arnold Camargo, tattoo artist in Denver/Aurora, Colorado specializing in Portrait and realism "
                class="max-h-96 w-auto object-contain">
         </div>
-        <div class="p-6">
+        <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
             ARNOLD CAMARGO
           </h3>
           <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
           <p class="font-medium" style="color:#D4AF37">Color Realism • Portraits • Anime Tattoos</p>
-          <p class="text-gray-400 mt-3 max-w-prose">
+          <p class="artist-description text-gray-400 mt-3 max-w-prose">
             For over 10 years, Arnold has been turning ideas into unforgettable works of art through tattooing. 
             Known for his vibrant color realism, lifelike portraits, and bold anime pieces, he approaches every project with precision, creativity, and a commitment to excellence. 
             Constantly refining his craft, Arnold believes every tattoo should tell a story and become a piece his clients are proud to wear for a lifetime.
           </p>
+            <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
 
           <div class="flex items-center gap-4 mt-6">
             <a href="#Booking"
@@ -177,23 +216,28 @@
       </article>
 
       <!-- Eliana -->
-      <article class="sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
-        <div class="flex items-center justify-center bg-black h-96">
+     <article class="artist-card sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
+        <div class="artist-actions flex flex-wrap items-center gap-4">
           <img src="img/eliana.jpeg"
                alt="Eliana, tattoo artist in Denver/Aurora, Colorado"
                class="max-h-96 w-auto object-contain">
         </div>
-        <div class="p-6">
+        <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
             ELIANA BRITO
           </h3>
           <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
           <p class="font-medium" style="color:#D4AF37">Black & Grey • Blackwork • Fine Line Tattoos</p>
-          <p class="text-gray-400 mt-3 max-w-prose">
+          <p class="artist-description text-gray-400 mt-3 max-w-prose">
             Eliana specializes in creating custom tattoos that balance bold contrast with delicate detail. 
             Her work combines Black & Grey, Blackwork, and Fine Line techniques to create clean, elegant, and long-lasting pieces. 
             Every design is carefully adapted to the client's anatomy, ensuring a tattoo that feels both personal and timeless.
           </p>
+            <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
 
           <div class="flex items-center gap-4 mt-6">
             <a href="#Booking"
@@ -209,21 +253,27 @@
       </article>
 
       <!-- Julian -->
-     <article class="sm:col-span-1 lg:col-span-2 lg:col-start-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
-        <div class="flex items-center justify-center bg-black h-96">
+     <article class="artist-card sm:col-span-1 lg:col-span-2 lg:col-start-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
+        <div class="artist-actions flex flex-wrap items-center gap-4">
           <img src="img/julifotonueva.jpg"
                alt="Julian, tattoo artist in Denver/Aurora, Colorado"
                class="max-h-96 w-auto object-contain">
         </div>
-        <div class="p-6">
+        <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
             JULIAN CARVAJAL
           </h3>
           <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
           <p class="font-medium" style="color:#D4AF37">Fine Line • Realism • Black & Grey Tattoos</p>
-          <p class="text-gray-400 mt-3 max-w-prose">
+          <p class="artist-description text-gray-400 mt-3 max-w-prose">
             Julian specializes in Fine Line, Black & Grey, and Realism, creating tattoos defined by clean linework, smooth shading, and exceptional attention to detail. 
-            From minimalist concepts to highly detailed custom pieces, every design is tailored to complement the client's vision while delivering a refined, timeless result. </p>
+            From minimalist concepts to highly detailed custom pieces, every design is tailored to complement the client's vision while delivering a refined, timeless result. 
+          </p>
+            <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
 
           <div class="flex items-center gap-4 mt-6">
             <a href="#Booking"
@@ -239,24 +289,34 @@
       </article>
 
       <!-- Addison -->
-     <article class="sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
-        <div class="flex items-center justify-center bg-black h-96">
+     <article class="artist-card sm:col-span-1 lg:col-span-2 bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg border border-gray-800 group">
+       <div class="artist-actions flex flex-wrap items-center gap-4">
           <img src="img/IMG_9137.jpeg"
                alt="Addison, tattoo artist in Denver/Aurora, Colorado"
                class="max-h-96 w-auto object-contain">
         </div>
-        <div class="p-6">
+        <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
             ADDISON POWELL
           </h3>
           <div class="w-16 h-0.5 mt-2 mb-4" style="background:#D4AF37"></div>
           <p class="font-medium" style="color:#D4AF37">Fine Line • Ornamental • Floral Tattoos</p>
-          <p class="text-gray-400 mt-3 max-w-prose">
+          <p class="artist-description text-gray-400 mt-3 max-w-prose">
             Addy is known for her refined Fine Line work, creating tattoos with exceptionally clean lines, delicate details, and balanced compositions. 
             She specializes in floral and ornamental designs, elegant lettering, and minimalist tattoos that enhance the body's natural shape while maintaining a timeless, sophisticated aesthetic.
          </p>
+            <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
 
           <div class="flex items-center gap-4 mt-6">
+              <button type="button"
+        class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
+        style="color:#D4AF37">
+  Read more →
+</button>
             <a href="#Booking"
                class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2.5 px-5 rounded-full transition">
               Book with Addison
@@ -777,6 +837,23 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
 </script>
 
 <!-- JavaScript -->
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+  readMoreButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const card = button.closest('.artist-card');
+      const description = card.querySelector('.artist-description');
+      const isExpanded = description.classList.toggle('expanded');
+
+      button.textContent = isExpanded
+        ? 'Show less ↑'
+        : 'Read more →';
+    });
+  });
+});
+</script>
     <script src="js/main.js?v=4"></script>
 </body>
 </html>
