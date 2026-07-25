@@ -165,7 +165,7 @@
             <button type="button"
         class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
         style="color:#D4AF37">
-  Read more →
+  View Bio →
 </button>
 
           <div class="artist-actions flex items-center gap-4">
@@ -202,7 +202,7 @@
             <button type="button"
         class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
         style="color:#D4AF37">
-  Read more →
+  View Bio →
 </button>
 
           <div class="artist-actions flex items-center gap-4">
@@ -239,7 +239,7 @@
             <button type="button"
         class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
         style="color:#D4AF37">
-  Read more →
+  View Bio →
 </button>
 
           <div class="artist-actions flex items-center gap-4">
@@ -275,7 +275,7 @@
             <button type="button"
         class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
         style="color:#D4AF37">
-  Read more →
+  View Bio →
 </button>
 
          <div class="artist-actions flex items-center gap-4">
@@ -311,7 +311,7 @@
             <button type="button"
         class="read-more-btn self-start mt-3 text-sm font-semibold hover:text-white transition"
         style="color:#D4AF37">
-  Read more →
+  View Bio →
 </button>
 
           <div class="artist-actions flex items-center gap-4">
@@ -836,20 +836,35 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
 
 <!-- JavaScript -->
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const readMoreButtons = document.querySelectorAll('.read-more-btn');
+document.addEventListener('DOMContentLoaded', () => {
 
-  readMoreButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      const card = button.closest('.artist-card');
-      const description = card.querySelector('.artist-description');
-      const isExpanded = description.classList.toggle('expanded');
+  document.querySelectorAll('.artist-card').forEach(card => {
 
-      button.textContent = isExpanded
-        ? 'Show less ↑'
-        : 'Read more →';
+    const desc = card.querySelector('.artist-description');
+    const btn = card.querySelector('.read-more-btn');
+
+    if (!desc || !btn) return;
+
+    // Si el texto entra completo, ocultamos el botón
+    if (desc.scrollHeight <= desc.clientHeight + 5) {
+      btn.style.display = "none";
+      return;
+    }
+
+    btn.textContent = "View Bio →";
+
+    btn.addEventListener("click", () => {
+
+      desc.classList.toggle("expanded");
+
+      btn.textContent = desc.classList.contains("expanded")
+        ? "Hide Bio ↑"
+        : "View Bio →";
+
     });
+
   });
+
 });
 </script>
     <script src="js/main.js?v=4"></script>
