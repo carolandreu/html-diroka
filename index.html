@@ -1813,23 +1813,107 @@ const artist =
     }
   });
 
-  /*
-    MOSTRAR U OCULTAR LOS FILTROS
-    SEGÚN TATTOOS O PIERCINGS
-  */
+ /*
+  CAMBIAR ENTRE TATTOOS Y PIERCINGS
+*/
 
-  if (tattooTab && filterContainer) {
-  tattooTab.addEventListener('click', function () {
+function showTattooGallery() {
+  if (gallery) {
+    gallery.classList.remove('hidden');
+  }
+
+  if (piercingGallery) {
+    piercingGallery.classList.add('hidden');
+  }
+
+  if (filterContainer) {
     filterContainer.style.display = 'flex';
-  });
+  }
+
+  if (tattooTab) {
+    tattooTab.classList.add('tab-active', 'text-white');
+    tattooTab.classList.remove('text-gray-400');
+  }
+
+  if (piercingTab) {
+    piercingTab.classList.remove('tab-active', 'text-white');
+    piercingTab.classList.add('text-gray-400');
+  }
+
+  updatePortfolioGallery();
+
+  closeLightbox();
 }
 
-if (piercingTab && filterContainer) {
-  piercingTab.addEventListener('click', function () {
+function showPiercingGallery() {
+  if (gallery) {
+    gallery.classList.add('hidden');
+  }
+
+  if (piercingGallery) {
+    piercingGallery.classList.remove('hidden');
+  }
+
+  if (filterContainer) {
     filterContainer.style.display = 'none';
-  });
+  }
+
+  if (loadMoreWrapper) {
+    loadMoreWrapper.style.display = 'none';
+  }
+
+  if (piercingTab) {
+    piercingTab.classList.add('tab-active', 'text-white');
+    piercingTab.classList.remove('text-gray-400');
+  }
+
+  if (tattooTab) {
+    tattooTab.classList.remove('tab-active', 'text-white');
+    tattooTab.classList.add('text-gray-400');
+  }
+
+  closeLightbox();
 }
 
+if (tattooTab) {
+  tattooTab.addEventListener('click', showTattooGallery);
+}
+
+if (piercingTab) {
+  piercingTab.addEventListener('click', showPiercingGallery);
+}
+
+const tattooNavigationLinks = [
+  document.getElementById('nav-tattoo'),
+  document.getElementById('mnav-tattoo')
+];
+
+const piercingNavigationLinks = [
+  document.getElementById('nav-piercing'),
+  document.getElementById('mnav-piercing')
+];
+
+tattooNavigationLinks.forEach(function (link) {
+  if (!link) {
+    return;
+  }
+
+  link.addEventListener('click', function () {
+    showTattooGallery();
+  });
+});
+
+piercingNavigationLinks.forEach(function (link) {
+  if (!link) {
+    return;
+  }
+
+  link.addEventListener('click', function () {
+    showPiercingGallery();
+  });
+});
+
+showTattooGallery();
 });
 </script>
    <script src="js/main.js?v=5"></script>
