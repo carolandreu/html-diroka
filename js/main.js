@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  // =========================
   // MENÚ MÓVIL
-  // =========================
-
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -13,11 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-
-  // =========================
   // GALERÍA: TATTOOS / PIERCINGS
-  // =========================
-
   const tattooTab = document.getElementById('tattoo-tab');
   const piercingTab = document.getElementById('piercing-tab');
   const tattooGallery = document.getElementById('tattoo-gallery');
@@ -70,14 +63,9 @@ document.addEventListener('DOMContentLoaded', function () {
     piercingTab.addEventListener('click', showPiercingGallery);
   }
 
-  // Estado inicial
   showTattooGallery();
 
-
-  // =========================
-  // NAVEGACIÓN HACIA PORTFOLIO
-  // =========================
-
+  // LINKS DEL MENÚ HACIA LA GALERÍA
   ['nav-piercing', 'mnav-piercing'].forEach(function (id) {
     const link = document.getElementById(id);
 
@@ -114,11 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  // =========================
   // FAQ
-  // =========================
-
   document.querySelectorAll('.faq-question').forEach(function (question) {
     question.addEventListener('click', function () {
       const item = question.parentNode;
@@ -131,11 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  // =========================
   // FECHA MÍNIMA DEL FORMULARIO
-  // =========================
-
   const dateInput = document.getElementById('date');
 
   if (dateInput) {
@@ -149,11 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.min = localDate;
   }
 
-
-  // =========================
   // SCROLL SUAVE
-  // =========================
-
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (event) {
       const targetId = anchor.getAttribute('href');
@@ -185,11 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  // =========================
   // ANIMACIÓN AL HACER SCROLL
-  // =========================
-
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
       function (entries) {
