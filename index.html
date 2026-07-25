@@ -887,48 +887,48 @@
             
             <!-- Piercing Gallery (initially hidden) -->
           <div id="piercing-gallery" class="hidden">
-                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">UPPER LOBE PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">BELLY BUTTON PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">TRAGUS + CONCH PIERCINGS</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">SEPTUM PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">MICRODERMAL</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
+                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">DAITH AND TRAGUS PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1275,9 +1275,15 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function () {
 
   const gallery = document.getElementById('tattoo-gallery');
-  const tattooCards = Array.from(
-    document.querySelectorAll('.tattoo-work')
-  );
+const piercingGallery = document.getElementById('piercing-gallery');
+
+const tattooCards = Array.from(
+  document.querySelectorAll('.tattoo-work')
+);
+
+const piercingCards = Array.from(
+  document.querySelectorAll('.piercing-work')
+);
 
   const filterContainer = document.getElementById('portfolio-filters');
   const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
@@ -1285,8 +1291,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const tattooTab = document.getElementById('tattoo-tab');
   const piercingTab = document.getElementById('piercing-tab');
 
-  const artistSelect = document.getElementById('artist');
-  const bookingSection = document.getElementById('Booking');
+ const artistSelect = document.getElementById('artist');
+const serviceSelect = document.getElementById('service');
+const bookingSection = document.getElementById('Booking');
 
   const lightbox = document.getElementById('portfolio-lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
@@ -1364,6 +1371,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+    /*
+  DISEÑO PREMIUM PARA PIERCINGS
+*/
+
+piercingCards.forEach(function (card) {
+  const image = card.querySelector('img');
+  const cardContent = card.querySelector('.p-4');
+  const titleElement = card.querySelector('h3');
+  const jewelryElement = card.querySelector('.text-gray-400');
+
+  if (!image || !cardContent || !titleElement) {
+    return;
+  }
+
+  const title = titleElement.textContent.trim();
+
+  const jewelryText = jewelryElement
+    ? jewelryElement.textContent.trim()
+    : 'Implant-grade titanium jewelry';
+
+  if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'portfolio-image-wrapper';
+
+    image.parentNode.insertBefore(imageWrapper, image);
+    imageWrapper.appendChild(image);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'portfolio-overlay';
+
+    overlay.innerHTML = `
+      <div>
+        <div class="portfolio-overlay-title">${title}</div>
+        <div class="portfolio-overlay-artist">${jewelryText}</div>
+        <div class="portfolio-overlay-view">View Full Size →</div>
+      </div>
+    `;
+
+    imageWrapper.appendChild(overlay);
+  }
+
+  if (!card.querySelector('.portfolio-book-btn')) {
+    const bookingButton = document.createElement('button');
+
+    bookingButton.type = 'button';
+    bookingButton.className = 'portfolio-book-btn';
+    bookingButton.dataset.service = 'piercing';
+    bookingButton.textContent = 'Book Piercing →';
+
+    cardContent.appendChild(bookingButton);
+  }
+});
+
   /*
     FILTROS
   */
@@ -1398,14 +1458,17 @@ document.addEventListener('DOMContentLoaded', function () {
     RESERVAR CON EL ARTISTA
   */
 
-  document.addEventListener('click', function (event) {
-    const bookingButton = event.target.closest('.portfolio-book-btn');
+ document.addEventListener('click', function (event) {
+  const bookingButton = event.target.closest('.portfolio-book-btn');
 
-    if (!bookingButton) {
-      return;
-    }
+  if (!bookingButton) {
+    return;
+  }
 
-    const artistKey = bookingButton.dataset.artist;
+  const artistKey = bookingButton.dataset.artist;
+  const service = bookingButton.dataset.service;
+
+  if (artistKey) {
     const artistValue = artistSelectValues[artistKey];
 
     if (artistSelect && artistValue) {
@@ -1413,13 +1476,29 @@ document.addEventListener('DOMContentLoaded', function () {
       artistSelect.dispatchEvent(new Event('change'));
     }
 
-    if (bookingSection) {
-      bookingSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (serviceSelect) {
+      serviceSelect.value = 'tattoo';
     }
-  });
+  }
+
+  if (service === 'piercing') {
+    if (serviceSelect) {
+      serviceSelect.value = 'piercing';
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
+
+    if (artistSelect) {
+      artistSelect.value = '';
+    }
+  }
+
+  if (bookingSection) {
+    bookingSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+});
 
   /*
     LIGHTBOX
@@ -1448,10 +1527,22 @@ document.addEventListener('DOMContentLoaded', function () {
       : '';
   }
 
-  function openLightbox(card) {
-    visibleCards = tattooCards.filter(function (tattooCard) {
-      return !tattooCard.classList.contains('portfolio-hidden');
-    });
+ function openLightbox(card, cards) {
+  visibleCards = cards.filter(function (portfolioCard) {
+    return !portfolioCard.classList.contains('portfolio-hidden');
+  });
+
+  currentImageIndex = visibleCards.indexOf(card);
+
+  if (currentImageIndex < 0) {
+    currentImageIndex = 0;
+  }
+
+  updateLightbox();
+
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
     currentImageIndex = visibleCards.indexOf(card);
 
@@ -1496,10 +1587,25 @@ document.addEventListener('DOMContentLoaded', function () {
       const card = imageWrapper.closest('.tattoo-work');
 
       if (card) {
-        openLightbox(card);
+       openLightbox(card, tattooCards);
       }
     });
   }
+        if (piercingGallery) {
+  piercingGallery.addEventListener('click', function (event) {
+    const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+
+    if (!imageWrapper) {
+      return;
+    }
+
+    const card = imageWrapper.closest('.piercing-work');
+
+    if (card) {
+      openLightbox(card, piercingCards);
+    }
+  });
+}
 
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
