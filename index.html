@@ -81,6 +81,10 @@
   column-gap: 1.5rem;
 }
 
+#tattoo-gallery.hidden {
+  display: none;
+}
+
 @media (min-width: 640px) {
   #tattoo-gallery {
     column-count: 2;
@@ -815,7 +819,7 @@
             <h3 class="text-lg font-semibold text-white">FINE LINE</h3>
 
             <p class="text-sm font-medium mt-1" style="color:#D4AF37">
-                By Addison Powel
+                By Addison Powell
             </p>
 
             <p class="text-gray-400 text-sm mt-2">
@@ -875,9 +879,13 @@
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
-            </div>
-            </section>
-    <!-- Portfolio Lightbox -->
+            </div> <!-- Cierra piercing-gallery -->
+
+</div> <!-- Cierra container -->
+
+</section>
+
+<!-- Portfolio Lightbox -->
 <div id="portfolio-lightbox"
      class="portfolio-lightbox"
      role="dialog"
@@ -1487,20 +1495,20 @@ document.addEventListener('DOMContentLoaded', function () {
     SEGÚN TATTOOS O PIERCINGS
   */
 
-  if (tattooTab) {
-    tattooTab.addEventListener('click', function () {
-      filterContainer.style.display = 'flex';
-    });
-  }
+  if (tattooTab && filterContainer) {
+  tattooTab.addEventListener('click', function () {
+    filterContainer.style.display = 'flex';
+  });
+}
 
-  if (piercingTab) {
-    piercingTab.addEventListener('click', function () {
-      filterContainer.style.display = 'none';
-    });
-  }
+if (piercingTab && filterContainer) {
+  piercingTab.addEventListener('click', function () {
+    filterContainer.style.display = 'none';
+  });
+}
 
 });
 </script>
-    <script src="js/main.js?v=4"></script>
+   <script src="js/main.js?v=5"></script>
 </body>
 </html>
