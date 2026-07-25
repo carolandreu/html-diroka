@@ -84,6 +84,7 @@
 #tattoo-gallery.hidden {
   display: none;
 }
+    
 
 @media (min-width: 640px) {
   #tattoo-gallery {
@@ -95,6 +96,45 @@
   #tattoo-gallery {
     column-count: 3;
   }
+}
+    /* Piercing Gallery estilo Pinterest */
+
+#piercing-gallery {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+#piercing-gallery.hidden {
+  display: none;
+}
+
+#piercing-gallery:not(.hidden) {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  #piercing-gallery {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  #piercing-gallery {
+    column-count: 3;
+  }
+}
+
+.piercing-work {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.piercing-work img {
+  width: 100%;
+  height: auto !important;
+  display: block;
 }
 
 .tattoo-work {
@@ -831,49 +871,49 @@
 </div>
             
             <!-- Piercing Gallery (initially hidden) -->
-            <div id="piercing-gallery" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+          <div id="piercing-gallery" class="hidden">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">UPPER LOBE PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">BELLY BUTTON PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">TRAGUS + CONCH PIERCINGS</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+               <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">SEPTUM PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">MICRODERMAL</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
                     </div>
                 </div>
                 
-                <div class="gallery-item overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
-                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-96 object-cover object-center transition-transform duration-500 group-hover:scale-105">
+                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800 border border-gray-700 group">
+                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center transition-transform duration-500 group-hover:scale-105">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">DAITH AND TRAGUS PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
