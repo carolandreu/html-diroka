@@ -65,7 +65,7 @@
     }
     </script>
     
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20260903-2">
     </head>
     
 <body class="bg-gray-900 text-gray-200 antialiased">
@@ -138,20 +138,32 @@
         <div class="trust-strip" aria-label="Why choose Diroka">
           <div class="trust-strip-inner">
             <div class="trust-item">
-              <i class="fas fa-pen-nib" aria-hidden="true"></i>
-              <span>Custom Artwork</span>
+              <div class="trust-icon"><i class="fas fa-pen-nib" aria-hidden="true"></i></div>
+              <div class="trust-copy">
+                <strong>Custom Artwork</strong>
+                <small>Designed exclusively for you</small>
+              </div>
             </div>
             <div class="trust-item">
-              <i class="fas fa-shield-heart" aria-hidden="true"></i>
-              <span>Clean &amp; Professional</span>
+              <div class="trust-icon"><i class="fas fa-shield-heart" aria-hidden="true"></i></div>
+              <div class="trust-copy">
+                <strong>Clean &amp; Professional</strong>
+                <small>Safety at every step</small>
+              </div>
             </div>
             <div class="trust-item">
-              <i class="fas fa-gem" aria-hidden="true"></i>
-              <span>Implant-Grade Titanium</span>
+              <div class="trust-icon"><i class="fas fa-gem" aria-hidden="true"></i></div>
+              <div class="trust-copy">
+                <strong>Premium Titanium</strong>
+                <small>Implant-grade jewelry</small>
+              </div>
             </div>
             <div class="trust-item">
-              <i class="fas fa-location-dot" aria-hidden="true"></i>
-              <span>Aurora · Denver Metro</span>
+              <div class="trust-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+              <div class="trust-copy">
+                <strong>Aurora Studio</strong>
+                <small>Serving the Denver metro</small>
+              </div>
             </div>
           </div>
         </div>
@@ -1180,21 +1192,39 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
 
     <div class="reviews-grid">
       <article class="review-card">
-        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="review-avatar"><i class="fas fa-user" aria-hidden="true"></i></div>
+          <div>
+            <span class="review-service">Tattoo Experience</span>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>“This shop exceeded my expectations.”</blockquote>
         <p>The client highlighted the service, scheduling flexibility, and tattoo experience with Diego.</p>
         <cite>Tattoo client · May 2026</cite>
       </article>
 
       <article class="review-card">
-        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="review-avatar"><i class="fas fa-user" aria-hidden="true"></i></div>
+          <div>
+            <span class="review-service">Piercing Experience</span>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>“Amazing service and professionalism!”</blockquote>
         <p>A parent praised the care and attention provided during her daughter’s nose piercing.</p>
         <cite>Piercing client · April 2026</cite>
       </article>
 
       <article class="review-card">
-        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <div class="review-card-top">
+          <div class="review-avatar"><i class="fas fa-user" aria-hidden="true"></i></div>
+          <div>
+            <span class="review-service">Piercing Experience</span>
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>“Carol did an amazing job.”</blockquote>
         <p>The client appreciated the clean process, clear explanation, and comfortable piercing experience.</p>
         <cite>Piercing client · March 2026</cite>
@@ -1224,11 +1254,15 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                 </div>
 
                 <div class="payment-note" role="note">
-                  <i class="fas fa-wallet" aria-hidden="true"></i>
-                  <div>
+                  <div class="payment-brand" aria-hidden="true">
+                    <span>PAY OVER TIME</span>
+                    <strong>Afterpay</strong>
+                  </div>
+                  <div class="payment-copy">
                     <strong>Flexible payment options</strong>
                     <span>Afterpay is available. Ask our team for details during your consultation.</span>
                   </div>
+                  <div class="payment-icon"><i class="fas fa-wallet" aria-hidden="true"></i></div>
                 </div>
                 
                   <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" action="https://formspree.io/f/xrbaryqa" method="POST" enctype="multipart/form-data">
@@ -1464,6 +1498,6 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
 </nav>
 
 <!-- JavaScript -->
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js?v=20260903-2" defer></script>
 </body>
 </html>
