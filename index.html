@@ -4,342 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Award-winning tattoo and piercing studio serving Denver and Aurora, Colorado. Custom tattoos, fine line, realism, black & grey, geometric tattoos, and implant-grade titanium piercings."> 
+    <meta name="theme-color" content="#080808">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dirokatattoostudio.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Diroka Tattoo Studio | Denver & Aurora">
+    <meta property="og:description" content="Award-winning custom tattoos and premium body piercings in Aurora, serving the Denver metro area.">
+    <meta property="og:url" content="https://dirokatattoostudio.com/">
+    <meta property="og:image" content="https://dirokatattoostudio.com/img/interior.png">
+    <meta property="og:locale" content="en_US">
+
     <title>Denver & Aurora Tattoo and Piercing Studio | Diroka</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Diroka Tattoo Studio",
+      "url": "https://dirokatattoostudio.com/",
+      "logo": "https://dirokatattoostudio.com/img/DirokaLogo.png",
+      "image": "https://dirokatattoostudio.com/img/interior.png",
+      "telephone": "+1-720-930-1327",
+      "email": "dirokatattoostudio.usa@gmail.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14505 E Alameda Ave, Suite B",
+        "addressLocality": "Aurora",
+        "addressRegion": "CO",
+        "postalCode": "80012",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Aurora", "Denver"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/dirokatattoo.us/",
+        "https://www.facebook.com/profile.php?id=61577384348802",
+        "https://www.tiktok.com/@dirokatattoo.us"
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/styles.css">
-    
-<style>
-  .artist-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .artist-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .artist-description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-    min-height: 96px;
-  }
-
-  .artist-description.expanded {
-    display: block;
-    overflow: visible;
-  }
-
-  .artist-actions {
-    margin-top: auto;
-    padding-top: 1.5rem;
-  }
-    /* =========================
-   PORTFOLIO PREMIUM
-========================= */
-
-.portfolio-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.portfolio-filter-btn {
-  border: 1px solid #4b5563;
-  color: #d1d5db;
-  padding: 0.55rem 1.1rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.portfolio-filter-btn:hover {
-  border-color: #D4AF37;
-  color: #D4AF37;
-  transform: translateY(-2px);
-}
-
-.portfolio-filter-btn.active {
-  background: #D4AF37;
-  border-color: #D4AF37;
-  color: #111827;
-}
-
-/* Portfolio estilo Pinterest */
-
-#tattoo-gallery {
-  display: block;
-  column-count: 1;
-  column-gap: 1.5rem;
-}
-
-#tattoo-gallery.hidden {
-  display: none;
-}
-    
-
-@media (min-width: 640px) {
-  #tattoo-gallery {
-    column-count: 2;
-  }
-}
-
-@media (min-width: 1024px) {
-  #tattoo-gallery {
-    column-count: 3;
-  }
-}
-    /* Piercing Gallery estilo Pinterest */
-
-#piercing-gallery {
-  column-count: 1;
-  column-gap: 1.5rem;
-}
-
-#piercing-gallery.hidden {
-  display: none;
-}
-
-#piercing-gallery:not(.hidden) {
-  display: block;
-}
-
-@media (min-width: 640px) {
-  #piercing-gallery {
-    column-count: 2;
-  }
-}
-
-@media (min-width: 1024px) {
-  #piercing-gallery {
-    column-count: 3;
-  }
-}
-
-.piercing-work {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
-}
-
-.piercing-work img {
-  width: 100%;
-  height: auto !important;
-  display: block;
-}
-
-.tattoo-work {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-.tattoo-work.portfolio-hidden {
-  display: none;
-}
-
-.tattoo-work img {
-  width: 100%;
-  height: auto !important;
-  display: block;
-  cursor: zoom-in;
-  transition: transform 0.5s ease;
-}
-
-.portfolio-image-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio-image-wrapper:hover img {
-  transform: scale(1.04);
-}
-
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.25rem;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.1) 65%
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.portfolio-image-wrapper:hover .portfolio-overlay {
-  opacity: 1;
-}
-
-.portfolio-overlay-title {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.portfolio-overlay-artist {
-  color: #D4AF37;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-}
-
-.portfolio-overlay-view {
-  color: white;
-  font-size: 0.8rem;
-  margin-top: 0.65rem;
-}
-
-.portfolio-book-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #D4AF37;
-  font-size: 0.875rem;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-.portfolio-book-btn:hover {
-  color: white;
-}
-
-/* Lightbox */
-
-.portfolio-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.94);
-}
-
-.portfolio-lightbox.open {
-  display: flex;
-}
-
-.lightbox-content {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  max-height: 95vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lightbox-image {
-  max-width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  border-radius: 0.5rem;
-}
-
-.lightbox-caption {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.lightbox-title {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.lightbox-artist {
-  color: #D4AF37;
-  margin-top: 0.25rem;
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 1rem;
-  right: 1.25rem;
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  z-index: 10001;
-  transition: color 0.3s ease;
-}
-
-.lightbox-close:hover {
-  color: #D4AF37;
-}
-
-.lightbox-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  background: rgba(17, 24, 39, 0.8);
-  color: white;
-  font-size: 1.4rem;
-  transition: background 0.3s ease;
-}
-
-.lightbox-arrow:hover {
-  background: #D4AF37;
-  color: #111827;
-}
-
-.lightbox-prev {
-  left: 1rem;
-}
-
-.lightbox-next {
-  right: 1rem;
-}
-
-@media (max-width: 640px) {
-  .portfolio-overlay {
-    opacity: 1;
-    padding: 1rem;
-  }
-
-  .lightbox-arrow {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .lightbox-prev {
-    left: 0.25rem;
-  }
-
-  .lightbox-next {
-    right: 0.25rem;
-  }
-}
-</style>
     </head>
     
-<body class="bg-gray-900 text-gray-200 font-sans antialiased">
+<body class="bg-gray-900 text-gray-200 antialiased">
     
   <!-- Header and Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-md shadow-lg">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <img src="img/DirokaLogo.png" alt="Diroka Tattoo & Piercing Studio Logo - Denver, Colorado" class="h-12 w-auto" />
+              <a href="#Home" aria-label="Go to Diroka Tattoo Studio home">
+                <img src="img/DirokaLogo.png" alt="Diroka Tattoo & Piercing Studio Logo - Denver, Colorado" class="h-12 w-auto" decoding="async" fetchpriority="high" />
+              </a>
             </div>
   <nav class="hidden md:flex space-x-8">
     <a href="#Home" class="nav-link text-gray-300 hover:text-white">Home</a>
@@ -348,9 +78,14 @@
     <a href="#Portfolio" id="nav-piercing" class="nav-link text-gray-300 hover:text-white">Piercing Gallery</a>
     <a href="#Booking" class="nav-link text-gray-300 hover:text-white">Book Now</a>
     <a href="#Contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
-  </nav>
+            </nav>
             <div class="md:hidden">
-                <button id="menu-toggle" class="text-gray-300 hover:text-white focus:outline-none">
+                <button type="button"
+                        id="menu-toggle"
+                        class="text-gray-300 hover:text-white focus:outline-none"
+                        aria-label="Open navigation menu"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -372,7 +107,15 @@
     <section id="Home" class="pt-24 relative">
         <div class="hero-image relative h-screen max-h-[800px] flex items-center justify-center overflow-hidden">
             <!-- Background video for the hero section. The video plays automatically, loops, and is muted to keep the experience smooth. The playsinline attribute enables playback on mobile devices. -->
-            <video src="video/todiroka.mp4" class="absolute w-full h-full object-cover" autoplay loop muted playsinline aria-label="Artistic interior of tattoo studio, black walls with framed artwork, artist focused while working on a tattoo"></video>
+            <video src="video/todiroka.mp4"
+                   class="absolute w-full h-full object-cover"
+                   autoplay
+                   loop
+                   muted
+                   playsinline
+                   preload="metadata"
+                   poster="img/interior.png"
+                   aria-label="Artistic interior of Diroka Tattoo Studio"></video>
             <div class="relative z-10 text-center px-4 container mx-auto">
                <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">DIROKA TATTOO STUDIO</h1>
                 <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-gray-300">Award-winning tattoo artists in Denver & Aurora creating custom tattoos, fine line, realism, geometric designs, black & grey, and premium body piercings.</p>
@@ -389,7 +132,7 @@
         <div class="flex flex-col md:flex-row items-center">
         <!-- Columna de texto -->
         <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-            <h3 class="text-4xl font-bold mb-4 text-white">DIROKA TATTOO STUDIO</h3>
+            <h2 class="text-4xl font-bold mb-4 text-white">DIROKA TATTOO STUDIO</h2>
             <p class="text-lg text-gray-400 mb-6">
                 Welcome to Diroka Tattoo Studio, proudly serving the Denver metro area from our studio in Aurora, Colorado, where art and elegance merge to create an unforgettable experience. 
                 At Diroka, we stand apart from other tattoo and piercing studios with our modern, upscale atmosphere — completely free from negativity and bad vibes.
@@ -405,7 +148,7 @@
                     <div>
                         <h4 class="text-xl font-semibold text-white mb-1">Visit Us</h4>
                         <p class="text-gray-400">
-                            <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?g_st=com.google.maps.preview.copy" target="_blank" class="hover:text-pink-500 underline">
+                            <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?g_st=com.google.maps.preview.copy" target="_blank" class="hover:text-pink-500 underline" rel="noopener noreferrer">
                                 14505 E Alameda Ave, Suite B, Aurora, CO 80012
                             </a>
                         </p>
@@ -416,7 +159,7 @@
 
         <!-- Columna de foto -->
         <div class="md:w-1/2">
-            <img src="img/interior.png" alt="Interior of Diroka Tattoo Studio in Aurora, Colorado, featuring a modern and elegant design" class="w-full h-auto rounded-lg shadow-2xl">
+            <img src="img/interior.png" alt="Interior of Diroka Tattoo Studio in Aurora, Colorado, featuring a modern and elegant design" class="w-full h-auto rounded-lg shadow-2xl" loading="lazy" decoding="async">
         </div>
   </div>
 </div>
@@ -440,7 +183,7 @@
      <div class="flex items-center justify-center bg-black h-96 overflow-hidden">
           <img src="img/diegofinal.jpg"
                alt="Diego Juarez, tattoo artist in Denver/Aurora, Colorado specializing in geometric, dotwork, and black & grey tattoos"
-               class="max-h-96 w-auto object-contain">
+               class="max-h-96 w-auto object-contain" loading="lazy" decoding="async">
         </div>
         <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
@@ -469,7 +212,7 @@
   Book with Diego
 </a>
             <a href="https://www.instagram.com/diego.dirokatattoo/" target="_blank"
-               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Diego Juarez Instagram">
+               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Diego Juarez Instagram" rel="noopener noreferrer">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
             </a>
           </div>
@@ -481,7 +224,7 @@
        <div class="flex items-center justify-center bg-black h-96 overflow-hidden">
           <img src="img/arnoldfinal.jpg"
                alt="Arnold Camargo, tattoo artist in Denver/Aurora, Colorado specializing in Portrait and realism "
-               class="max-h-96 w-auto object-contain">
+               class="max-h-96 w-auto object-contain" loading="lazy" decoding="async">
         </div>
         <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
@@ -510,7 +253,7 @@
   Book with Arnold
 </a>
             <a href="https://www.instagram.com/tatuajesarnold/" target="_blank"
-               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Arnold Camargo Instagram">
+               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Arnold Camargo Instagram" rel="noopener noreferrer">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
             </a>
           </div>
@@ -522,7 +265,7 @@
         <div class="flex items-center justify-center bg-black h-96 overflow-hidden">
           <img src="img/julifinal.jpg"
                alt="Julian, tattoo artist in Denver/Aurora, Colorado"
-               class="max-h-96 w-auto object-contain">
+               class="max-h-96 w-auto object-contain" loading="lazy" decoding="async">
         </div>
         <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
@@ -550,7 +293,7 @@
   Book with Julian
 </a>
             <a href="https://www.instagram.com/juliancarvajaltattooartist/" target="_blank"
-               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Julian Instagram">
+               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Julian Instagram" rel="noopener noreferrer">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
             </a>
           </div>
@@ -562,7 +305,7 @@
        <div class="flex items-center justify-center bg-black h-96 overflow-hidden">
           <img src="img/addifinal.jpeg"
                alt="Addison, tattoo artist in Denver/Aurora, Colorado"
-               class="max-h-96 w-auto object-contain">
+               class="max-h-96 w-auto object-contain" loading="lazy" decoding="async">
         </div>
         <div class="artist-content p-6">
           <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
@@ -590,7 +333,7 @@
   Book with Addison
 </a>
             <a href="https://www.instagram.com/dont_cry_ink/" target="_blank"
-               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Addison Powell Instagram">
+               class="flex items-center gap-2 text-gray-300 hover:text-pink-400" aria-label="Addison Powell Instagram" rel="noopener noreferrer">
               <i class="fab fa-instagram text-xl"></i><span class="text-sm">Instagram</span>
             </a>
           </div>
@@ -613,9 +356,9 @@
             </div>
             
             <div class="mb-8 flex justify-center">
-                <div class="inline-flex rounded-md shadow-sm" role="group">
-                <button type="button" id="tattoo-tab" class="tab-active px-6 py-2 text-sm font-medium rounded-l-lg bg-gray-800 text-white">Tattoos</button>
-                <button type="button" id="piercing-tab" class="px-6 py-2 text-sm font-medium rounded-r-lg bg-gray-800 text-gray-400 hover:text-white">Piercings</button>                
+                <div class="inline-flex rounded-md shadow-sm" role="tablist" aria-label="Portfolio categories">
+                <button type="button" id="tattoo-tab" role="tab" aria-controls="tattoo-gallery" aria-selected="true" class="tab-active px-6 py-2 text-sm font-medium rounded-l-lg bg-gray-800 text-white">Tattoos</button>
+                <button type="button" id="piercing-tab" role="tab" aria-controls="piercing-gallery" aria-selected="false" class="px-6 py-2 text-sm font-medium rounded-r-lg bg-gray-800 text-gray-400 hover:text-white">Piercings</button>                
                 </div>
             </div>
             <div id="portfolio-filters" class="portfolio-filters">
@@ -641,19 +384,19 @@
 </div>
             
             <!-- Tattoo Gallery -->
-<div id="tattoo-gallery">
+<div id="tattoo-gallery" role="tabpanel" aria-labelledby="tattoo-tab">
 
     <!-- Diego 1 -->
     <div class="gallery-item tattoo-work overflow-hidden rounded-lg shadow-lg bg-gray-800"
          data-artist="diego">
         <img src="img/diego-1.JPG"
              alt="Award-winning geometric tattoo by Diego Juarez at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">GEOMETRIC</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Diego Juarez
             </p>
 
@@ -668,12 +411,12 @@
          data-artist="diego">
         <img src="img/diego-2.JPG"
              alt="Geometric leg tattoo by Diego Juarez at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">GEOMETRIC</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Diego Juarez
             </p>
 
@@ -689,14 +432,14 @@
 
   <img src="img/IMG_1068-2.jpg"
       alt="Custom Polynesian chest and shoulder tattoo by Diego Juarez at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 POLYNESIAN
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego Juarez
 </p>
 
@@ -712,14 +455,14 @@ Custom Polynesian chest and shoulder tattoo featuring bold traditional patterns,
 
   <img src="img/IMG_1071 2.jpg"
        alt="Large-scale ornamental blackwork leg tattoos by Diego Juarez at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 ORNAMENTAL GEOMETRIC
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego Juarez
 </p>
 
@@ -735,14 +478,14 @@ Large-scale ornamental Blackwork leg tattoos combining bold contrast, geometric 
 
   <img src="img/IMG_2193 3.jpg"
        alt="Black and Grey skull realism tattoo by Diego Juarez at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 BLACK & GREY REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego Juarez
 </p>
 
@@ -758,14 +501,14 @@ Detailed Black & Grey realism tattoo featuring two skull figures with smooth sha
 
   <img src="img/IMG_3034 2.jpg"
        alt="Geometric dotwork shoulder tattoo by Diego Juarez at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 GEOMETRIC DOTWORK
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego Juarez
 </p>
 
@@ -781,14 +524,14 @@ Large geometric Dotwork shoulder piece featuring layered patterns, strong symmet
 
   <img src="img/diego-3.jpg"
        alt="Black and Grey gorilla realism sleeve by Diego Juarez at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 BLACK & GREY REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego Juarez
 </p>
 
@@ -804,14 +547,14 @@ Full Black & Grey realism sleeve featuring a powerful gorilla portrait, natural 
 
   <img src="img/diego-4.JPG"
       alt="Award-winning full body geometric tattoo by Diego at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
 <h3 class="text-lg font-semibold text-white">
 FULL BODY GEOMETRIC
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Diego
 </p>
 
@@ -827,12 +570,12 @@ Award-winning full body geometric composition featuring sacred geometry, ornamen
          data-artist="arnold">
         <img src="img/arnold-1.JPG"
              alt="Color realism portrait tattoo by Arnold Camargo at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">COLOR REALISM</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Arnold Camargo
             </p>
 
@@ -847,12 +590,12 @@ Award-winning full body geometric composition featuring sacred geometry, ornamen
          data-artist="arnold">
         <img src="img/arnold-2.JPG"
              alt="Color realism portrait and butterfly tattoo by Arnold Camargo"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">COLOR REALISM</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Arnold Camargo
             </p>
 
@@ -868,14 +611,14 @@ Award-winning full body geometric composition featuring sacred geometry, ornamen
 
   <img src="img/arnold-3.JPG"
        alt="Color realism tattoo by Arnold Camargo at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 BLACK & GREY REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Arnold Camargo
 </p>
 
@@ -891,14 +634,14 @@ Custom Black & Grey realism tattoo combining a detailed eye, compass, and rose w
 
   <img src="img/arnold-4.JPG"
        alt="Color realism tattoo by Arnold Camargo at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 COLOR REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Arnold Camargo
 </p>
 
@@ -914,14 +657,14 @@ Hyper-realistic color tattoo featuring vibrant lips, dramatic contrast, and life
 
   <img src="img/arnold-5.JPG"
        alt="Color realism tattoo by Arnold Camargo at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 BLACK & GREY PORTRAIT
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Arnold Camargo
 </p>
 
@@ -937,14 +680,14 @@ Surreal Black & Grey portrait with realistic textures, expressive shadows, and c
 
   <img src="img/arnold-6.JPG"
        alt="Color realism tattoo by Arnold Camargo at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 COLOR PORTRAIT
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Arnold Camargo
 </p>
 
@@ -960,14 +703,14 @@ Highly detailed color portrait tattoo capturing lifelike expressions, natural sk
 
   <img src="img/arnold-7.JPG"
        alt="Color realism tattoo by Arnold Camargo at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 MEMORIAL PORTRAIT
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Arnold Camargo
 </p>
 
@@ -982,12 +725,12 @@ Realistic memorial portrait tattoo created with smooth Black & Grey shading, pre
          data-artist="julian">
         <img src="img/julian-1.JPG"
              alt="Fine line koi fish color tattoo by Julian Carvajal"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">FINE LINE COLOR</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Julian Carvajal
             </p>
 
@@ -1002,12 +745,12 @@ Realistic memorial portrait tattoo created with smooth Black & Grey shading, pre
          data-artist="julian">
         <img src="img/julian-2.JPG"
              alt="Botanical fine line tattoo by Julian Carvajal at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">BOTANICAL FINE LINE</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Julian Carvajal
             </p>
 
@@ -1023,14 +766,14 @@ Realistic memorial portrait tattoo created with smooth Black & Grey shading, pre
 
   <img src="img/julian-3.JPG"
       alt="Fine line baby handprint memorial tattoo by Julian at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 FINE LINE MEMORIAL
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Julian
 </p>
 
@@ -1046,14 +789,14 @@ Fine Line memorial tattoo featuring a baby's handprint, custom lettering, and bi
 
   <img src="img/julian-4.JPG"
      alt="Minimalist fine line lettering chest tattoo by Julian at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 FINE LINE LETTERING
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Julian
 </p>
 
@@ -1069,14 +812,14 @@ Minimalist Fine Line chest tattoo combining custom typography with botanical ele
 
   <img src="img/julian-5.JPG"
       alt="Micro realism wine glass tattoo by Julian at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 MICRO REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Julian
 </p>
 
@@ -1092,14 +835,14 @@ Micro realism tattoo featuring a wine glass with vivid red accents and delicate 
 
   <img src="img/julian-6.JPG"
       alt="Fine line butterfly spine tattoo by Julian at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 FINE LINE BUTTERFLIES
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Julian
 </p>
 
@@ -1115,14 +858,14 @@ Elegant Fine Line butterfly tattoo with soft shading, flowing lines, and custom 
 
   <img src="img/julian-7.JPG"
        alt="Religious Jesus realism tattoo with red accents by Julian at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 RELIGIOUS REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Julian
 </p>
 
@@ -1137,12 +880,12 @@ Custom religious tattoo featuring Jesus in Black & Grey realism enhanced with bo
          data-artist="addison">
         <img src="img/addison-1.JPG"
              alt="Fine line illustrative tattoo by Addison Powell at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">FINE LINE</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                By Addison Powell
             </p>
 
@@ -1157,12 +900,12 @@ Custom religious tattoo featuring Jesus in Black & Grey realism enhanced with bo
          data-artist="addison">
         <img src="img/addison-2.JPG"
              alt="Fine line ornamental tattoo by Addison Powell at Diroka Tattoo Studio"
-             class="w-full h-96 object-cover">
+             class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
         <div class="p-4">
             <h3 class="text-lg font-semibold text-white">FINE LINE</h3>
 
-            <p class="text-sm font-medium mt-1" style="color:#D4AF37">
+            <p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
                 By Addison Powell
             </p>
 
@@ -1178,14 +921,14 @@ Custom religious tattoo featuring Jesus in Black & Grey realism enhanced with bo
 
   <img src="img/addison-3.JPG"
        alt="Fine line floral tattoo by Addison Powell at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 FINE LINE RELIGIOUS
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Addison Powell
 </p>
 
@@ -1201,14 +944,14 @@ Delicate Fine Line rosary tattoo featuring clean linework, subtle shading, and e
 
   <img src="img/addison-4.JPG"
        alt="Fine line floral tattoo by Addison Powell at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 ORNAMENTAL FINE LINE
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Addison Powell
 </p>
 
@@ -1224,14 +967,14 @@ Custom ornamental Fine Line chest piece combining botanical elements, symbolic i
 
   <img src="img/addison-5.JPG"
        alt="Fine line floral tattoo by Addison Powell at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 FINE LINE
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Addison Powell
 </p>
 
@@ -1247,14 +990,14 @@ Custom Fine Line tattoo featuring symbolic elements, crisp linework, and delicat
 
   <img src="img/addison-6.JPG"
        alt="Fine line floral tattoo by Addison Powell at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
    <h3 class="text-lg font-semibold text-white">
 FINE LINE REALISM
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Addison Powell
 </p>
 
@@ -1270,14 +1013,14 @@ Fine Line realism tattoo featuring a graceful panther with soft shading, smooth 
 
   <img src="img/addison-7.JPG"
        alt="Fine line floral tattoo by Addison Powell at Diroka Tattoo Studio"
-       class="w-full h-96 object-cover">
+       class="w-full h-96 object-cover" loading="lazy" decoding="async">
 
   <div class="p-4">
     <h3 class="text-lg font-semibold text-white">
 BOTANICAL FINE LINE
 </h3>
 
-<p class="text-sm font-medium mt-1" style="color:#D4AF37">
+<p class="portfolio-card-artist text-sm font-medium mt-1" style="color:#D4AF37">
 By Addison Powell
 </p>
 
@@ -1299,9 +1042,9 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
 </div>
             
             <!-- Piercing Gallery (initially hidden) -->
-          <div id="piercing-gallery" class="hidden">
+          <div id="piercing-gallery" class="hidden" role="tabpanel" aria-labelledby="piercing-tab">
                 <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center">
+                    <img src="img/IMG_0585.JPG" alt="Upper lobe ear piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">UPPER LOBE PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1309,7 +1052,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                 </div>
                 
                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-auto object-cover object-center">
+                    <img src="img/IMG_8343.jpeg" alt="Belly button piercing with fine jewelry" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">BELLY BUTTON PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1317,7 +1060,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                 </div>
                 
                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-auto object-cover object-center">
+                    <img src="img/DSCN8861_Original.JPG" alt="Tragus and helix ear piercings with small sterling silver hoops and bars" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">TRAGUS + CONCH PIERCINGS</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1325,7 +1068,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                 </div>
                 
                <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-auto object-cover object-center">
+                    <img src="img/DSCN3707_Original.jpg" alt="Septum nose piercing" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">SEPTUM PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1333,7 +1076,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                 </div>
                 
                 <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-auto object-cover object-center">
+                    <img src="img/IMG_0912.JPG" alt="Microdermals" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">MICRODERMAL</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1341,7 +1084,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                 </div>
                 
                 <div class="gallery-item piercing-work overflow-hidden rounded-lg shadow-lg bg-gray-800">
-                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center">
+                    <img src="img/IMG_7683-2.jpg" alt="daith and tragus piercing with gold titanium jewelry" class="w-full h-auto object-cover object-center" loading="lazy" decoding="async">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold text-white">DAITH AND TRAGUS PIERCING</h3>
                         <p class="text-gray-400 text-sm">Titanium jewelry</p>
@@ -1358,7 +1101,9 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
      class="portfolio-lightbox"
      role="dialog"
      aria-modal="true"
-     aria-label="Portfolio image viewer">
+     aria-label="Portfolio image viewer"
+     aria-hidden="true"
+     tabindex="-1">
 
   <button type="button"
           id="lightbox-close"
@@ -1377,8 +1122,7 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
   <div class="lightbox-content">
     <img id="lightbox-image"
          class="lightbox-image"
-         src=""
-         alt="">
+         alt="" loading="lazy" decoding="async">
 
     <div class="lightbox-caption">
       <h3 id="lightbox-title" class="lightbox-title"></h3>
@@ -1407,17 +1151,17 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                   <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" action="https://formspree.io/f/xrbaryqa" method="POST">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
-                        <input type="text" id="name" name="name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your name" required>
+                        <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your name" required>
                     </div>
                     
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                        <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="your@email.com" required>
+                        <input type="email" id="email" name="email" autocomplete="email" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="your@email.com" required>
                     </div>
                     
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-300 mb-1">Phone</label>
-                        <input type="tel" id="phone" name="phone" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="+1 303 123-4567" required>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="+1 303 123-4567" required>
                     </div>
                     
                     <div>
@@ -1444,6 +1188,11 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                         <label for="date" class="block text-sm font-medium text-gray-300 mb-1">Preferred Date</label>
                         <input type="date" id="date" name="date" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
                     </div>
+
+                    <div class="md:col-span-2">
+                        <label for="reference-url" class="block text-sm font-medium text-gray-300 mb-1">Reference Image Link <span class="text-gray-500">(optional)</span></label>
+                        <input type="url" id="reference-url" name="reference_url" autocomplete="url" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Pinterest, Instagram, Google Drive...">
+                    </div>
                     
                     <div class="md:col-span-2">
                         <label for="description" class="block text-sm font-medium text-gray-300 mb-1">Description of Your Idea</label>
@@ -1454,6 +1203,11 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                     <button type="submit" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-12 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider">
                     Submit Request
                     </button>
+                    </div>
+                    <div id="form-status" class="form-status md:col-span-2" role="status" aria-live="polite"></div>
+                    <div class="hidden" aria-hidden="true">
+                        <label for="company-website">Leave this field empty</label>
+                        <input type="text" id="company-website" name="_gotcha" tabindex="-1" autocomplete="off">
                     </div>
                     <input type="hidden" name="subject" value="New booking request — dirokatattoostudio.com">
 <input type="hidden" name="_replyto" id="replytoField">
@@ -1488,7 +1242,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
             <div>
               <h4 class="text-xl font-semibold text-white mb-1">Address</h4>
               <p class="text-gray-300">
-                <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?g_st=com.google.maps.preview.copy" target="_blank" class="hover:text-pink-500 underline">
+                <a href="https://maps.app.goo.gl/K6jS4uJ3qGHfGFz2A?g_st=com.google.maps.preview.copy" target="_blank" class="hover:text-pink-500 underline" rel="noopener noreferrer">
                  14505 E Alameda Ave, Suite B, Aurora, CO 80012
                 </a>
               </p>
@@ -1576,7 +1330,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
   <div class="container mx-auto px-4 text-center">
     <!-- Logo -->
     <div class="flex justify-center mb-4">
-      <img src="img/DirokaLogo.png" alt="Diroka Logo" class="h-12 w-auto" />
+      <img src="img/DirokaLogo.png" alt="Diroka Logo" class="h-12 w-auto" loading="lazy" decoding="async" />
     </div>
     <!-- Slogan -->
     <p class="text-gray-400 mb-6">
@@ -1588,731 +1342,9 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
     </div>
   </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('booking-form');
 
-  if (!form || form.dataset.handlerAttached === 'true') {
-    return;
-  }
-
-  form.dataset.handlerAttached = 'true';
-
-  const submitButton = form.querySelector('button[type="submit"]');
-
-  form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-
-    const emailInput = form.querySelector('[name="email"]');
-    const replyToField = form.querySelector('#replytoField');
-
-    if (emailInput && replyToField) {
-      replyToField.value = emailInput.value.trim();
-    }
-
-    const originalButtonText = submitButton.textContent;
-
-    submitButton.disabled = true;
-    submitButton.textContent = 'SENDING...';
-    submitButton.classList.add('opacity-60', 'cursor-not-allowed');
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: {
-          Accept: 'application/json'
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-
-      form.reset();
-
-      alert(
-        'Thank you! Your request was sent successfully. Our team will contact you soon.'
-      );
-    } catch (error) {
-      console.error('Booking form error:', error);
-
-      alert(
-        'We could not send your request. Please try again or call us at (720) 930-1327.'
-      );
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = originalButtonText;
-      submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
-    }
-  }, true);
-});
-</script>
 
 <!-- JavaScript -->
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  document.querySelectorAll('.artist-card').forEach(card => {
-
-    const desc = card.querySelector('.artist-description');
-    const btn = card.querySelector('.read-more-btn');
-
-    if (!desc || !btn) return;
-
-    // Si el texto entra completo, ocultamos el botón
-    if (desc.scrollHeight <= desc.clientHeight + 5) {
-      btn.style.display = "none";
-      return;
-    }
-
-    btn.textContent = "View Bio →";
-
-    btn.addEventListener("click", () => {
-
-      desc.classList.toggle("expanded");
-
-      btn.textContent = desc.classList.contains("expanded")
-        ? "Hide Bio ↑"
-        : "View Bio →";
-
-    });
-
-  });
-
-});
-</script>
-    <script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  const gallery = document.getElementById('tattoo-gallery');
-const piercingGallery = document.getElementById('piercing-gallery');
-
-const tattooCards = Array.from(
-  document.querySelectorAll('.tattoo-work')
-);
-
-const piercingCards = Array.from(
-  document.querySelectorAll('.piercing-work')
-);
-
-  const filterContainer = document.getElementById('portfolio-filters');
-  const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
-
-  const tattooTab = document.getElementById('tattoo-tab');
-  const piercingTab = document.getElementById('piercing-tab');
-
- const artistSelect = document.getElementById('artist');
-const serviceSelect = document.getElementById('service');
-const bookingSection = document.getElementById('Booking');
-
-  const lightbox = document.getElementById('portfolio-lightbox');
-  const lightboxImage = document.getElementById('lightbox-image');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxArtist = document.getElementById('lightbox-artist');
-  const lightboxClose = document.getElementById('lightbox-close');
-  const lightboxPrevious = document.getElementById('lightbox-prev');
-  const lightboxNext = document.getElementById('lightbox-next');
-
-  let visibleCards = [...tattooCards];
-  let currentImageIndex = 0;
-
-const loadMoreWrapper = document.getElementById(
-  'portfolio-load-more-wrapper'
-);
-
-const loadMoreButton = document.getElementById(
-  'portfolio-load-more'
-);
-
-  const artistSelectValues = {
-    diego: 'Diego',
-    arnold: 'Arnold',
-    julian: 'Julian',
-    addison: 'Addison'
-  };
-
-  /*
-    Agrega automáticamente:
-    - contenedor para la imagen
-    - efecto hover
-    - botón para reservar con el artista
-  */
-
-  tattooCards.forEach(function (card) {
-    const image = card.querySelector('img');
-    const cardContent = card.querySelector('.p-4');
-    const titleElement = card.querySelector('h3');
-    const artistElement = card.querySelector('p[style*="D4AF37"]');
-
-    if (!image || !cardContent || !titleElement || !artistElement) {
-      return;
-    }
-
-    const title = titleElement.textContent.trim();
-    const artistText = artistElement.textContent.trim();
-    const artistKey = card.dataset.artist;
-
-    if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
-      const imageWrapper = document.createElement('div');
-      imageWrapper.className = 'portfolio-image-wrapper';
-
-      image.parentNode.insertBefore(imageWrapper, image);
-      imageWrapper.appendChild(image);
-
-      const overlay = document.createElement('div');
-      overlay.className = 'portfolio-overlay';
-
-      overlay.innerHTML = `
-        <div>
-          <div class="portfolio-overlay-title">${title}</div>
-          <div class="portfolio-overlay-artist">${artistText}</div>
-          <div class="portfolio-overlay-view">View Full Size →</div>
-        </div>
-      `;
-
-      imageWrapper.appendChild(overlay);
-    }
-
-    if (!card.querySelector('.portfolio-book-btn')) {
-      const bookingButton = document.createElement('button');
-
-      bookingButton.type = 'button';
-      bookingButton.className = 'portfolio-book-btn';
-      bookingButton.dataset.artist = artistKey;
-
-      const artistName = artistSelectValues[artistKey] || artistKey;
-
-      bookingButton.textContent = `Book ${artistName} →`;
-
-      cardContent.appendChild(bookingButton);
-    }
-  });
-
-    /*
-  DISEÑO PREMIUM PARA PIERCINGS
-*/
-
-piercingCards.forEach(function (card) {
-  const image = card.querySelector('img');
-  const cardContent = card.querySelector('.p-4');
-  const titleElement = card.querySelector('h3');
-  const jewelryElement = card.querySelector('.text-gray-400');
-
-  if (!image || !cardContent || !titleElement) {
-    return;
-  }
-
-  const title = titleElement.textContent.trim();
-
-  const jewelryText = jewelryElement
-    ? jewelryElement.textContent.trim()
-    : 'Implant-grade titanium jewelry';
-
-  if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
-    const imageWrapper = document.createElement('div');
-    imageWrapper.className = 'portfolio-image-wrapper';
-
-    image.parentNode.insertBefore(imageWrapper, image);
-    imageWrapper.appendChild(image);
-
-    const overlay = document.createElement('div');
-    overlay.className = 'portfolio-overlay';
-
-    overlay.innerHTML = `
-      <div>
-        <div class="portfolio-overlay-title">${title}</div>
-        <div class="portfolio-overlay-artist">${jewelryText}</div>
-        <div class="portfolio-overlay-view">View Full Size →</div>
-      </div>
-    `;
-
-    imageWrapper.appendChild(overlay);
-  }
-
-  if (!card.querySelector('.portfolio-book-btn')) {
-    const bookingButton = document.createElement('button');
-
-    bookingButton.type = 'button';
-    bookingButton.className = 'portfolio-book-btn';
-    bookingButton.dataset.service = 'piercing';
-    bookingButton.textContent = 'Book Piercing →';
-
-    cardContent.appendChild(bookingButton);
-  }
-});
-
-
- /*
-  FILTROS, MEZCLA INTELIGENTE Y VIEW MORE
-*/
-
-const photosPerLoad = 12;
-
-let currentFilter = 'all';
-let visiblePhotoLimit = photosPerLoad;
-let mixedTattooCards = [];
-
-function shuffleCards(cards) {
-  const shuffledCards = [...cards];
-
-  for (let i = shuffledCards.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-
-    [shuffledCards[i], shuffledCards[randomIndex]] =
-      [shuffledCards[randomIndex], shuffledCards[i]];
-  }
-
-  return shuffledCards;
-}
-
-function createBalancedMix(cards) {
-  const cardsByArtist = {};
-
-  cards.forEach(function (card) {
-    const artist = card.dataset.artist;
-
-    if (!cardsByArtist[artist]) {
-      cardsByArtist[artist] = [];
-    }
-
-    cardsByArtist[artist].push(card);
-  });
-
-  Object.keys(cardsByArtist).forEach(function (artist) {
-    cardsByArtist[artist] = shuffleCards(cardsByArtist[artist]);
-  });
-
-  const mixedCards = [];
-  let previousArtist = '';
-  let consecutiveArtistCount = 0;
-
-  while (
-    Object.values(cardsByArtist).some(function (artistCards) {
-      return artistCards.length > 0;
-    })
-  ) {
-    let availableArtists = Object.keys(cardsByArtist).filter(
-      function (artist) {
-        return cardsByArtist[artist].length > 0;
-      }
-    );
-
-    availableArtists = shuffleCards(availableArtists);
-
-    let selectedArtist = availableArtists.find(function (artist) {
-      return !(
-        artist === previousArtist &&
-        consecutiveArtistCount >= 2
-      );
-    });
-
-    if (!selectedArtist) {
-      selectedArtist = availableArtists[0];
-    }
-
-    const selectedCard = cardsByArtist[selectedArtist].shift();
-
-    mixedCards.push(selectedCard);
-
-    if (selectedArtist === previousArtist) {
-      consecutiveArtistCount++;
-    } else {
-      previousArtist = selectedArtist;
-      consecutiveArtistCount = 1;
-    }
-  }
-
-  return mixedCards;
-}
-
-function updateLoadMoreButton(totalCards) {
-  if (!loadMoreWrapper || !loadMoreButton) {
-    return;
-  }
-
-  const shouldShowButton =
-    currentFilter === 'all' &&
-    visiblePhotoLimit < totalCards;
-
-  loadMoreWrapper.style.display = shouldShowButton
-    ? 'block'
-    : 'none';
-
-  loadMoreButton.textContent = 'View More';
-}
-
-function updatePortfolioGallery() {
-  let cardsToDisplay = [];
-
-  if (currentFilter === 'all') {
-    cardsToDisplay = mixedTattooCards;
-  } else {
-    cardsToDisplay = tattooCards.filter(function (card) {
-      return card.dataset.artist === currentFilter;
-    });
-  }
-
-  cardsToDisplay.forEach(function (card) {
-    gallery.appendChild(card);
-  });
-
-  tattooCards.forEach(function (card) {
-    card.classList.add('portfolio-hidden');
-  });
-
-  if (currentFilter === 'all') {
-    cardsToDisplay
-      .slice(0, visiblePhotoLimit)
-      .forEach(function (card) {
-        card.classList.remove('portfolio-hidden');
-      });
-  } else {
-    cardsToDisplay.forEach(function (card) {
-      card.classList.remove('portfolio-hidden');
-    });
-  }
-
-  visibleCards = cardsToDisplay.filter(function (card) {
-    return !card.classList.contains('portfolio-hidden');
-  });
-
-  updateLoadMoreButton(cardsToDisplay.length);
-}
-
-function activateFilterButton(activeButton) {
-  filterButtons.forEach(function (button) {
-    button.classList.remove('active');
-  });
-
-  activeButton.classList.add('active');
-}
-
-filterButtons.forEach(function (button) {
-  button.addEventListener('click', function () {
-    currentFilter = button.dataset.filter;
-    visiblePhotoLimit = photosPerLoad;
-
-    activateFilterButton(button);
-
-    if (currentFilter === 'all') {
-      mixedTattooCards = createBalancedMix(tattooCards);
-    }
-
-    updatePortfolioGallery();
-  });
-});
-
-if (loadMoreButton) {
-  loadMoreButton.addEventListener('click', function () {
-    visiblePhotoLimit += photosPerLoad;
-
-    updatePortfolioGallery();
-  });
-}
-
-mixedTattooCards = createBalancedMix(tattooCards);
-
-updatePortfolioGallery();
-/*
-  RESERVAR CON EL ARTISTA O PIERCING
-*/
-
-document.addEventListener('click', function (event) {
-  const bookingButton = event.target.closest(
-    '.portfolio-book-btn, .artist-book-btn'
-  );
-
-  if (!bookingButton) {
-    return;
-  }
-
-  event.preventDefault();
-
-  const artistKey = bookingButton.dataset.artist
-    ? bookingButton.dataset.artist.toLowerCase()
-    : '';
-
-  const service = bookingButton.dataset.service;
-
-  if (service === 'piercing') {
-    if (serviceSelect) {
-      serviceSelect.value = 'piercing';
-      serviceSelect.dispatchEvent(new Event('change'));
-    }
-
-    if (artistSelect) {
-      artistSelect.value = '';
-      artistSelect.dispatchEvent(new Event('change'));
-    }
-  } else if (artistKey) {
-    const artistValue = artistSelectValues[artistKey];
-
-    if (artistSelect && artistValue) {
-      artistSelect.value = artistValue;
-      artistSelect.dispatchEvent(new Event('change'));
-    }
-
-    if (serviceSelect) {
-      serviceSelect.value = 'tattoo';
-      serviceSelect.dispatchEvent(new Event('change'));
-    }
-  }
-
-  if (bookingSection) {
-    bookingSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  }
-});
-
-  /*
-    LIGHTBOX
-  */
-
-  function updateLightbox() {
-    const currentCard = visibleCards[currentImageIndex];
-
-    if (!currentCard) {
-      return;
-    }
-
-    const image = currentCard.querySelector('img');
-const title = currentCard.querySelector('h3');
-
-const artist =
-  currentCard.querySelector('p[style*="D4AF37"]') ||
-  currentCard.querySelector('.text-gray-400');
-      
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-
-    lightboxTitle.textContent = title
-      ? title.textContent.trim()
-      : '';
-
-    lightboxArtist.textContent = artist
-      ? artist.textContent.trim()
-      : '';
-  }
-
- function openLightbox(card, cards) {
-  visibleCards = cards.filter(function (portfolioCard) {
-    return !portfolioCard.classList.contains('portfolio-hidden');
-  });
-     
-    currentImageIndex = visibleCards.indexOf(card);
-
-    if (currentImageIndex < 0) {
-      currentImageIndex = 0;
-    }
-
-    updateLightbox();
-
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showNextImage() {
-    currentImageIndex =
-      (currentImageIndex + 1) % visibleCards.length;
-
-    updateLightbox();
-  }
-
-  function showPreviousImage() {
-    currentImageIndex =
-      (currentImageIndex - 1 + visibleCards.length) %
-      visibleCards.length;
-
-    updateLightbox();
-  }
-
-  if (gallery) {
-    gallery.addEventListener('click', function (event) {
-      const imageWrapper = event.target.closest('.portfolio-image-wrapper');
-
-      if (!imageWrapper) {
-        return;
-      }
-
-      const card = imageWrapper.closest('.tattoo-work');
-
-      if (card) {
-       openLightbox(card, tattooCards);
-      }
-    });
-  }
-        if (piercingGallery) {
-  piercingGallery.addEventListener('click', function (event) {
-    const imageWrapper = event.target.closest('.portfolio-image-wrapper');
-
-    if (!imageWrapper) {
-      return;
-    }
-
-    const card = imageWrapper.closest('.piercing-work');
-
-    if (card) {
-      openLightbox(card, piercingCards);
-    }
-  });
-}
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', closeLightbox);
-  }
-
-  if (lightboxNext) {
-    lightboxNext.addEventListener('click', function (event) {
-      event.stopPropagation();
-      showNextImage();
-    });
-  }
-
-  if (lightboxPrevious) {
-    lightboxPrevious.addEventListener('click', function (event) {
-      event.stopPropagation();
-      showPreviousImage();
-    });
-  }
-
-  if (lightbox) {
-    lightbox.addEventListener('click', function (event) {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', function (event) {
-    if (!lightbox.classList.contains('open')) {
-      return;
-    }
-
-    if (event.key === 'Escape') {
-      closeLightbox();
-    }
-
-    if (event.key === 'ArrowRight') {
-      showNextImage();
-    }
-
-    if (event.key === 'ArrowLeft') {
-      showPreviousImage();
-    }
-  });
-
- /*
-  CAMBIAR ENTRE TATTOOS Y PIERCINGS
-*/
-
-function showTattooGallery() {
-  if (gallery) {
-    gallery.classList.remove('hidden');
-  }
-
-  if (piercingGallery) {
-    piercingGallery.classList.add('hidden');
-  }
-
-  if (filterContainer) {
-    filterContainer.style.display = 'flex';
-  }
-
-  if (tattooTab) {
-    tattooTab.classList.add('tab-active', 'text-white');
-    tattooTab.classList.remove('text-gray-400');
-  }
-
-  if (piercingTab) {
-    piercingTab.classList.remove('tab-active', 'text-white');
-    piercingTab.classList.add('text-gray-400');
-  }
-
-  updatePortfolioGallery();
-
-  closeLightbox();
-}
-
-function showPiercingGallery() {
-  if (gallery) {
-    gallery.classList.add('hidden');
-  }
-
-  if (piercingGallery) {
-    piercingGallery.classList.remove('hidden');
-  }
-
-  if (filterContainer) {
-    filterContainer.style.display = 'none';
-  }
-
-  if (loadMoreWrapper) {
-    loadMoreWrapper.style.display = 'none';
-  }
-
-  if (piercingTab) {
-    piercingTab.classList.add('tab-active', 'text-white');
-    piercingTab.classList.remove('text-gray-400');
-  }
-
-  if (tattooTab) {
-    tattooTab.classList.remove('tab-active', 'text-white');
-    tattooTab.classList.add('text-gray-400');
-  }
-
-  closeLightbox();
-}
-
-if (tattooTab) {
-  tattooTab.addEventListener('click', showTattooGallery);
-}
-
-if (piercingTab) {
-  piercingTab.addEventListener('click', showPiercingGallery);
-}
-
-const tattooNavigationLinks = [
-  document.getElementById('nav-tattoo'),
-  document.getElementById('mnav-tattoo')
-];
-
-const piercingNavigationLinks = [
-  document.getElementById('nav-piercing'),
-  document.getElementById('mnav-piercing')
-];
-
-tattooNavigationLinks.forEach(function (link) {
-  if (!link) {
-    return;
-  }
-
-  link.addEventListener('click', function () {
-    showTattooGallery();
-  });
-});
-
-piercingNavigationLinks.forEach(function (link) {
-  if (!link) {
-    return;
-  }
-
-  link.addEventListener('click', function () {
-    showPiercingGallery();
-  });
-});
-
-showTattooGallery();
-});
-</script>
-   <script src="js/main.js?v=5"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
