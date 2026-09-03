@@ -1,579 +1,881 @@
-:root {
-    --brand-black: #080808;
-    --brand-charcoal: #121212;
-    --brand-surface: #1c1c1c;
-    --brand-gray: #b9b9b9;
-    --brand-gold: #d4af37;
-    --brand-gold-hover: #e3c45b;
-    --brand-white: #ffffff;
+/* Booking form */
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('booking-form');
+
+  if (!form || form.dataset.handlerAttached === 'true') {
+    return;
   }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+  form.dataset.handlerAttached = 'true';
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  const formStatus = document.getElementById('form-status');
+
+  function showFormStatus(message, type) {
+    if (!formStatus) {
+      return;
+    }
+
+    formStatus.textContent = message;
+    formStatus.className = `form-status visible ${type} md:col-span-2`;
   }
 
-  body {
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: var(--brand-black);
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const emailInput = form.querySelector('[name="email"]');
+    const replyToField = form.querySelector('#replytoField');
+
+    if (emailInput && replyToField) {
+      replyToField.value = emailInput.value.trim();
+    }
+
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'SENDING...';
+    submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+
+    if (formStatus) {
+      formStatus.textContent = '';
+      formStatus.className = 'form-status md:col-span-2';
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+
+      form.reset();
+
+      showFormStatus(
+        'Thank you! Your request was sent successfully. Our team will contact you soon.',
+        'success'
+      );
+    } catch (error) {
+      console.error('Booking form error:', error);
+
+      showFormStatus(
+        'We could not send your request. Please try again or call us at (720) 930-1327.',
+        'error'
+      );
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+      submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+    }
+  }, true);
+});
+
+/* Artist bios */
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelectorAll('.artist-card').forEach(card => {
+
+    const desc = card.querySelector('.artist-description');
+    const btn = card.querySelector('.read-more-btn');
+
+    if (!desc || !btn) return;
+
+    // Si el texto entra completo, ocultamos el botón
+    if (desc.scrollHeight <= desc.clientHeight + 5) {
+      btn.style.display = "none";
+      return;
+    }
+
+    btn.textContent = "View Bio →";
+
+    btn.addEventListener("click", () => {
+
+      desc.classList.toggle("expanded");
+
+      btn.textContent = desc.classList.contains("expanded")
+        ? "Hide Bio ↑"
+        : "View Bio →";
+
+    });
+
+  });
+
+});
+
+/* Navigation, portfolio, booking shortcuts and lightbox */
+document.addEventListener('DOMContentLoaded', function () {
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = menuToggle ? menuToggle.querySelector('i') : null;
+
+  function setMobileMenu(open) {
+    if (!menuToggle || !mobileMenu) {
+      return;
+    }
+
+    mobileMenu.classList.toggle('hidden', !open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute(
+      'aria-label',
+      open ? 'Close navigation menu' : 'Open navigation menu'
+    );
+
+    if (menuIcon) {
+      menuIcon.classList.toggle('fa-bars', !open);
+      menuIcon.classList.toggle('fa-xmark', open);
+    }
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Playfair Display", Georgia, serif;
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function () {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      setMobileMenu(!isOpen);
+    });
+
+    mobileMenu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) {
+        setMobileMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768) {
+        setMobileMenu(false);
+      }
+    });
   }
 
-  section,
-  #AboutStudio {
-    scroll-margin-top: 5.5rem;
+  const dateInput = document.getElementById('date');
+
+  if (dateInput) {
+    const today = new Date();
+    const localDate = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    ).toISOString().split('T')[0];
+
+    dateInput.min = localDate;
   }
 
-  .bg-gray-900 {
-    background-color: var(--brand-black) !important;
+  const gallery = document.getElementById('tattoo-gallery');
+const piercingGallery = document.getElementById('piercing-gallery');
+
+const tattooCards = Array.from(
+  document.querySelectorAll('.tattoo-work')
+);
+
+const piercingCards = Array.from(
+  document.querySelectorAll('.piercing-work')
+);
+
+  const filterContainer = document.getElementById('portfolio-filters');
+  const filterButtons = document.querySelectorAll('.portfolio-filter-btn');
+
+  filterButtons.forEach(function (button) {
+    button.setAttribute(
+      'aria-pressed',
+      String(button.classList.contains('active'))
+    );
+  });
+
+  const tattooTab = document.getElementById('tattoo-tab');
+  const piercingTab = document.getElementById('piercing-tab');
+
+ const artistSelect = document.getElementById('artist');
+const serviceSelect = document.getElementById('service');
+const bookingSection = document.getElementById('Booking');
+
+  const lightbox = document.getElementById('portfolio-lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxArtist = document.getElementById('lightbox-artist');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrevious = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+
+  let visibleCards = [...tattooCards];
+  let currentImageIndex = 0;
+
+const loadMoreWrapper = document.getElementById(
+  'portfolio-load-more-wrapper'
+);
+
+const loadMoreButton = document.getElementById(
+  'portfolio-load-more'
+);
+
+  const artistSelectValues = {
+    diego: 'Diego',
+    arnold: 'Arnold',
+    julian: 'Julian',
+    addison: 'Addison'
+  };
+
+  /*
+    Agrega automáticamente:
+    - contenedor para la imagen
+    - efecto hover
+    - botón para reservar con el artista
+  */
+
+  tattooCards.forEach(function (card) {
+    const image = card.querySelector('img');
+    const cardContent = card.querySelector('.p-4');
+    const titleElement = card.querySelector('h3');
+    const artistElement = card.querySelector('.portfolio-card-artist');
+
+    if (!image || !cardContent || !titleElement || !artistElement) {
+      return;
+    }
+
+    const title = titleElement.textContent.trim();
+    const artistText = artistElement.textContent.trim();
+    const artistKey = card.dataset.artist;
+
+    if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
+      const imageWrapper = document.createElement('div');
+      imageWrapper.className = 'portfolio-image-wrapper';
+      imageWrapper.tabIndex = 0;
+      imageWrapper.setAttribute('role', 'button');
+      imageWrapper.setAttribute('aria-label', `View ${title} by ${artistText} at full size`);
+
+      image.parentNode.insertBefore(imageWrapper, image);
+      imageWrapper.appendChild(image);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'portfolio-overlay';
+
+      overlay.innerHTML = `
+        <div>
+          <div class="portfolio-overlay-title">${title}</div>
+          <div class="portfolio-overlay-artist">${artistText}</div>
+          <div class="portfolio-overlay-view">View Full Size →</div>
+        </div>
+      `;
+
+      imageWrapper.appendChild(overlay);
+    }
+
+    if (!card.querySelector('.portfolio-book-btn')) {
+      const bookingButton = document.createElement('button');
+
+      bookingButton.type = 'button';
+      bookingButton.className = 'portfolio-book-btn';
+      bookingButton.dataset.artist = artistKey;
+
+      const artistName = artistSelectValues[artistKey] || artistKey;
+
+      bookingButton.textContent = `Book ${artistName} →`;
+
+      cardContent.appendChild(bookingButton);
+    }
+  });
+
+    /*
+  DISEÑO PREMIUM PARA PIERCINGS
+*/
+
+piercingCards.forEach(function (card) {
+  const image = card.querySelector('img');
+  const cardContent = card.querySelector('.p-4');
+  const titleElement = card.querySelector('h3');
+  const jewelryElement = card.querySelector('.text-gray-400');
+
+  if (!image || !cardContent || !titleElement) {
+    return;
   }
 
-  .bg-gray-800 {
-    background-color: var(--brand-charcoal) !important;
+  const title = titleElement.textContent.trim();
+
+  const jewelryText = jewelryElement
+    ? jewelryElement.textContent.trim()
+    : 'Implant-grade titanium jewelry';
+
+  if (!image.parentElement.classList.contains('portfolio-image-wrapper')) {
+    const imageWrapper = document.createElement('div');
+    imageWrapper.className = 'portfolio-image-wrapper';
+    imageWrapper.tabIndex = 0;
+    imageWrapper.setAttribute('role', 'button');
+    imageWrapper.setAttribute('aria-label', `View ${title} at full size`);
+
+    image.parentNode.insertBefore(imageWrapper, image);
+    imageWrapper.appendChild(image);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'portfolio-overlay';
+
+    overlay.innerHTML = `
+      <div>
+        <div class="portfolio-overlay-title">${title}</div>
+        <div class="portfolio-overlay-artist">${jewelryText}</div>
+        <div class="portfolio-overlay-view">View Full Size →</div>
+      </div>
+    `;
+
+    imageWrapper.appendChild(overlay);
   }
 
-  .bg-gray-700 {
-    background-color: var(--brand-surface) !important;
+  if (!card.querySelector('.portfolio-book-btn')) {
+    const bookingButton = document.createElement('button');
+
+    bookingButton.type = 'button';
+    bookingButton.className = 'portfolio-book-btn';
+    bookingButton.dataset.service = 'piercing';
+    bookingButton.textContent = 'Book Piercing →';
+
+    cardContent.appendChild(bookingButton);
+  }
+});
+
+
+ /*
+  FILTROS, MEZCLA INTELIGENTE Y VIEW MORE
+*/
+
+const photosPerLoad = 12;
+
+let currentFilter = 'all';
+let visiblePhotoLimit = photosPerLoad;
+let mixedTattooCards = [];
+
+function shuffleCards(cards) {
+  const shuffledCards = [...cards];
+
+  for (let i = shuffledCards.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [shuffledCards[i], shuffledCards[randomIndex]] =
+      [shuffledCards[randomIndex], shuffledCards[i]];
   }
 
-  .bg-gray-900\/90 {
-    background-color: rgba(8, 8, 8, 0.92) !important;
-  }
-
-  .text-gray-200 {
-    color: #e5e7eb !important;
-  }
-
-  .text-gray-300 {
-    color: #d1d5db !important;
-  }
-
-  .text-gray-400 {
-    color: #a8a8a8 !important;
-  }
-
-  .text-gray-500,
-  .text-gray-600,
-  .text-gray-700 {
-    color: #858585 !important;
-  }
-
-  .text-white {
-    color: var(--brand-white) !important;
-  }
-
-  .border-gray-600,
-  .border-gray-700,
-  .border-gray-800 {
-    border-color: #3f3f46 !important;
-  }
-
-  .bg-pink-600,
-  .bg-pink-700 {
-    background-color: var(--brand-gold) !important;
-  }
-
-  .bg-pink-600.text-white,
-  .bg-pink-700.text-white {
-    color: var(--brand-black) !important;
-  }
-
-  .hover\:bg-pink-600:hover,
-  .hover\:bg-pink-700:hover {
-    background-color: var(--brand-gold-hover) !important;
-  }
-
-  .border-pink-600 {
-    border-color: var(--brand-gold) !important;
-  }
-
-  .text-pink-500,
-  .hover\:text-pink-400:hover,
-  .hover\:text-pink-500:hover {
-    color: var(--brand-gold) !important;
-  }
-
-  .hover\:bg-pink-600\/20:hover {
-    background-color: rgba(212, 175, 55, 0.2) !important;
-  }
-
-  .focus\:ring-pink-500:focus {
-    --tw-ring-color: var(--brand-gold) !important;
-  }
-
-  :focus-visible {
-    outline: 3px solid var(--brand-gold);
-    outline-offset: 3px;
-  }
-
-  .hero-image::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.96) 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .nav-link {
-    position: relative;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--brand-gold);
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover::after,
-  .nav-link:focus-visible::after {
-    width: 100%;
-  }
-
-  .section-divider {
-    height: 100px;
-    background: linear-gradient(135deg, var(--brand-black) 0%, var(--brand-gold) 50%, var(--brand-black) 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
-  }
-
-  .gallery-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .gallery-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(212, 175, 55, 0.2);
-  }
-
-  .artist-card img {
-    transition: transform 0.45s ease;
-  }
-
-  .artist-card:hover img {
-    transform: scale(1.035);
-  }
-
-  .tab-active {
-    border-bottom: 3px solid var(--brand-gold) !important;
-    color: var(--brand-gold) !important;
-  }
-
-  .card-premium {
-    position: relative;
-    overflow: hidden;
-    background: rgba(20, 20, 20, 0.88);
-    border: 1px solid #3f3f46;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    backdrop-filter: saturate(120%) blur(2px);
-    -webkit-backdrop-filter: saturate(120%) blur(2px);
-  }
-
-  .top-gold::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto;
-    height: 2px;
-    background: var(--brand-gold);
-  }
-
-  .gold-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
-  }
-
-  .card-premium .rounded-full.bg-gray-800 {
-    box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.35), 0 4px 16px rgba(0, 0, 0, 0.35);
-  }
-
-  a.border-2 {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  a.border-2:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.25);
-  }
-
-  #Contact .text-center p {
-    line-height: 1.7;
-  }
-
-  #Contact .fab {
-    transition: transform 0.2s ease;
-  }
-
-  #Contact a:hover .fab {
-    transform: translateY(-2px);
-  }
-
-  .form-status {
-    display: none;
-    padding: 0.9rem 1rem;
-    border-radius: 0.75rem;
-    text-align: left;
-  }
-
-  .form-status.visible {
-    display: block;
-  }
-
-  .form-status.success {
-    color: #d1fae5;
-    background: rgba(6, 78, 59, 0.45);
-    border: 1px solid #10b981;
-  }
-
-  .form-status.error {
-    color: #fee2e2;
-    background: rgba(127, 29, 29, 0.45);
-    border: 1px solid #ef4444;
-  }
-
-  .artist-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .artist-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .artist-description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-    min-height: 96px;
-  }
-
-  .artist-description.expanded {
-    display: block;
-    overflow: visible;
-  }
-
-  .artist-actions {
-    margin-top: auto;
-    padding-top: 1.5rem;
-  }
-    /* =========================
-   PORTFOLIO PREMIUM
-========================= */
-
-.portfolio-filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
+  return shuffledCards;
 }
 
-.portfolio-filter-btn {
-  border: 1px solid #4b5563;
-  color: #d1d5db;
-  padding: 0.55rem 1.1rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+function createBalancedMix(cards) {
+  const cardsByArtist = {};
 
-.portfolio-filter-btn:hover {
-  border-color: #D4AF37;
-  color: #D4AF37;
-  transform: translateY(-2px);
-}
+  cards.forEach(function (card) {
+    const artist = card.dataset.artist;
 
-.portfolio-filter-btn.active {
-  background: #D4AF37;
-  border-color: #D4AF37;
-  color: #111827;
-}
+    if (!cardsByArtist[artist]) {
+      cardsByArtist[artist] = [];
+    }
 
-/* Portfolio estilo Pinterest */
+    cardsByArtist[artist].push(card);
+  });
 
-#tattoo-gallery {
-  display: block;
-  column-count: 1;
-  column-gap: 1.5rem;
-}
+  Object.keys(cardsByArtist).forEach(function (artist) {
+    cardsByArtist[artist] = shuffleCards(cardsByArtist[artist]);
+  });
 
-#tattoo-gallery.hidden {
-  display: none;
-}
-    
+  const mixedCards = [];
+  let previousArtist = '';
+  let consecutiveArtistCount = 0;
 
-@media (min-width: 640px) {
-  #tattoo-gallery {
-    column-count: 2;
+  while (
+    Object.values(cardsByArtist).some(function (artistCards) {
+      return artistCards.length > 0;
+    })
+  ) {
+    let availableArtists = Object.keys(cardsByArtist).filter(
+      function (artist) {
+        return cardsByArtist[artist].length > 0;
+      }
+    );
+
+    availableArtists = shuffleCards(availableArtists);
+
+    let selectedArtist = availableArtists.find(function (artist) {
+      return !(
+        artist === previousArtist &&
+        consecutiveArtistCount >= 2
+      );
+    });
+
+    if (!selectedArtist) {
+      selectedArtist = availableArtists[0];
+    }
+
+    const selectedCard = cardsByArtist[selectedArtist].shift();
+
+    mixedCards.push(selectedCard);
+
+    if (selectedArtist === previousArtist) {
+      consecutiveArtistCount++;
+    } else {
+      previousArtist = selectedArtist;
+      consecutiveArtistCount = 1;
+    }
   }
+
+  return mixedCards;
 }
 
-@media (min-width: 1024px) {
-  #tattoo-gallery {
-    column-count: 3;
+function updateLoadMoreButton(totalCards) {
+  if (!loadMoreWrapper || !loadMoreButton) {
+    return;
   }
-}
-    /* Piercing Gallery estilo Pinterest */
 
-#piercing-gallery {
-  column-count: 1;
-  column-gap: 1.5rem;
-}
+  const shouldShowButton =
+    currentFilter === 'all' &&
+    visiblePhotoLimit < totalCards;
 
-#piercing-gallery.hidden {
-  display: none;
-}
+  loadMoreWrapper.style.display = shouldShowButton
+    ? 'block'
+    : 'none';
 
-#piercing-gallery:not(.hidden) {
-  display: block;
+  loadMoreButton.textContent = 'View More';
 }
 
-@media (min-width: 640px) {
-  #piercing-gallery {
-    column-count: 2;
+function updatePortfolioGallery() {
+  let cardsToDisplay = [];
+
+  if (currentFilter === 'all') {
+    cardsToDisplay = mixedTattooCards;
+  } else {
+    cardsToDisplay = tattooCards.filter(function (card) {
+      return card.dataset.artist === currentFilter;
+    });
   }
-}
 
-@media (min-width: 1024px) {
-  #piercing-gallery {
-    column-count: 3;
+  cardsToDisplay.forEach(function (card) {
+    gallery.appendChild(card);
+  });
+
+  tattooCards.forEach(function (card) {
+    card.classList.add('portfolio-hidden');
+  });
+
+  if (currentFilter === 'all') {
+    cardsToDisplay
+      .slice(0, visiblePhotoLimit)
+      .forEach(function (card) {
+        card.classList.remove('portfolio-hidden');
+      });
+  } else {
+    cardsToDisplay.forEach(function (card) {
+      card.classList.remove('portfolio-hidden');
+    });
   }
+
+  visibleCards = cardsToDisplay.filter(function (card) {
+    return !card.classList.contains('portfolio-hidden');
+  });
+
+  updateLoadMoreButton(cardsToDisplay.length);
 }
 
-.piercing-work {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
+function activateFilterButton(activeButton) {
+  filterButtons.forEach(function (button) {
+    button.classList.remove('active');
+    button.setAttribute('aria-pressed', 'false');
+  });
+
+  activeButton.classList.add('active');
+  activeButton.setAttribute('aria-pressed', 'true');
 }
 
-.piercing-work img {
-  width: 100%;
-  height: auto !important;
-  display: block;
+filterButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    currentFilter = button.dataset.filter;
+    visiblePhotoLimit = photosPerLoad;
+
+    activateFilterButton(button);
+
+    if (currentFilter === 'all') {
+      mixedTattooCards = createBalancedMix(tattooCards);
+    }
+
+    updatePortfolioGallery();
+  });
+});
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener('click', function () {
+    visiblePhotoLimit += photosPerLoad;
+
+    updatePortfolioGallery();
+  });
 }
 
-.tattoo-work {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  break-inside: avoid;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
+mixedTattooCards = createBalancedMix(tattooCards);
 
-.tattoo-work.portfolio-hidden {
-  display: none;
-}
+updatePortfolioGallery();
+/*
+  RESERVAR CON EL ARTISTA O PIERCING
+*/
 
-.tattoo-work img {
-  width: 100%;
-  height: auto !important;
-  display: block;
-  cursor: zoom-in;
-  transition: transform 0.5s ease;
-}
-
-.portfolio-image-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio-image-wrapper:hover img {
-  transform: scale(1.04);
-}
-
-.portfolio-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.25rem;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.1) 65%
+document.addEventListener('click', function (event) {
+  const bookingButton = event.target.closest(
+    '.portfolio-book-btn, .artist-book-btn'
   );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
 
-.portfolio-image-wrapper:hover .portfolio-overlay {
-  opacity: 1;
-}
-
-.portfolio-overlay-title {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-.portfolio-overlay-artist {
-  color: #D4AF37;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
-}
-
-.portfolio-overlay-view {
-  color: white;
-  font-size: 0.8rem;
-  margin-top: 0.65rem;
-}
-
-.portfolio-book-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  color: #D4AF37;
-  font-size: 0.875rem;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-.portfolio-book-btn:hover {
-  color: white;
-}
-
-/* Lightbox */
-
-.portfolio-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.94);
-}
-
-.portfolio-lightbox.open {
-  display: flex;
-}
-
-.lightbox-content {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  max-height: 95vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.lightbox-image {
-  max-width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  border-radius: 0.5rem;
-}
-
-.lightbox-caption {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-.lightbox-title {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.lightbox-artist {
-  color: #D4AF37;
-  margin-top: 0.25rem;
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 1rem;
-  right: 1.25rem;
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  z-index: 10001;
-  transition: color 0.3s ease;
-}
-
-.lightbox-close:hover {
-  color: #D4AF37;
-}
-
-.lightbox-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  background: rgba(17, 24, 39, 0.8);
-  color: white;
-  font-size: 1.4rem;
-  transition: background 0.3s ease;
-}
-
-.lightbox-arrow:hover {
-  background: #D4AF37;
-  color: #111827;
-}
-
-.lightbox-prev {
-  left: 1rem;
-}
-
-.lightbox-next {
-  right: 1rem;
-}
-
-@media (max-width: 640px) {
-  .portfolio-overlay {
-    opacity: 1;
-    padding: 1rem;
+  if (!bookingButton) {
+    return;
   }
 
-  .lightbox-arrow {
-    width: 2.5rem;
-    height: 2.5rem;
+  event.preventDefault();
+
+  const artistKey = bookingButton.dataset.artist
+    ? bookingButton.dataset.artist.toLowerCase()
+    : '';
+
+  const service = bookingButton.dataset.service;
+
+  if (service === 'piercing') {
+    if (serviceSelect) {
+      serviceSelect.value = 'piercing';
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
+
+    if (artistSelect) {
+      artistSelect.value = '';
+      artistSelect.dispatchEvent(new Event('change'));
+    }
+  } else if (artistKey) {
+    const artistValue = artistSelectValues[artistKey];
+
+    if (artistSelect && artistValue) {
+      artistSelect.value = artistValue;
+      artistSelect.dispatchEvent(new Event('change'));
+    }
+
+    if (serviceSelect) {
+      serviceSelect.value = 'tattoo';
+      serviceSelect.dispatchEvent(new Event('change'));
+    }
   }
 
-  .lightbox-prev {
-    left: 0.25rem;
+  if (bookingSection) {
+    bookingSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+});
+
+  /*
+    LIGHTBOX
+  */
+
+  function updateLightbox() {
+    const currentCard = visibleCards[currentImageIndex];
+
+    if (!currentCard) {
+      return;
+    }
+
+    const image = currentCard.querySelector('img');
+const title = currentCard.querySelector('h3');
+
+const artist =
+  currentCard.querySelector('.portfolio-card-artist') ||
+  currentCard.querySelector('.text-gray-400');
+      
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxTitle.textContent = title
+      ? title.textContent.trim()
+      : '';
+
+    lightboxArtist.textContent = artist
+      ? artist.textContent.trim()
+      : '';
   }
 
-  .lightbox-next {
-    right: 0.25rem;
+  let previouslyFocusedElement = null;
+
+ function openLightbox(card, cards) {
+    if (!lightbox || !lightboxImage) {
+      return;
+    }
+
+    visibleCards = cards.filter(function (portfolioCard) {
+      return !portfolioCard.classList.contains('portfolio-hidden');
+    });
+
+    if (visibleCards.length === 0) {
+      return;
+    }
+     
+    currentImageIndex = visibleCards.indexOf(card);
+
+    if (currentImageIndex < 0) {
+      currentImageIndex = 0;
+    }
+
+    updateLightbox();
+
+    previouslyFocusedElement = document.activeElement;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightboxClose?.focus();
   }
+
+  function closeLightbox() {
+    if (!lightbox) {
+      return;
+    }
+
+    const wasOpen = lightbox.classList.contains('open');
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    if (wasOpen && previouslyFocusedElement instanceof HTMLElement) {
+      previouslyFocusedElement.focus();
+    }
+  }
+
+  function showNextImage() {
+    if (visibleCards.length === 0) {
+      return;
+    }
+
+    currentImageIndex =
+      (currentImageIndex + 1) % visibleCards.length;
+
+    updateLightbox();
+  }
+
+  function showPreviousImage() {
+    if (visibleCards.length === 0) {
+      return;
+    }
+
+    currentImageIndex =
+      (currentImageIndex - 1 + visibleCards.length) %
+      visibleCards.length;
+
+    updateLightbox();
+  }
+
+  if (gallery) {
+    gallery.addEventListener('click', function (event) {
+      const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+
+      if (!imageWrapper) {
+        return;
+      }
+
+      const card = imageWrapper.closest('.tattoo-work');
+
+      if (card) {
+       openLightbox(card, tattooCards);
+      }
+    });
+
+    gallery.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter' && event.key !== ' ') {
+        return;
+      }
+
+      const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+      const card = imageWrapper?.closest('.tattoo-work');
+
+      if (card) {
+        event.preventDefault();
+        openLightbox(card, tattooCards);
+      }
+    });
+  }
+        if (piercingGallery) {
+  piercingGallery.addEventListener('click', function (event) {
+    const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+
+    if (!imageWrapper) {
+      return;
+    }
+
+    const card = imageWrapper.closest('.piercing-work');
+
+    if (card) {
+      openLightbox(card, piercingCards);
+    }
+  });
+
+  piercingGallery.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') {
+      return;
+    }
+
+    const imageWrapper = event.target.closest('.portfolio-image-wrapper');
+    const card = imageWrapper?.closest('.piercing-work');
+
+    if (card) {
+      event.preventDefault();
+      openLightbox(card, piercingCards);
+    }
+  });
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
   }
 
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', function (event) {
+      event.stopPropagation();
+      showNextImage();
+    });
   }
 
+  if (lightboxPrevious) {
+    lightboxPrevious.addEventListener('click', function (event) {
+      event.stopPropagation();
+      showPreviousImage();
+    });
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && menuToggle?.getAttribute('aria-expanded') === 'true') {
+      setMobileMenu(false);
+    }
+
+    if (!lightbox || !lightbox.classList.contains('open')) {
+      return;
+    }
+
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+
+    if (event.key === 'ArrowRight') {
+      showNextImage();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      showPreviousImage();
+    }
+  });
+
+ /*
+  CAMBIAR ENTRE TATTOOS Y PIERCINGS
+*/
+
+function showTattooGallery() {
+  if (gallery) {
+    gallery.classList.remove('hidden');
+    gallery.setAttribute('aria-hidden', 'false');
+  }
+
+  if (piercingGallery) {
+    piercingGallery.classList.add('hidden');
+    piercingGallery.setAttribute('aria-hidden', 'true');
+  }
+
+  if (filterContainer) {
+    filterContainer.style.display = 'flex';
+  }
+
+  if (tattooTab) {
+    tattooTab.classList.add('tab-active', 'text-white');
+    tattooTab.classList.remove('text-gray-400');
+    tattooTab.setAttribute('aria-selected', 'true');
+  }
+
+  if (piercingTab) {
+    piercingTab.classList.remove('tab-active', 'text-white');
+    piercingTab.classList.add('text-gray-400');
+    piercingTab.setAttribute('aria-selected', 'false');
+  }
+
+  updatePortfolioGallery();
+
+  closeLightbox();
 }
+
+function showPiercingGallery() {
+  if (gallery) {
+    gallery.classList.add('hidden');
+    gallery.setAttribute('aria-hidden', 'true');
+  }
+
+  if (piercingGallery) {
+    piercingGallery.classList.remove('hidden');
+    piercingGallery.setAttribute('aria-hidden', 'false');
+  }
+
+  if (filterContainer) {
+    filterContainer.style.display = 'none';
+  }
+
+  if (loadMoreWrapper) {
+    loadMoreWrapper.style.display = 'none';
+  }
+
+  if (piercingTab) {
+    piercingTab.classList.add('tab-active', 'text-white');
+    piercingTab.classList.remove('text-gray-400');
+    piercingTab.setAttribute('aria-selected', 'true');
+  }
+
+  if (tattooTab) {
+    tattooTab.classList.remove('tab-active', 'text-white');
+    tattooTab.classList.add('text-gray-400');
+    tattooTab.setAttribute('aria-selected', 'false');
+  }
+
+  closeLightbox();
+}
+
+if (tattooTab) {
+  tattooTab.addEventListener('click', showTattooGallery);
+}
+
+if (piercingTab) {
+  piercingTab.addEventListener('click', showPiercingGallery);
+}
+
+const tattooNavigationLinks = [
+  document.getElementById('nav-tattoo'),
+  document.getElementById('mnav-tattoo')
+];
+
+const piercingNavigationLinks = [
+  document.getElementById('nav-piercing'),
+  document.getElementById('mnav-piercing')
+];
+
+tattooNavigationLinks.forEach(function (link) {
+  if (!link) {
+    return;
+  }
+
+  link.addEventListener('click', function () {
+    showTattooGallery();
+  });
+});
+
+piercingNavigationLinks.forEach(function (link) {
+  if (!link) {
+    return;
+  }
+
+  link.addEventListener('click', function () {
+    showPiercingGallery();
+  });
+});
+
+showTattooGallery();
+});
