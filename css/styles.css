@@ -718,9 +718,9 @@
 .reviews-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
-  max-width: 72rem;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
@@ -764,6 +764,38 @@
   transform: translateY(-6px);
   border-color: rgba(212, 175, 55, 0.55);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.48), 0 0 28px rgba(212, 175, 55, 0.07);
+}
+
+.review-card-featured {
+  grid-column: 1 / -1;
+  min-height: 21rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-color: rgba(212, 175, 55, 0.48);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(212, 175, 55, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(35, 31, 22, 0.98), rgba(11, 11, 11, 0.99));
+}
+
+.review-card-featured blockquote {
+  max-width: 48rem;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.65rem);
+}
+
+.review-feature-label {
+  position: relative;
+  z-index: 1;
+  align-self: flex-start;
+  margin-top: 1.6rem;
+  padding: 0.38rem 0.65rem;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 9999px;
+  color: var(--brand-gold);
+  background: rgba(212, 175, 55, 0.08);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .review-card-top {
@@ -827,6 +859,11 @@
   font-size: 0.9rem;
   font-style: italic;
   line-height: 1.7;
+}
+
+.review-card p strong {
+  color: #d7d7d7;
+  font-style: normal;
 }
 
 .review-card cite {
@@ -956,6 +993,10 @@
 
   .review-card {
     min-height: 0;
+  }
+
+  .review-card-featured {
+    grid-column: auto;
   }
 }
 
