@@ -14,8 +14,15 @@
     <meta property="og:url" content="https://dirokatattoostudio.com/">
     <meta property="og:image" content="https://dirokatattoostudio.com/img/interior.png">
     <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Diroka Tattoo Studio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diroka Tattoo Studio | Denver & Aurora">
+    <meta name="twitter:description" content="Custom tattoos and premium body piercings in Aurora, serving the Denver metro area.">
+    <meta name="twitter:image" content="https://dirokatattoostudio.com/img/interior.png">
 
     <title>Denver & Aurora Tattoo and Piercing Studio | Diroka</title>
+    <link rel="icon" type="image/png" href="img/DirokaLogo.png">
+    <link rel="apple-touch-icon" href="img/DirokaLogo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,6 +134,27 @@
         </div>
         
         <div class="section-divider w-full -mt-20"></div>
+
+        <div class="trust-strip" aria-label="Why choose Diroka">
+          <div class="trust-strip-inner">
+            <div class="trust-item">
+              <i class="fas fa-pen-nib" aria-hidden="true"></i>
+              <span>Custom Artwork</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-shield-heart" aria-hidden="true"></i>
+              <span>Clean &amp; Professional</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-gem" aria-hidden="true"></i>
+              <span>Implant-Grade Titanium</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-location-dot" aria-hidden="true"></i>
+              <span>Aurora · Denver Metro</span>
+            </div>
+          </div>
+        </div>
         
         <div id="AboutStudio" class="container mx-auto px-4 py-16 bg-gray-900 scroll-mt-24">
         <div class="flex flex-col md:flex-row items-center">
@@ -1137,6 +1165,53 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
     <i class="fas fa-chevron-right"></i>
   </button>
 </div>
+
+<!-- Client Reviews -->
+<section id="Reviews" class="reviews-section py-20 bg-gray-900">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="text-center mb-12">
+      <p class="section-kicker">CLIENT EXPERIENCE</p>
+      <h2 class="text-4xl font-bold mb-4 text-white">WHAT OUR CLIENTS SAY</h2>
+      <div class="w-24 h-1 bg-pink-600 mx-auto"></div>
+      <p class="max-w-2xl mx-auto mt-4 text-gray-400">
+        Recent feedback from tattoo and piercing clients who visited our Aurora studio.
+      </p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“This shop exceeded my expectations.”</blockquote>
+        <p>The client highlighted the service, scheduling flexibility, and tattoo experience with Diego.</p>
+        <cite>Tattoo client · May 2026</cite>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Amazing service and professionalism!”</blockquote>
+        <p>A parent praised the care and attention provided during her daughter’s nose piercing.</p>
+        <cite>Piercing client · April 2026</cite>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Carol did an amazing job.”</blockquote>
+        <p>The client appreciated the clean process, clear explanation, and comfortable piercing experience.</p>
+        <cite>Piercing client · March 2026</cite>
+      </article>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="https://www.bestprosintown.com/co/aurora/diroka-tattoo-studio-us-/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="review-link">
+        Read More Reviews <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
     <!-- Booking Section -->
     <section id="Booking" class="py-20 bg-gray-800">
         <div class="container mx-auto px-4">
@@ -1147,8 +1222,16 @@ Elegant botanical Fine Line tattoo featuring floral elements, delicate shading, 
                     <p class="max-w-2xl mx-auto mt-4 text-gray-400">
 Tell us your idea! Share your questions, inspirations, or the concept you have in mind — without any commitment. Once we receive your message, our team will reach out to discuss details and help organize everything for your session.                    </p>
                 </div>
+
+                <div class="payment-note" role="note">
+                  <i class="fas fa-wallet" aria-hidden="true"></i>
+                  <div>
+                    <strong>Flexible payment options</strong>
+                    <span>Afterpay is available. Ask our team for details during your consultation.</span>
+                  </div>
+                </div>
                 
-                  <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" action="https://formspree.io/f/xrbaryqa" method="POST">
+                  <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-6" action="https://formspree.io/f/xrbaryqa" method="POST" enctype="multipart/form-data">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
                         <input type="text" id="name" name="name" autocomplete="name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Your name" required>
@@ -1189,9 +1272,34 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                         <input type="date" id="date" name="date" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
                     </div>
 
+                    <div>
+                        <label for="placement" class="block text-sm font-medium text-gray-300 mb-1">Body Placement <span class="text-gray-500">(optional)</span></label>
+                        <input type="text" id="placement" name="body_placement" autocomplete="off" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Forearm, back, ear, nose...">
+                    </div>
+
+                    <div>
+                        <label for="size" class="block text-sm font-medium text-gray-300 mb-1">Approximate Size <span class="text-gray-500">(optional)</span></label>
+                        <input type="text" id="size" name="approximate_size" autocomplete="off" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="In inches or centimeters">
+                    </div>
+
+                    <div id="color-preference-field" class="md:col-span-2">
+                        <label for="color-preference" class="block text-sm font-medium text-gray-300 mb-1">Tattoo Color Preference <span class="text-gray-500">(optional)</span></label>
+                        <select id="color-preference" name="color_preference" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                            <option value="">Not sure yet</option>
+                            <option value="Black and Grey">Black &amp; Grey</option>
+                            <option value="Color">Color</option>
+                        </select>
+                    </div>
+
                     <div class="md:col-span-2">
                         <label for="reference-url" class="block text-sm font-medium text-gray-300 mb-1">Reference Image Link <span class="text-gray-500">(optional)</span></label>
                         <input type="url" id="reference-url" name="reference_url" autocomplete="url" class="w-full bg-gray-700 border border-gray-600 rounded-md py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Pinterest, Instagram, Google Drive...">
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label for="reference-file" class="block text-sm font-medium text-gray-300 mb-1">Upload a Reference Image <span class="text-gray-500">(optional)</span></label>
+                        <input type="file" id="reference-file" name="reference_image" accept="image/jpeg,image/png,image/webp" aria-describedby="reference-file-help" class="file-input w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+                        <p id="reference-file-help" class="form-help">JPG, PNG, or WebP · maximum 10 MB.</p>
                     </div>
                     
                     <div class="md:col-span-2">
@@ -1343,6 +1451,17 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
   </div>
 </footer>
 
+<!-- Mobile Quick Actions -->
+<nav class="mobile-action-bar" aria-label="Quick contact actions">
+  <a href="tel:+17209301327" class="mobile-action-secondary" data-track="mobile_call">
+    <i class="fas fa-phone" aria-hidden="true"></i>
+    <span>Call</span>
+  </a>
+  <a href="#Booking" class="mobile-action-primary" data-track="mobile_book">
+    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+    <span>Book Now</span>
+  </a>
+</nav>
 
 <!-- JavaScript -->
     <script src="js/main.js" defer></script>

@@ -1,3 +1,92 @@
+/*
+  Analytics configuration
+  Add the real IDs when they are available. Blank values keep tracking disabled.
+*/
+const DIROKA_ANALYTICS_CONFIG = Object.freeze({
+  googleAnalyticsId: '', // Example: G-XXXXXXXXXX
+  metaPixelId: '' // Example: 123456789012345
+});
+
+function initializeAnalytics() {
+  const googleId = DIROKA_ANALYTICS_CONFIG.googleAnalyticsId.trim();
+  const metaId = DIROKA_ANALYTICS_CONFIG.metaPixelId.trim();
+
+  if (/^G-[A-Z0-9]+$/i.test(googleId)) {
+    const googleScript = document.createElement('script');
+    googleScript.async = true;
+    googleScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleId)}`;
+    document.head.appendChild(googleScript);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag('js', new Date());
+    window.gtag('config', googleId);
+  }
+
+  if (/^\d{5,20}$/.test(metaId)) {
+    const fbq = function () {
+      if (fbq.callMethod) {
+        fbq.callMethod.apply(fbq, arguments);
+      } else {
+        fbq.queue.push(arguments);
+      }
+    };
+
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = '2.0';
+    fbq.queue = [];
+    window.fbq = fbq;
+
+    const metaScript = document.createElement('script');
+    metaScript.async = true;
+    metaScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(metaScript);
+
+    window.fbq('init', metaId);
+    window.fbq('track', 'PageView');
+  }
+}
+
+function trackDirokaEvent(eventName, parameters = {}) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, parameters);
+  }
+
+  if (typeof window.fbq === 'function') {
+    window.fbq('trackCustom', eventName, parameters);
+  }
+}
+
+function trackDirokaLead(parameters = {}) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'generate_lead', parameters);
+  }
+
+  if (typeof window.fbq === 'function') {
+    window.fbq('track', 'Lead', parameters);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initializeAnalytics, { once: true });
+
+document.addEventListener('click', function (event) {
+  const bookingCta = event.target.closest(
+    '[data-track], a[href="#Booking"], .portfolio-book-btn, .artist-book-btn'
+  );
+
+  if (!bookingCta) {
+    return;
+  }
+
+  trackDirokaEvent('booking_cta_click', {
+    source: bookingCta.dataset.track || bookingCta.textContent.trim().slice(0, 40)
+  });
+});
+
 /* Booking form */
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('booking-form');
@@ -10,6 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitButton = form.querySelector('button[type="submit"]');
   const formStatus = document.getElementById('form-status');
+  const referenceFile = document.getElementById('reference-file');
+  const maximumFileSize = 10 * 1024 * 1024;
+  const permittedFileTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
   function showFormStatus(message, type) {
     if (!formStatus) {
@@ -28,6 +120,22 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    const selectedFile = referenceFile?.files?.[0];
+
+    if (selectedFile && !permittedFileTypes.includes(selectedFile.type)) {
+      showFormStatus('Please upload a JPG, PNG, or WebP reference image.', 'error');
+      referenceFile.value = '';
+      referenceFile.focus();
+      return;
+    }
+
+    if (selectedFile && selectedFile.size > maximumFileSize) {
+      showFormStatus('The reference image must be 10 MB or smaller.', 'error');
+      referenceFile.value = '';
+      referenceFile.focus();
+      return;
+    }
+
     const emailInput = form.querySelector('[name="email"]');
     const replyToField = form.querySelector('#replytoField');
 
@@ -35,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
       replyToField.value = emailInput.value.trim();
     }
 
+    const selectedService = form.querySelector('[name="service"]')?.value || 'unknown';
     const originalButtonText = submitButton.textContent;
 
     submitButton.disabled = true;
@@ -60,6 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       form.reset();
+      form.querySelector('#service')?.dispatchEvent(new Event('change'));
+
+      trackDirokaLead({
+        service: selectedService,
+        form_name: 'booking_request'
+      });
 
       showFormStatus(
         'Thank you! Your request was sent successfully. Our team will contact you soon.',
@@ -191,9 +306,25 @@ const piercingCards = Array.from(
   const tattooTab = document.getElementById('tattoo-tab');
   const piercingTab = document.getElementById('piercing-tab');
 
- const artistSelect = document.getElementById('artist');
+const artistSelect = document.getElementById('artist');
 const serviceSelect = document.getElementById('service');
 const bookingSection = document.getElementById('Booking');
+const colorPreferenceField = document.getElementById('color-preference-field');
+const colorPreferenceSelect = document.getElementById('color-preference');
+
+function updateServiceFields() {
+  if (!serviceSelect || !colorPreferenceField || !colorPreferenceSelect) {
+    return;
+  }
+
+  const isTattoo = serviceSelect.value === 'tattoo';
+
+  colorPreferenceField.classList.toggle('hidden', !isTattoo);
+  colorPreferenceSelect.disabled = !isTattoo;
+}
+
+serviceSelect?.addEventListener('change', updateServiceFields);
+updateServiceFields();
 
   const lightbox = document.getElementById('portfolio-lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
