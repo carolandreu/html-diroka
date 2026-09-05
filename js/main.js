@@ -3,7 +3,7 @@
   Add the real IDs when they are available. Blank values keep tracking disabled.
 */
 const DIROKA_ANALYTICS_CONFIG = Object.freeze({
-  googleAnalyticsId: '', // Example: G-XXXXXXXXXX
+  googleAnalyticsId: 'G-M1YBQRPLR8',
   metaPixelId: '' // Example: 123456789012345
 });
 
