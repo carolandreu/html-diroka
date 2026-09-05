@@ -99,9 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const submitButton = form.querySelector('button[type="submit"]');
   const formStatus = document.getElementById('form-status');
-  const referenceFile = document.getElementById('reference-file');
-  const maximumFileSize = 10 * 1024 * 1024;
-  const permittedFileTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
   function showFormStatus(message, type) {
     if (!formStatus) {
@@ -117,22 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!form.checkValidity()) {
       form.reportValidity();
-      return;
-    }
-
-    const selectedFile = referenceFile?.files?.[0];
-
-    if (selectedFile && !permittedFileTypes.includes(selectedFile.type)) {
-      showFormStatus('Please upload a JPG, PNG, or WebP reference image.', 'error');
-      referenceFile.value = '';
-      referenceFile.focus();
-      return;
-    }
-
-    if (selectedFile && selectedFile.size > maximumFileSize) {
-      showFormStatus('The reference image must be 10 MB or smaller.', 'error');
-      referenceFile.value = '';
-      referenceFile.focus();
       return;
     }
 

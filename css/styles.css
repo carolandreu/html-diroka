@@ -247,22 +247,6 @@
     font-size: 0.8rem;
   }
 
-  .file-input::file-selector-button {
-    margin-right: 0.85rem;
-    padding: 0.65rem 0.9rem;
-    border: 0;
-    border-radius: 0.5rem;
-    color: var(--brand-black);
-    background: var(--brand-gold);
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .file-input::file-selector-button:hover {
-    background: var(--brand-gold-hover);
-  }
-
   .artist-card {
     display: flex;
     flex-direction: column;
