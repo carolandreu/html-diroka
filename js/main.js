@@ -11,7 +11,7 @@ function initializeAnalytics() {
   const googleId = DIROKA_ANALYTICS_CONFIG.googleAnalyticsId.trim();
   const metaId = DIROKA_ANALYTICS_CONFIG.metaPixelId.trim();
 
-  if (/^G-[A-Z0-9]+$/i.test(googleId)) {
+  if (/^G-[A-Z0-9]+$/i.test(googleId) && typeof window.gtag !== 'function') {
     const googleScript = document.createElement('script');
     googleScript.async = true;
     googleScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleId)}`;
