@@ -87,3 +87,17 @@
 @media (min-width: 768px) {
   #About .piercer-card { grid-column: 1 / -1; width: calc(50% - 1rem); justify-self: center; }
 }
+
+/* Consistent mobile artist cards; expanded biographies can grow naturally. */
+@media (max-width: 767px) {
+  #About .artist-card { align-items: stretch; width: 100%; min-width: 0; }
+  #About .artist-card > div:first-child { width: 80px; height: 104px; }
+  #About .artist-card > div:first-child img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+  #About .artist-content h3 { min-height: 2.6em; margin: 0; }
+  #About .artist-content > p:not(.artist-description) { line-height: 1.5; }
+  #About .artist-content > h3 + p { min-height: 3em; }
+  #About .artist-content > p.font-medium:not(.uppercase) { min-height: 4.5em; }
+  #About .artist-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  #About .artist-actions a { justify-content: center; min-height: 44px; padding: 10px 12px; line-height: 1.5; text-align: center; }
+  #About .artist-content > .read-more-btn { margin-top: 8px; }
+}
