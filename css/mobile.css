@@ -4,6 +4,15 @@
 .mobile-details { min-width: 0; }
 .mobile-details > div { display: grid; gap: 1.25rem; }
 @media (max-width: 767px) {
+  /* Let long contact text and flex/grid children fit the phone viewport. */
+  html { overflow-x: clip; }
+  body { width: 100%; min-width: 0; }
+  #Contact .grid > *, #Contact .space-y-8, #Contact .card-premium,
+  #Contact .flex > *, .trust-copy, .artist-actions > * { min-width: 0; }
+  #Contact .card-premium .flex > .rounded-full { flex: 0 0 40px; }
+  #Contact a, .trust-copy, .artist-content, .review-card { overflow-wrap: anywhere; }
+  #Home, #Portfolio, #About, #Reviews, #Booking, #Contact, #AboutStudio { max-width: 100%; }
+  #Home video { inset: 0; width: 100%; height: 100%; object-fit: cover; }
   #Home { padding-top: 80px; }
   #Home .hero-image { height: auto; min-height: 360px; max-height: none; padding: 40px 0 32px; }
   #Home .hero-image h1 { font-size: clamp(1.9rem, 8vw, 2.5rem); line-height: 1.12; margin-bottom: 16px; }
@@ -16,7 +25,7 @@
   #About h2, #Portfolio h2, #Reviews h2, #Booking h2, #Contact h2, #AboutStudio h2 { font-size: 1.8rem; line-height: 1.2; }
   .trust-strip-inner { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; padding: 12px 16px; }
   .trust-item { min-height: 0; padding: 10px; gap: 8px; }
-  .trust-icon { width: 28px; height: 28px; flex-shrink: 0; }
+  .trust-icon { width: 28px; height: 28px; flex: 0 0 28px; }
   .trust-copy strong { font-size: .75rem; }
   .trust-copy small { font-size: .7rem; }
   #tattoo-gallery, #piercing-gallery:not(.hidden) { column-count: 2; column-gap: 8px; }
