@@ -82,3 +82,8 @@
 #Contact .card-premium > .flex { width: 100%; }
 #Contact .card-premium > .flex > .rounded-full { flex: 0 0 2.5rem; }
 #Contact .card-premium > .flex > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+
+/* Center the piercer beneath the four tattoo artists on desktop. */
+@media (min-width: 768px) {
+  #About .piercer-card { grid-column: 1 / -1; width: calc(50% - 1rem); justify-self: center; }
+}
