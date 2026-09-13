@@ -293,16 +293,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!desc || !btn) return;
 
     // Si el texto entra completo, ocultamos el botón
-    if (desc.scrollHeight <= desc.clientHeight + 5) {
+    if (!window.matchMedia('(max-width: 767px)').matches && desc.scrollHeight <= desc.clientHeight + 5) {
       btn.style.display = "none";
       return;
     }
 
     btn.textContent = "View Bio →";
+    btn.setAttribute('aria-expanded', 'false');
 
     btn.addEventListener("click", () => {
 
       desc.classList.toggle("expanded");
+      btn.setAttribute('aria-expanded', String(desc.classList.contains('expanded')));
 
       btn.textContent = desc.classList.contains("expanded")
         ? "Hide Bio ↑"
@@ -560,7 +562,7 @@ piercingCards.forEach(function (card) {
   FILTROS, MEZCLA INTELIGENTE Y VIEW MORE
 */
 
-const photosPerLoad = 12;
+const photosPerLoad = window.matchMedia('(max-width: 767px)').matches ? 6 : 12;
 
 let currentFilter = 'all';
 let visiblePhotoLimit = photosPerLoad;
