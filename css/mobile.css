@@ -101,3 +101,9 @@
   #About .artist-actions a { justify-content: center; min-height: 44px; padding: 10px 12px; line-height: 1.5; text-align: center; }
   #About .artist-content > .read-more-btn { margin-top: 8px; }
 }
+
+/* Share the tallest collapsed card's height at every phone width. */
+@media (max-width: 767px) {
+  #About .artist-grid { grid-auto-rows: 1fr; }
+  #About .artist-grid:has(.artist-description.expanded) { grid-auto-rows: auto; }
+}
