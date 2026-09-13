@@ -4,45 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1YBQRPLR8"></script>
+    <!-- Google Analytics with consent defaults -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+
+      var dirokaConsent = 'declined';
+      try {
+        dirokaConsent = localStorage.getItem('diroka_tracking_consent') || 'declined';
+      } catch (error) {}
+
+      gtag('consent', 'default', {
+        analytics_storage: dirokaConsent === 'accepted' ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('js', new Date());
       gtag('config', 'G-M1YBQRPLR8');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1YBQRPLR8"></script>
 
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1821632672340244');
-      fbq('track', 'PageView');
-    </script>
-    <!-- End Meta Pixel Code -->
     <meta name="description" content="Award-winning tattoo and piercing studio serving Denver and Aurora, Colorado. Custom tattoos, fine line, realism, black & grey, geometric tattoos, and implant-grade titanium piercings."> 
     <meta name="theme-color" content="#080808">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://dirokatattoostudio.com/">
+    <link rel="canonical" href="https://www.dirokatattoostudio.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Diroka Tattoo Studio | Denver & Aurora">
     <meta property="og:description" content="Award-winning custom tattoos and premium body piercings in Aurora, serving the Denver metro area.">
-    <meta property="og:url" content="https://dirokatattoostudio.com/">
-    <meta property="og:image" content="https://dirokatattoostudio.com/img/interior.png">
+    <meta property="og:url" content="https://www.dirokatattoostudio.com/">
+    <meta property="og:image" content="https://www.dirokatattoostudio.com/img/interior.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Diroka Tattoo Studio">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Diroka Tattoo Studio | Denver & Aurora">
     <meta name="twitter:description" content="Custom tattoos and premium body piercings in Aurora, serving the Denver metro area.">
-    <meta name="twitter:image" content="https://dirokatattoostudio.com/img/interior.png">
+    <meta name="twitter:image" content="https://www.dirokatattoostudio.com/img/interior.png">
 
     <title>Denver & Aurora Tattoo and Piercing Studio | Diroka</title>
     <link rel="icon" type="image/png" href="img/DirokaLogo.png">
@@ -58,9 +57,9 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Diroka Tattoo Studio",
-      "url": "https://dirokatattoostudio.com/",
-      "logo": "https://dirokatattoostudio.com/img/DirokaLogo.png",
-      "image": "https://dirokatattoostudio.com/img/interior.png",
+      "url": "https://www.dirokatattoostudio.com/",
+      "logo": "https://www.dirokatattoostudio.com/img/DirokaLogo.png",
+      "image": "https://www.dirokatattoostudio.com/img/interior.png",
       "telephone": "+1-720-930-1327",
       "email": "dirokatattoostudio.usa@gmail.com",
       "priceRange": "$$",
@@ -89,15 +88,10 @@
     }
     </script>
     
-    <link rel="stylesheet" href="css/styles.css?v=20260905-1">
+    <link rel="stylesheet" href="css/styles.css?v=20260913-2">
     </head>
     
 <body class="bg-gray-900 text-gray-200 antialiased">
-    <noscript>
-      <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=1821632672340244&amp;ev=PageView&amp;noscript=1"
-           alt="">
-    </noscript>
     
   <!-- Header and Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/90 backdrop-blur-md shadow-lg">
@@ -1384,6 +1378,10 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
                     <button type="submit" class="inline-block bg-pink-600 hover:bg-pink-700 text-white font-bold py-4 px-12 rounded-full transition duration-300 transform hover:scale-105 uppercase tracking-wider">
                     Submit Request
                     </button>
+                    <p class="form-privacy-note">
+                      By submitting this form, you agree that Diroka may use your information to respond to your request.
+                      See our <a href="privacy.html">Privacy Policy</a>.
+                    </p>
                     </div>
                     <div id="form-status" class="form-status md:col-span-2" role="status" aria-live="polite"></div>
                     <div class="hidden" aria-hidden="true">
@@ -1520,9 +1518,29 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
     <!-- Copy -->
     <div class="border-t border-gray-800 pt-6">
      <p class="text-gray-500">&copy; 2026 Diroka Tattoo Studio. All rights reserved.</p>
+     <div class="footer-legal-links" aria-label="Privacy links">
+       <a href="privacy.html">Privacy Policy</a>
+       <button type="button" id="cookie-preferences">Cookie Preferences</button>
+     </div>
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent -->
+<section id="cookie-banner" class="cookie-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-title" hidden>
+  <div class="cookie-copy">
+    <p class="cookie-eyebrow">YOUR PRIVACY</p>
+    <h2 id="cookie-title">Choose your cookie preferences</h2>
+    <p>
+      We use Google Analytics to understand how our website is used and Meta Pixel to measure advertising results.
+      You can accept or decline optional tracking. <a href="privacy.html">Read our Privacy Policy</a>.
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" id="cookie-decline" class="cookie-button cookie-button-secondary">Decline</button>
+    <button type="button" id="cookie-accept" class="cookie-button cookie-button-primary">Accept</button>
+  </div>
+</section>
 
 <!-- Mobile Quick Actions -->
 <nav class="mobile-action-bar" aria-label="Quick contact actions">
@@ -1537,6 +1555,6 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
 </nav>
 
 <!-- JavaScript -->
-    <script src="js/main.js?v=20260913-1" defer></script>
+    <script src="js/main.js?v=20260913-2" defer></script>
 </body>
 </html>

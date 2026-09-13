@@ -7,6 +7,65 @@ const DIROKA_ANALYTICS_CONFIG = Object.freeze({
   metaPixelId: '1821632672340244'
 });
 
+const DIROKA_CONSENT_KEY = 'diroka_tracking_consent';
+
+function getStoredConsent() {
+  try {
+    return localStorage.getItem(DIROKA_CONSENT_KEY);
+  } catch (error) {
+    return null;
+  }
+}
+
+function storeConsent(value) {
+  try {
+    localStorage.setItem(DIROKA_CONSENT_KEY, value);
+  } catch (error) {
+    console.warn('Cookie preference could not be saved.', error);
+  }
+}
+
+function updateGoogleConsent(isAccepted) {
+  if (typeof window.gtag !== 'function') {
+    return;
+  }
+
+  window.gtag('consent', 'update', {
+    analytics_storage: isAccepted ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+}
+
+function initializeMetaPixel(metaId) {
+  if (!/^\d{5,20}$/.test(metaId) || typeof window.fbq === 'function') {
+    return;
+  }
+
+  const fbq = function () {
+    if (fbq.callMethod) {
+      fbq.callMethod.apply(fbq, arguments);
+    } else {
+      fbq.queue.push(arguments);
+    }
+  };
+
+  fbq.push = fbq;
+  fbq.loaded = true;
+  fbq.version = '2.0';
+  fbq.queue = [];
+  window.fbq = fbq;
+
+  const metaScript = document.createElement('script');
+  metaScript.async = true;
+  metaScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+  document.head.appendChild(metaScript);
+
+  window.fbq('init', metaId);
+  window.fbq('track', 'PageView');
+}
+
 function initializeAnalytics() {
   const googleId = DIROKA_ANALYTICS_CONFIG.googleAnalyticsId.trim();
   const metaId = DIROKA_ANALYTICS_CONFIG.metaPixelId.trim();
@@ -26,28 +85,72 @@ function initializeAnalytics() {
     window.gtag('config', googleId);
   }
 
-  if (/^\d{5,20}$/.test(metaId) && typeof window.fbq !== 'function') {
-    const fbq = function () {
-      if (fbq.callMethod) {
-        fbq.callMethod.apply(fbq, arguments);
-      } else {
-        fbq.queue.push(arguments);
+  const consent = getStoredConsent();
+  const isAccepted = consent === 'accepted';
+
+  updateGoogleConsent(isAccepted);
+
+  if (isAccepted) {
+    initializeMetaPixel(metaId);
+  }
+}
+
+function setupCookieConsent() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptButton = document.getElementById('cookie-accept');
+  const declineButton = document.getElementById('cookie-decline');
+  const preferencesButton = document.getElementById('cookie-preferences');
+
+  if (!banner || !acceptButton || !declineButton) {
+    return;
+  }
+
+  const showBanner = function () {
+    banner.hidden = false;
+    acceptButton.focus({ preventScroll: true });
+  };
+
+  const hideBanner = function () {
+    banner.hidden = true;
+  };
+
+  const applyConsent = function (value) {
+    const hadMetaPixel = typeof window.fbq === 'function';
+    const isAccepted = value === 'accepted';
+
+    storeConsent(value);
+    updateGoogleConsent(isAccepted);
+
+    if (isAccepted) {
+      initializeMetaPixel(DIROKA_ANALYTICS_CONFIG.metaPixelId.trim());
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
       }
-    };
+    }
 
-    fbq.push = fbq;
-    fbq.loaded = true;
-    fbq.version = '2.0';
-    fbq.queue = [];
-    window.fbq = fbq;
+    hideBanner();
 
-    const metaScript = document.createElement('script');
-    metaScript.async = true;
-    metaScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
-    document.head.appendChild(metaScript);
+    if (!isAccepted && hadMetaPixel) {
+      window.location.reload();
+    }
+  };
 
-    window.fbq('init', metaId);
-    window.fbq('track', 'PageView');
+  acceptButton.addEventListener('click', function () {
+    applyConsent('accepted');
+  });
+
+  declineButton.addEventListener('click', function () {
+    applyConsent('declined');
+  });
+
+  preferencesButton?.addEventListener('click', showBanner);
+
+  if (!getStoredConsent()) {
+    showBanner();
   }
 }
 
@@ -71,7 +174,10 @@ function trackDirokaLead(parameters = {}) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initializeAnalytics, { once: true });
+document.addEventListener('DOMContentLoaded', function () {
+  initializeAnalytics();
+  setupCookieConsent();
+}, { once: true });
 
 document.addEventListener('click', function (event) {
   const bookingCta = event.target.closest(

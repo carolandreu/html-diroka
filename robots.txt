@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dirokatattoostudio.com/sitemap.xml
+Sitemap: https://www.dirokatattoostudio.com/sitemap.xml
