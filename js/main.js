@@ -4,7 +4,7 @@
 */
 const DIROKA_ANALYTICS_CONFIG = Object.freeze({
   googleAnalyticsId: 'G-M1YBQRPLR8',
-  metaPixelId: '' // Example: 123456789012345
+  metaPixelId: '1821632672340244'
 });
 
 function initializeAnalytics() {
@@ -26,7 +26,7 @@ function initializeAnalytics() {
     window.gtag('config', googleId);
   }
 
-  if (/^\d{5,20}$/.test(metaId)) {
+  if (/^\d{5,20}$/.test(metaId) && typeof window.fbq !== 'function') {
     const fbq = function () {
       if (fbq.callMethod) {
         fbq.callMethod.apply(fbq, arguments);
