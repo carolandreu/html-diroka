@@ -1,3 +1,34 @@
+/* Keep CTA labels from being interpreted as GA4 traffic sources. */
+(function normalizeDirokaAnalyticsParams() {
+  const originalGtag = window.gtag;
+
+  if (typeof originalGtag !== 'function' || originalGtag.__dirokaWrapped) {
+    return;
+  }
+
+  function wrappedGtag(command, eventName, parameters) {
+    if (
+      command === 'event' &&
+      eventName === 'booking_cta_click' &&
+      parameters &&
+      Object.prototype.hasOwnProperty.call(parameters, 'source')
+    ) {
+      const normalizedParameters = {
+        ...parameters,
+        cta_source: parameters.source
+      };
+
+      delete normalizedParameters.source;
+      return originalGtag(command, eventName, normalizedParameters);
+    }
+
+    return originalGtag.apply(window, arguments);
+  }
+
+  wrappedGtag.__dirokaWrapped = true;
+  window.gtag = wrappedGtag;
+})();
+
 /* Move existing nodes, never duplicate content or form controls. */
 document.addEventListener('DOMContentLoaded', () => {
   const home = document.getElementById('Home');
