@@ -1,6 +1,6 @@
 # News & Awards
 
-The full bilingual article sits between the home trust strip and AboutStudio. The approved Spanish article and its English translation are readable completely on the homepage, with no read-more link to another page. It uses css/news.css and js/news.js. The existing article URL remains available for old links and has the same content. Keep the two copies synchronized. News copy works without JavaScript; EN/ES controls and the gallery are progressive enhancement.
+The full bilingual article sits between the home trust strip and AboutStudio. The hero keeps the studio introduction and Book Now CTA, with a compact bilingual seven-award announcement linking to #News on the same page. The approved Spanish article and its English translation are readable completely on the homepage, with no read-more link to another page. It uses css/news.css and js/news.js. The existing article URL remains available for old links and has the same content. Keep the two copies synchronized. News copy works without JavaScript; EN/ES controls and the gallery are progressive enhancement.
 
 ## Current story: November 2026
 
@@ -37,7 +37,7 @@ Still needed to expand the report: exact event dates; any further participants o
 
 The gallery contains five real, uncropped photos: the team, Diego’s finished geometric piece with Best Unusual, the traditional eye, the freehand drawing, and the award celebration. All four Diego images are byte-for-byte copies of Carolina’s uploads. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
 
-To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation and opening the photo viewer stop rotation. Each photo opens in a native modal dialog on the same page, with localized captions, previous/next buttons, arrow keys, swipe, Escape/close, and focus restoration. The page beneath it remains in place and is inert while the dialog is open. Do not use duplicate or unrelated work as public slides.
+To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. The first slide remains the team until the photo area is at least half visible. Automatic rotation is every seven seconds only while that area is visible; it pauses during hover/focus, offscreen, or when the tab is hidden, and is off for reduced-motion users. Accessible thumbnails select any slide and stop rotation; the current thumbnail is marked with aria-current. Captions distinguish the artist and award/process detail. Manual navigation and opening the photo viewer stop rotation. Each photo opens in a native modal dialog on the same page, with localized captions, previous/next buttons, arrow keys, swipe, Escape/close, and focus restoration. The page beneath it remains in place and is inert while the dialog is open. Do not use duplicate or unrelated work as public slides.
 
 When the remaining artists’ photos arrive, keep the team first, then one winning piece per artist, and put process/celebration photos afterward. Do not invent missing photos or use the screenshot as a finished gallery photo.
 
@@ -51,7 +51,7 @@ Diego photo sources:
 
 Do not imply that the other tattoos visible on the client’s leg or arm won these awards.
 
-The copy was tightened to emphasize the artwork, all seven awards, Kevin’s arrival, and a direct thank-you to clients. Keep the article complete on the homepage.
+The short headline is “Seven awards for Diroka” / “Siete premios para Diroka”; the deck names Ink Masters Tattoo Show and avoids repeating an opening paragraph. Kevin’s paragraph has a small “New artist at Diroka” / “Nuevo artista en Diroka” label. The copy emphasizes the artwork, all seven awards, Kevin’s arrival, and a direct thank-you to clients. Keep the article complete on the homepage.
 
 ## Later stories
 

@@ -6,14 +6,16 @@
     const buttons = Array.from(controls.querySelectorAll('button[data-news-lang]'));
     const setLanguage = language => {
       if (!['en', 'es'].includes(language)) return;
-      region.querySelectorAll('[data-news-content]').forEach(content => {
-        content.hidden = content.lang !== language;
-      });
-      region.querySelectorAll('[data-label-en]').forEach(element => {
-        element.setAttribute('aria-label', element.dataset[language === 'es' ? 'labelEs' : 'labelEn']);
-      });
-      region.querySelectorAll('[data-alt-en]').forEach(element => {
-        element.alt = element.dataset[language === 'es' ? 'altEs' : 'altEn'];
+      [region, ...document.querySelectorAll('[data-news-announcement]')].forEach(area => {
+        area.querySelectorAll('[data-news-content]').forEach(content => {
+          content.hidden = content.lang !== language;
+        });
+        area.querySelectorAll('[data-label-en]').forEach(element => {
+          element.setAttribute('aria-label', element.dataset[language === 'es' ? 'labelEs' : 'labelEn']);
+        });
+        area.querySelectorAll('[data-alt-en]').forEach(element => {
+          element.alt = element.dataset[language === 'es' ? 'altEs' : 'altEn'];
+        });
       });
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.newsLang === language)));
       if (region === document.body) {
@@ -39,12 +41,14 @@
     let playing = slides.length > 1 && !motion.matches;
     let hovered = false;
     let focused = false;
+    let inView = false;
     let timer;
     const region = gallery.closest('[data-news-region]');
     const language = () => region.querySelector('[data-news-lang="es"]').getAttribute('aria-pressed') === 'true' ? 'es' : 'en';
     const dialog = document.createElement('dialog');
     const canExpand = typeof dialog.showModal === 'function';
     const photoButtons = [];
+    const thumbnailButtons = [];
     let updateViewer = () => {};
     if (canExpand) {
       dialog.className = 'news-lightbox';
@@ -122,9 +126,39 @@
         photoButtons.push(button);
       });
     }
+    const thumbnails = document.createElement('div');
+    thumbnails.className = 'news-thumbnails';
+    thumbnails.setAttribute('role', 'group');
+    thumbnails.dataset.labelEn = 'Choose a photo';
+    thumbnails.dataset.labelEs = 'Elegí una foto';
+    thumbnails.setAttribute('aria-label', thumbnails.dataset[language() === 'es' ? 'labelEs' : 'labelEn']);
+    thumbnails.hidden = slides.length < 2;
+    slides.forEach((slide, index) => {
+      const source = slide.querySelector('img');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'news-thumbnail';
+      button.dataset.galleryThumb = String(index);
+      button.dataset.labelEn = `Show photo ${index + 1}: ${source.dataset.altEn || source.alt}`;
+      button.dataset.labelEs = `Ver foto ${index + 1}: ${source.dataset.altEs || source.alt}`;
+      button.setAttribute('aria-label', button.dataset[language() === 'es' ? 'labelEs' : 'labelEn']);
+      const img = document.createElement('img');
+      img.src = source.getAttribute('src');
+      img.alt = '';
+      img.width = 64;
+      img.height = 54;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      button.append(img);
+      button.addEventListener('click', () => goTo(index));
+      thumbnails.append(button);
+      thumbnailButtons.push(button);
+    });
+    controls.before(thumbnails);
     const show = (index, announce = true) => {
       current = (index + slides.length) % slides.length;
       slides.forEach((slide, i) => { slide.hidden = i !== current; });
+      thumbnailButtons.forEach((button, i) => button.setAttribute('aria-current', String(i === current)));
       status.setAttribute('aria-live', announce ? 'polite' : 'off');
       status.textContent = `${current + 1} / ${slides.length}`;
       if (dialog.open) updateViewer();
@@ -134,9 +168,10 @@
       toggle.setAttribute('aria-pressed', String(playing));
       toggle.querySelector('[lang="en"]').textContent = playing ? 'Pause' : 'Play';
       toggle.querySelector('[lang="es"]').textContent = playing ? 'Pausar' : 'Reproducir';
-      if (playing && !hovered && !focused && !dialog.open && !document.hidden) timer = setInterval(() => show(current + 1, false), 7000);
+      if (playing && inView && !hovered && !focused && !dialog.open && !document.hidden) timer = setInterval(() => show(current + 1, false), 7000);
     };
-    const step = direction => { playing = false; show(current + direction); refresh(); };
+    const goTo = index => { playing = false; show(index); refresh(); };
+    const step = direction => goTo(current + direction);
     gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => step(-1));
     gallery.querySelector('[data-gallery-next]').addEventListener('click', () => step(1));
     toggle.addEventListener('click', () => { playing = !playing; refresh(); });
@@ -145,7 +180,11 @@
     gallery.addEventListener('focusin', () => { focused = true; refresh(); });
     gallery.addEventListener('focusout', event => { if (!gallery.contains(event.relatedTarget)) { focused = false; refresh(); } });
     gallery.addEventListener('keydown', event => {
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); step(event.key === 'ArrowLeft' ? -1 : 1); }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        step(event.key === 'ArrowLeft' ? -1 : 1);
+        if (event.target.closest('.news-thumbnail')) thumbnailButtons[current].focus({ preventScroll:true });
+      }
     });
     let touch;
     let swiped = false;
@@ -163,6 +202,24 @@
     gallery.addEventListener('touchcancel', () => { touch = null; }, { passive:true });
     document.addEventListener('visibilitychange', refresh);
     motion.addEventListener('change', () => { if (motion.matches) { playing = false; refresh(); } });
+    const photoArea = gallery.querySelector('.news-slides');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        inView = entries[0].isIntersecting && entries[0].intersectionRatio >= .5;
+        refresh();
+      }, { threshold:.5, rootMargin:'-80px 0px 0px 0px' });
+      observer.observe(photoArea);
+    } else {
+      const checkVisibility = () => {
+        const rect = photoArea.getBoundingClientRect();
+        const visibleHeight = Math.max(0, Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 80));
+        const visible = rect.height > 0 && visibleHeight >= rect.height * .5;
+        if (visible !== inView) { inView = visible; refresh(); }
+      };
+      window.addEventListener('scroll', checkVisibility, { passive:true });
+      window.addEventListener('resize', checkVisibility);
+      checkVisibility();
+    }
     controls.hidden = slides.length < 2;
     show(0, false);
     refresh();
