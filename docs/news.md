@@ -4,9 +4,15 @@ The homepage feature sits between the home trust strip and AboutStudio. It uses 
 
 ## Current story: November 2026
 
-Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. The first publication uses this team-level statement only. The Diroka mark is decorative, not a photo of the convention.
+Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. Confirmed individual awards are listed below; do not infer details for other artists. The Diroka mark is decorative, not a photo of the convention.
 
-Still needed to expand the report: exact event dates; participating artists; each artist’s award, placement and category; a team photo and photos of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
+### Diego Juarez — confirmed by Carolina
+
+- Best Unusual: a geometric tattoo in the armpit.
+- Best Small Color and Best Traditional: both awarded to the same traditional tattoo.
+- Total: three awards across two tattoos. Preserve “Best Small Color”; the later shorthand “best color” refers to this same award. Do not add placements or details of the traditional design without confirmation.
+
+Still needed to expand the report: exact event dates; other participating artists and their awards; any award placements not stated; a team photo and photos of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
 When the material arrives, update both language copies of the feature and article. Replace .news-art with an optimized real photo, descriptive alt text, width/height and lazy loading. Put each confirmed award alongside the matching artwork and artist. Use existing .artist-book-btn / data-artist hooks on homepage artist links, with values verified in js/main.js, or link the article back to the artist’s existing booking flow.
 
