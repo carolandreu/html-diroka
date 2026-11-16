@@ -35,9 +35,11 @@ Still needed to expand the report: exact event dates; any further participants o
 
 ## Gallery
 
-The gallery contains five real, uncropped photos: the team, Diego’s freehand drawing, his finished geometric piece with Best Unusual, the traditional eye, and the award celebration. All four Diego images are byte-for-byte copies of Carolina’s uploads. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
+The gallery contains five real, uncropped photos: the team, Diego’s finished geometric piece with Best Unusual, the traditional eye, the freehand drawing, and the award celebration. All four Diego images are byte-for-byte copies of Carolina’s uploads. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
 
-To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation stops rotation. Do not use duplicate or unrelated work as public slides.
+To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation and opening the photo viewer stop rotation. Each photo opens in a native modal dialog on the same page, with localized captions, previous/next buttons, arrow keys, swipe, Escape/close, and focus restoration. The page beneath it remains in place and is inert while the dialog is open. Do not use duplicate or unrelated work as public slides.
+
+When the remaining artists’ photos arrive, keep the team first, then one winning piece per artist, and put process/celebration photos afterward. Do not invent missing photos or use the screenshot as a finished gallery photo.
 
 Original photos of Julian’s piece and visual references for Arnold’s and Kevin’s winning tattoos remain pending. Julian’s screenshot supplies visual context for the article but is not a slide. Match each piece to its artist and category using Carolina’s confirmation.
 
@@ -48,6 +50,8 @@ Diego photo sources:
 - IMG_8987.jpeg → diego-best-unusual-celebration.jpeg
 
 Do not imply that the other tattoos visible on the client’s leg or arm won these awards.
+
+The copy was tightened to emphasize the artwork, all seven awards, Kevin’s arrival, and a direct thank-you to clients. Keep the article complete on the homepage.
 
 ## Later stories
 
