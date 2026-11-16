@@ -6,6 +6,14 @@ The full bilingual article sits between the home trust strip and AboutStudio. Th
 
 Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. Confirmed individual awards are listed below; do not infer details for other artists. Carolina supplied IMG_4836.jpeg as the team photo, now used unchanged at img/news/ink-masters-team-awards.jpeg. It shows the team with awards. Do not infer which person occupies which position.
 
+### Convention context — verified November 16, 2026
+
+- Official event page: https://www.inkmasterstattooshow.com/events/denver-colorado-tattoo-expo-november-13-15-2026
+- Denver edition: November 13–15, 2026, at DoubleTree by Hilton Hotel Denver.
+- The organizer advertised more than 200 tattoo artists and live tattooing. Treat this as the announced lineup, not a verified final attendance count.
+- Category competitions: https://www.inkmasterstattooshow.com/inkmasterstattooshowinformation
+- The bilingual opening paragraph attributes the artist count to the organizer and describes the three-day program before the individual Diroka awards.
+
 ### Diego Juarez — confirmed by Carolina
 
 - Best Unusual: a geometric tattoo in the armpit. Carolina confirmed it was designed freehand; the supplied process photo shows the drawing directly on the skin. The finished radial pattern extends toward the arm and side of the torso.
@@ -29,9 +37,9 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 - Best of Show Black and Grey. Preserve the full category; do not describe it as an unrestricted overall Best of Show.
 - Do not assume whether the same tattoo won both awards. No winning artwork or placement supplied yet.
 
-The supplied awards add up to seven across four artists: Diego 3, Julian 1, Arnold 1, Kevin 2. This is a count of confirmed awards; do not invent additional wins or an edition/location.
+The supplied awards add up to seven across four artists: Diego 3, Julian 1, Arnold 1, Kevin 2. This is a count of confirmed awards; do not invent additional wins or unverified event details.
 
-Still needed to expand the report: exact event dates; any further participants or awards Carolina identifies; any award placements not stated; original photos and further details of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
+Still needed to expand the report: any further participants or awards Carolina identifies; any award placements not stated; original photos and further details of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
 ## Gallery
 
