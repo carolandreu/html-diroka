@@ -91,6 +91,7 @@
     
     <link rel="stylesheet" href="css/styles.css?v=20260913-2">
     <link rel="stylesheet" href="css/mobile.css?v=20260913-9">
+    <link rel="stylesheet" href="css/news.css?v=20261115-1">
     </head>
     
 <body class="bg-gray-900 text-gray-200 antialiased">
@@ -126,6 +127,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 py-2 px-4">
             <div class="flex flex-col space-y-3">
                 <a href="#Home" class="nav-link text-gray-300 hover:text-white">Home</a>
+                <a href="#News" class="nav-link text-gray-300 hover:text-white">News &amp; Awards</a>
                 <a href="#AboutStudio" class="nav-link text-gray-300 hover:text-white">About Us</a>
                 <a href="#Portfolio" id="mnav-tattoo" class="nav-link text-gray-300 hover:text-white">Tattoo Gallery</a>
                 <a href="#Portfolio" id="mnav-piercing" class="nav-link text-gray-300 hover:text-white">Piercing Gallery</a>
@@ -193,6 +195,45 @@
           </div>
         </div>
         
+        <!-- News: insert future stories here, newest first. See docs/news.md. -->
+        <section id="News" class="diroka-news" aria-label="News and awards" data-news-region>
+          <div class="news-wrap">
+            <div class="news-heading-row">
+              <p class="news-kicker"><span data-news-content lang="en">From the studio / News &amp; Awards</span><span data-news-content lang="es" hidden>Desde el estudio / Novedades y premios</span></p>
+              <div class="news-language" data-news-language role="group" aria-label="News language / Idioma de la noticia" hidden>
+            <button type="button" data-news-lang="en" aria-pressed="true" lang="en">EN</button>
+            <button type="button" data-news-lang="es" aria-pressed="false" lang="es">ES</button>
+          </div>
+            </div>
+            <article class="news-feature">
+              <div class="news-art" aria-hidden="true">
+              <img src="img/DirokaLogo.png" alt="" width="180" height="180" loading="lazy" decoding="async">
+              <span class="news-art-label">Artistry. Dedication. Recognition.</span>
+            </div>
+              <div class="news-feature-copy">
+                <div data-news-content lang="en">
+            <p class="news-meta"><span class="news-category">Awards</span><time datetime="2026-11">November 2026</time></p>
+            <h2>An award-winning weekend for Diroka.</h2>
+            <p class="news-description">Every artist representing Diroka at our latest convention received an award. A team achievement we’re proud to celebrate.</p>
+            <div class="news-actions">
+              <a class="news-button" href="#Booking" data-track="news_book">Book Now</a>
+              <a class="news-link" data-news-story-link href="news/convention-awards-november-2026.html">Read the story <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+                <div data-news-content lang="es" hidden>
+            <p class="news-meta"><span class="news-category">Premios</span><time datetime="2026-11">Noviembre de 2026</time></p>
+            <h2>Un fin de semana de premios para Diroka.</h2>
+            <p class="news-description">Todos los artistas que representaron a Diroka en nuestra última convención recibieron premios. Un logro del equipo que nos llena de orgullo.</p>
+            <div class="news-actions">
+              <a class="news-button" href="#Booking" data-track="news_book">Book Now</a>
+              <a class="news-link" data-news-story-link href="news/convention-awards-november-2026.html?lang=es">Conocé la noticia <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <div id="AboutStudio" class="container mx-auto px-4 py-16 bg-gray-900 scroll-mt-24">
         <div class="flex flex-col md:flex-row items-center">
         <!-- Columna de texto -->
@@ -1540,6 +1581,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
     <div class="border-t border-gray-800 pt-6">
      <p class="text-gray-500">&copy; 2026 Diroka Tattoo Studio. All rights reserved.</p>
      <div class="footer-legal-links" aria-label="Privacy links">
+       <a href="#News">News &amp; Awards</a>
        <a href="privacy.html">Privacy Policy</a>
        <button type="button" id="cookie-preferences">Cookie Preferences</button>
      </div>
@@ -1576,6 +1618,7 @@ Tell us your idea! Share your questions, inspirations, or the concept you have i
 </nav>
 
 <!-- JavaScript -->
+    <script src="js/news.js?v=20261115-1" defer></script>
     <script src="js/main.js?v=20260913-3" defer></script>
     <script src="js/mobile.js?v=20260913-3" defer></script>
 </body>

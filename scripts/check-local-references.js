@@ -1,9 +1,14 @@
-const { existsSync, readFileSync } = require('node:fs');
+const { existsSync, readFileSync, readdirSync } = require('node:fs');
 const { dirname, resolve } = require('node:path');
 
 const root = resolve(__dirname, '..');
 const pages = ['index.html'];
 if (existsSync(resolve(root, 'privacy.html'))) pages.push('privacy.html');
+if (existsSync(resolve(root, 'news'))) {
+  for (const file of readdirSync(resolve(root, 'news'), { recursive: true })) {
+    if (file.endsWith('.html')) pages.push(`news/${file}`);
+  }
+}
 
 const errors = [];
 let checked = 0;
