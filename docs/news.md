@@ -20,7 +20,7 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 
 ### Arnold Camargo — confirmed by Carolina
 
-- Best of Day Sunday. No tattoo details or photos supplied yet.
+- Best of Day Sunday for a color realism tattoo, confirmed by Carolina. Photos, subject, and placement are still pending. Do not use unrelated portfolio photos for the winning piece.
 
 ### Kevin Vargas — confirmed by Carolina
 
