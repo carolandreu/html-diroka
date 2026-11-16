@@ -13,8 +13,8 @@
       if (region === document.body) {
         document.documentElement.lang = language;
         document.title = language === 'es'
-          ? 'Un fin de semana de premios | Diroka Tattoo Studio'
-          : 'An award-winning weekend | Diroka Tattoo Studio';
+          ? 'Premios en Ink Masters Tattoo Show | Diroka Tattoo Studio'
+          : 'Ink Masters Tattoo Show awards | Diroka Tattoo Studio';
       }
       region.querySelectorAll('[data-news-story-link]').forEach(link => {
         const destination = new URL(link.href);

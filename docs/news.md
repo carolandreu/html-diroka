@@ -4,9 +4,9 @@ The homepage feature sits between the home trust strip and AboutStudio. It uses 
 
 ## Current story: November 2026
 
-Confirmed by Carolina: all artists who participated with Diroka received awards. The first publication uses this team-level statement only. The Diroka mark is decorative, not a photo of the convention.
+Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. The first publication uses this team-level statement only. The Diroka mark is decorative, not a photo of the convention.
 
-Still needed to expand the report: convention name and exact dates; participating artists; each artist’s award, placement and category; a team photo and photos of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
+Still needed to expand the report: exact event dates; participating artists; each artist’s award, placement and category; a team photo and photos of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
 When the material arrives, update both language copies of the feature and article. Replace .news-art with an optimized real photo, descriptive alt text, width/height and lazy loading. Put each confirmed award alongside the matching artwork and artist. Use existing .artist-book-btn / data-artist hooks on homepage artist links, with values verified in js/main.js, or link the article back to the artist’s existing booking flow.
 
