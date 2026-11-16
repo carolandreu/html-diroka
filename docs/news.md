@@ -1,10 +1,10 @@
 # News & Awards
 
-The homepage feature sits between the home trust strip and AboutStudio. It uses css/news.css and js/news.js. News copy works without JavaScript; the EN/ES controls are progressive enhancement.
+The full bilingual article sits between the home trust strip and AboutStudio. The approved Spanish article and its English translation are readable completely on the homepage, with no read-more link to another page. It uses css/news.css and js/news.js. The existing article URL remains available for old links and has the same content. Keep the two copies synchronized. News copy works without JavaScript; EN/ES controls and the gallery are progressive enhancement.
 
 ## Current story: November 2026
 
-Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. Confirmed individual awards are listed below; do not infer details for other artists. The Diroka mark is decorative, not a photo of the convention.
+Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artists who participated with Diroka received awards. Confirmed individual awards are listed below; do not infer details for other artists. Carolina supplied IMG_4836.jpeg as the team photo, now used unchanged at img/news/ink-masters-team-awards.jpeg. It shows the team with awards. Do not infer which person occupies which position.
 
 ### Diego Juarez — confirmed by Carolina
 
@@ -32,7 +32,13 @@ The supplied awards add up to seven across four artists: Diego 3, Julian 1, Arno
 
 Still needed to expand the report: exact event dates; any further participants or awards Carolina identifies; any award placements not stated; a team photo and photos/details of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
-When the material arrives, update both language copies of the feature and article. Replace .news-art with an optimized real photo, descriptive alt text, width/height and lazy loading. Put each confirmed award alongside the matching artwork and artist. Use existing .artist-book-btn / data-artist hooks on homepage artist links, with values verified in js/main.js, or link the article back to the artist’s existing booking flow.
+## Gallery
+
+The real team photo is the first and currently only slide. The full portrait photo is shown without cropping. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
+
+To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation stops rotation. Do not use duplicate or unrelated work as public slides.
+
+Photos/details of the individual winning tattoos are pending. Match each piece to its artist and category using Carolina’s confirmation.
 
 ## Later stories
 
