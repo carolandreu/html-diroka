@@ -12,6 +12,11 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 - Best Small Color and Best Traditional: both awarded to the same traditional tattoo.
 - Total: three awards across two tattoos. Preserve “Best Small Color”; the later shorthand “best color” refers to this same award. Do not add placements or details of the traditional design without confirmation.
 
+### Julian Carvajal — confirmed by Carolina
+
+- Small Black and Gray. Keep the category name exactly as supplied; no “Best” prefix or placement was specified.
+- The winning design, body placement, and photos have not yet been provided.
+
 Still needed to expand the report: exact event dates; other participating artists and their awards; any award placements not stated; a team photo and photos of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
 When the material arrives, update both language copies of the feature and article. Replace .news-art with an optimized real photo, descriptive alt text, width/height and lazy loading. Put each confirmed award alongside the matching artwork and artist. Use existing .artist-book-btn / data-artist hooks on homepage artist links, with values verified in js/main.js, or link the article back to the artist’s existing booking flow.
