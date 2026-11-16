@@ -72,3 +72,6 @@
 .news-award-list > div + div { margin-top:22px; }
 .news-award-list dt { color:#e2c573; font:600 15px/1.6 Inter,Arial,sans-serif; }
 .news-award-list dd { margin:6px 0 0; color:#c3bfb7; font:400 16px/1.75 Inter,Arial,sans-serif; }
+
+.news-award-names { list-style:none; padding:0; margin:0; color:#e2c573; font:600 15px/1.7 Inter,Arial,sans-serif; }
+.news-award-names li + li { margin-top:12px; }
