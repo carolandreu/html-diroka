@@ -15,7 +15,8 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 ### Julian Carvajal — confirmed by Carolina
 
 - Small Black and Gray. Keep the category name exactly as supplied; no “Best” prefix or placement was specified.
-- The winning design, body placement, and photos have not yet been provided.
+- Carolina supplied IMG_4863.jpeg, a screenshot of Julian’s Instagram story, as the reference for his winning piece. Visible details: a classical-inspired figure with wings, detailed feathers, and black-and-gray facial shading. Do not identify a specific mythological figure or infer exact body placement or technique.
+- The screenshot informs the EN/ES article description but is not a gallery slide. Original photographs are pending from Julian; use those for the gallery when Carolina supplies them.
 
 ### Arnold Camargo — confirmed by Carolina
 
@@ -30,7 +31,7 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 
 The supplied awards add up to seven across four artists: Diego 3, Julian 1, Arnold 1, Kevin 2. This is a count of confirmed awards; do not invent additional wins or an edition/location.
 
-Still needed to expand the report: exact event dates; any further participants or awards Carolina identifies; any award placements not stated; a team photo and photos/details of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
+Still needed to expand the report: exact event dates; any further participants or awards Carolina identifies; any award placements not stated; original photos and further details of the winning work. Do not infer participants from the current website roster or describe existing portfolio photos as the winning pieces.
 
 ## Gallery
 
@@ -38,7 +39,7 @@ The real team photo is the first and currently only slide. The full portrait pho
 
 To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation stops rotation. Do not use duplicate or unrelated work as public slides.
 
-Photos/details of the individual winning tattoos are pending. Match each piece to its artist and category using Carolina’s confirmation.
+Original photos of the individual winning tattoos are pending. Julian’s screenshot has supplied visual context for the article; the other winning pieces still need visual references. Match each piece to its artist and category using Carolina’s confirmation.
 
 ## Later stories
 
