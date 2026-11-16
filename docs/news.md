@@ -8,9 +8,9 @@ Confirmed by Carolina: the convention is Ink Masters Tattoo Show, and all artist
 
 ### Diego Juarez — confirmed by Carolina
 
-- Best Unusual: a geometric tattoo in the armpit.
-- Best Small Color and Best Traditional: both awarded to the same traditional tattoo.
-- Total: three awards across two tattoos. Preserve “Best Small Color”; the later shorthand “best color” refers to this same award. Do not add placements or details of the traditional design without confirmation.
+- Best Unusual: a geometric tattoo in the armpit. Carolina confirmed it was designed freehand; the supplied process photo shows the drawing directly on the skin. The finished radial pattern extends toward the arm and side of the torso.
+- Best Small Color and Best Traditional: both awarded to the same traditional tattoo, an eye with a blue teardrop, colorful leaves, and defined black outlines, shown in IMG_9186.jpeg.
+- Total: three awards across two tattoos. Preserve “Best Small Color”; the later shorthand “best color” refers to this same award. Do not add award placements or invent the client’s story.
 
 ### Julian Carvajal — confirmed by Carolina
 
@@ -35,14 +35,22 @@ Still needed to expand the report: exact event dates; any further participants o
 
 ## Gallery
 
-The real team photo is the first and currently only slide. The full portrait photo is shown without cropping. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
+The gallery contains five real, uncropped photos: the team, Diego’s freehand drawing, his finished geometric piece with Best Unusual, the traditional eye, and the award celebration. All four Diego images are byte-for-byte copies of Carolina’s uploads. On desktop the gallery sits to the right and stays visible while the story is read; on mobile it follows the headline and precedes the body.
 
 To add confirmed artwork, append a figure.news-slide with data-news-slide, image dimensions, localized alt attributes, and both localized captions. Put hidden on new slides. Add the matching image to the repository and update both homepage and retained article. Navigation, swipe, keyboard arrows and a play/pause control activate only with two or more real photos. Automatic rotation is every seven seconds, pauses during hover/focus or when the tab is hidden, and is off for reduced-motion users. Manual navigation stops rotation. Do not use duplicate or unrelated work as public slides.
 
-Original photos of the individual winning tattoos are pending. Julian’s screenshot has supplied visual context for the article; the other winning pieces still need visual references. Match each piece to its artist and category using Carolina’s confirmation.
+Original photos of Julian’s piece and visual references for Arnold’s and Kevin’s winning tattoos remain pending. Julian’s screenshot supplies visual context for the article but is not a slide. Match each piece to its artist and category using Carolina’s confirmation.
+
+Diego photo sources:
+- IMG_8951.jpeg → diego-geometric-freehand-process.jpeg
+- F87A19CF-70E4-4142-9841-E596A5BD088F.jpeg → diego-geometric-best-unusual.jpeg
+- IMG_9186.jpeg → diego-traditional-eye-awards.jpeg
+- IMG_8987.jpeg → diego-best-unusual-celebration.jpeg
+
+Do not imply that the other tattoos visible on the client’s leg or arm won these awards.
 
 ## Later stories
 
-Add a static HTML article under news/ with a canonical URL and unique title/description. Keep the newest story featured and at most two older compact links on the homepage; preserve earlier article URLs. Add article URLs to sitemap.xml. Extend scripts/check-local-references.js when introducing pages (it already scans news/ recursively). Avoid automatic carousels and fabricated stories or awards. There is no CMS; content is edited in this repository.
+Add a static HTML article under news/ with a canonical URL and unique title/description. Keep the newest story featured and at most two older compact links on the homepage; preserve earlier article URLs. Add article URLs to sitemap.xml. Extend scripts/check-local-references.js when introducing pages (it already scans news/ recursively). Retain the requested gallery controls and reduced-motion behavior. Do not fabricate stories or awards. There is no CMS; content is edited in this repository.
 
 Run npm test, node --check js/news.js, and review mobile/desktop presentation and both languages before publishing.
